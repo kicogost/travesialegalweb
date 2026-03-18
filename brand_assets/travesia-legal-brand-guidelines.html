@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travesía Legal — Brand Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:        #0D1F3C;
+    --navy-deep:   #08142A;
+    --navy-mid:    #162B52;
+    --navy-light:  #1E3A6E;
+    --navy-faint:  #E8EDF5;
+    --white:       #FFFFFF;
+    --off-white:   #F7F8FA;
+    --gold:        #C8A96E;
+    --gold-light:  #E8D5B0;
+    --gold-dark:   #A8853A;
+    --slate:       #8795A8;
+    --slate-light: #C4CDD8;
+    --ink:         #0D1F3C;
+    --ink-mid:     #4A5568;
+    --ink-light:   #718096;
+
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body:    'DM Sans', system-ui, sans-serif;
+    --font-mono:    'DM Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--off-white);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    background: var(--navy-deep);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 64px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(200, 169, 110, 0.15);
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    border: 1px solid rgba(200, 169, 110, 0.25);
+  }
+
+  .cover-geo {
+    position: absolute;
+    bottom: 80px; right: 64px;
+    display: flex; gap: 16px; align-items: flex-end;
+  }
+  .cover-geo-bar {
+    background: rgba(200, 169, 110, 0.2);
+    border-radius: 2px;
+  }
+
+  .cover-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 48px;
+  }
+
+  .cover-title {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 7vw, 96px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.05;
+    max-width: 700px;
+    margin-bottom: 24px;
+  }
+
+  .cover-title span {
+    color: var(--gold);
+  }
+
+  .cover-sub {
+    font-size: 16px;
+    color: var(--slate);
+    font-weight: 300;
+    max-width: 380px;
+    line-height: 1.7;
+  }
+
+  .cover-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .cover-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.1em;
+  }
+
+  .cover-divider {
+    width: 48px;
+    height: 1px;
+    background: var(--gold);
+    margin: 32px 0;
+    opacity: 0.6;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    padding: 96px 64px;
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-dark {
+    background: var(--navy);
+    border-bottom: none;
+  }
+
+  .section-navy-faint {
+    background: var(--navy-faint);
+  }
+
+  .section-white {
+    background: var(--white);
+  }
+
+  .section-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .section-dark .section-num { color: var(--gold-light); }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
+    color: var(--navy-deep);
+    line-height: 1.15;
+    margin-bottom: 48px;
+  }
+
+  .section-dark .section-title { color: var(--white); }
+
+  .section-intro {
+    font-size: 16px;
+    color: var(--ink-mid);
+    max-width: 560px;
+    line-height: 1.8;
+    margin-bottom: 56px;
+    font-weight: 300;
+  }
+
+  .section-dark .section-intro { color: var(--slate); }
+
+  /* ── COLORS ── */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .color-card {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .color-swatch {
+    height: 120px;
+    position: relative;
+  }
+
+  .color-primary-badge {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: white;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .color-info {
+    background: var(--white);
+    padding: 16px;
+  }
+
+  .color-name {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .color-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-light);
+    line-height: 1.8;
+  }
+
+  .color-role {
+    font-size: 11px;
+    color: var(--slate);
+    margin-top: 6px;
+    font-weight: 400;
+  }
+
+  /* Secondary row */
+  .color-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+
+  .color-chip {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+  }
+
+  .color-chip-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .color-chip-text { font-size: 12px; }
+  .color-chip-label { font-weight: 500; color: var(--ink); display: block; }
+  .color-chip-hex { font-family: var(--font-mono); color: var(--ink-light); font-size: 11px; }
+
+  /* ── TYPOGRAPHY ── */
+  .type-showcase {
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--white);
+    margin-bottom: 32px;
+  }
+
+  .type-header {
+    padding: 20px 28px;
+    border-bottom: 1px solid #E2E8F0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .type-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--gold-dark);
+    background: rgba(200,169,110,0.1);
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .type-spec {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-light);
+  }
+
+  .type-body {
+    padding: 36px 28px;
+  }
+
+  .type-sample-display {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--navy-deep);
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+
+  .type-sample-display-light {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 400;
+    color: var(--navy-deep);
+    font-style: italic;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+
+  .type-sample-h1 {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--navy-deep);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .type-sample-h2 {
+    font-family: var(--font-body);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--navy-deep);
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .type-sample-body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--ink-mid);
+    line-height: 1.75;
+    max-width: 560px;
+  }
+
+  .type-sample-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+  }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .type-scale-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid #F0F4F8;
+  }
+  .type-scale-row:last-child { border-bottom: none; }
+
+  .type-scale-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--ink-light);
+    width: 80px;
+    flex-shrink: 0;
+  }
+
+  .type-scale-sample {
+    font-family: var(--font-body);
+    color: var(--ink);
+    flex: 1;
+    padding: 0 16px;
+  }
+
+  .type-scale-spec {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--slate-light);
+    text-align: right;
+  }
+
+  /* ── SPACING ── */
+  .spacing-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  .spacing-block {
+    background: var(--navy-faint);
+    border: 1px solid rgba(13,31,60,0.1);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 8px;
+  }
+
+  .spacing-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--navy-mid);
+    margin-top: 8px;
+  }
+
+  /* ── COMPONENTS ── */
+  .component-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .component-card {
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    padding: 32px;
+  }
+
+  .component-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 24px;
+  }
+
+  /* Button styles */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--navy-deep);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 14px 28px;
+    border-radius: 8px;
+    border: none;
+    cursor: default;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--navy-deep);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 13px 28px;
+    border-radius: 8px;
+    border: 1.5px solid var(--navy-deep);
+    cursor: default;
+    text-decoration: none;
+  }
+
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold);
+    color: var(--navy-deep);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 14px 28px;
+    border-radius: 8px;
+    border: none;
+    cursor: default;
+    text-decoration: none;
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--ink-mid);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0;
+    border: none;
+    cursor: default;
+    text-decoration: none;
+    border-bottom: 1px solid var(--slate-light);
+    border-radius: 0;
+    padding-bottom: 2px;
+  }
+
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+
+  /* Nav preview */
+  .nav-preview {
+    background: var(--navy-deep);
+    border-radius: 12px;
+    padding: 18px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .nav-logo-text {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.01em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+  }
+
+  .nav-link {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy-deep);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+
+  /* Service card preview */
+  .service-card-preview {
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 28px;
+    background: var(--white);
+    transition: box-shadow 0.2s;
+    border-left: 3px solid var(--gold);
+  }
+
+  .service-card-icon {
+    width: 40px; height: 40px;
+    background: var(--navy-faint);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .service-card-title {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy-deep);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .service-card-desc {
+    font-size: 13px;
+    color: var(--ink-mid);
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+
+  .service-card-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy-mid);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* Divider */
+  .rule { width: 48px; height: 2px; background: var(--gold); margin: 24px 0; }
+  .rule-full { height: 1px; background: #E2E8F0; margin: 40px 0; }
+
+  /* ── VOICE & TONE ── */
+  .tone-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .tone-card {
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 28px;
+  }
+
+  .tone-card-header {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .tone-do .tone-card-header { color: #2D6A4F; }
+  .tone-dont .tone-card-header { color: #9B2C2C; }
+
+  .tone-example {
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+
+  .tone-do .tone-example { background: #F0FFF4; color: #1A4731; border-left: 3px solid #2D6A4F; }
+  .tone-dont .tone-example { background: #FFF5F5; color: #63171B; border-left: 3px solid #9B2C2C; text-decoration: line-through; text-decoration-color: rgba(155,44,44,0.4); }
+
+  .tone-note {
+    font-size: 12px;
+    color: var(--ink-light);
+    line-height: 1.6;
+    margin-top: 8px;
+  }
+
+  /* ── USAGE RULES ── */
+  .rules-list { list-style: none; }
+  .rules-list li {
+    display: flex;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-size: 15px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.65;
+    align-items: flex-start;
+  }
+  .rules-list li:last-child { border-bottom: none; }
+  .rule-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 3px;
+    width: 24px;
+  }
+
+  /* ── GRADIENT PALETTE DEMO ── */
+  .palette-strip {
+    height: 64px;
+    border-radius: 10px;
+    display: flex;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+
+  .palette-strip-cell {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    padding: 6px;
+    font-family: var(--font-mono);
+    font-size: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── ICON STYLE ── */
+  .icon-grid {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .icon-box {
+    width: 64px; height: 64px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon-box svg { width: 24px; height: 24px; }
+
+  /* ── FOOTER SECTION ── */
+  .brand-footer {
+    background: var(--navy-deep);
+    padding: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .brand-footer-left {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .brand-footer-left span { color: var(--gold); }
+
+  .brand-footer-right {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    text-align: right;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── UTILITIES ── */
+  .mt8  { margin-top: 8px; }
+  .mt16 { margin-top: 16px; }
+  .mt24 { margin-top: 24px; }
+  .mt32 { margin-top: 32px; }
+  .mt48 { margin-top: 48px; }
+  .mb8  { margin-bottom: 8px; }
+  .mb16 { margin-bottom: 16px; }
+  .mb24 { margin-bottom: 24px; }
+  .mb32 { margin-bottom: 32px; }
+  .mb48 { margin-bottom: 48px; }
+
+  @media (max-width: 768px) {
+    .cover { padding: 40px 32px; }
+    .section { padding: 64px 32px; }
+    .logo-grid, .type-grid, .component-grid, .tone-grid { grid-template-columns: 1fr; }
+    .brand-footer { flex-direction: column; gap: 24px; padding: 40px 32px; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ COVER ══════════════════════════════════════════════════════════════ -->
+<div class="cover">
+  <div>
+    <div class="cover-label">Travesía Legal — Brand Guidelines v1.0</div>
+    <div class="cover-title">Identidad de<br>Marca <span>&amp;</span><br>Guía de Estilo</div>
+    <div class="cover-divider"></div>
+    <div class="cover-sub">Uso correcto de nuestra identidad visual — colores, tipografía, componentes y tono de comunicación — para garantizar coherencia y profesionalidad en todos los puntos de contacto.</div>
+  </div>
+  <div class="cover-bottom">
+    <div class="cover-meta">CONFIDENCIAL · USO INTERNO · 2026</div>
+    <div class="cover-meta">BARCELONA &amp; SABADELL</div>
+  </div>
+  <div class="cover-geo">
+    <div class="cover-geo-bar" style="width:8px;height:40px;"></div>
+    <div class="cover-geo-bar" style="width:8px;height:64px;"></div>
+    <div class="cover-geo-bar" style="width:8px;height:48px;"></div>
+    <div class="cover-geo-bar" style="width:8px;height:80px;"></div>
+    <div class="cover-geo-bar" style="width:8px;height:56px;"></div>
+    <div class="cover-geo-bar" style="width:8px;height:32px;"></div>
+  </div>
+</div>
+
+
+<!-- ══ 01. COLORES PRIMARIOS ══════════════════════════════════════════════ -->
+<div class="section section-white">
+  <div class="section-num">01 — Colores Primarios</div>
+  <div class="section-title">La Paleta<br>Principal</div>
+  <div class="section-intro">Nuestra identidad se construye sobre un núcleo de azul marino profundo y blanco puro. El dorado actúa como acento de autoridad, reservado para momentos de énfasis y CTA.</div>
+
+  <div class="color-grid">
+
+    <div class="color-card">
+      <div class="color-swatch" style="background:#0D1F3C;">
+        <span class="color-primary-badge">Primary</span>
+      </div>
+      <div class="color-info">
+        <div class="color-name">Navy Deep</div>
+        <div class="color-meta">
+          HEX &nbsp;#0D1F3C<br>
+          RGB &nbsp;13, 31, 60<br>
+          HSL &nbsp;220° 64% 14%
+        </div>
+        <div class="color-role">Fondos principales, texto de marca, nav</div>
+      </div>
+    </div>
+
+    <div class="color-card">
+      <div class="color-swatch" style="background:#1E3A6E;">
+        <span class="color-primary-badge">Secondary</span>
+      </div>
+      <div class="color-info">
+        <div class="color-name">Navy Light</div>
+        <div class="color-meta">
+          HEX &nbsp;#1E3A6E<br>
+          RGB &nbsp;30, 58, 110<br>
+          HSL &nbsp;220° 57% 27%
+        </div>
+        <div class="color-role">Hover states, fondos de sección oscura</div>
+      </div>
+    </div>
+
+    <div class="color-card">
+      <div class="color-swatch" style="background:#FFFFFF; border-bottom:1px solid #E2E8F0;">
+        <span class="color-primary-badge" style="background:rgba(13,31,60,0.06); border-color:rgba(13,31,60,0.15); color:#0D1F3C;">Canvas</span>
+      </div>
+      <div class="color-info">
+        <div class="color-name">White</div>
+        <div class="color-meta">
+          HEX &nbsp;#FFFFFF<br>
+          RGB &nbsp;255, 255, 255<br>
+          HSL &nbsp;0° 0% 100%
+        </div>
+        <div class="color-role">Canvas principal, texto en dark bg, cards</div>
+      </div>
+    </div>
+
+    <div class="color-card">
+      <div class="color-swatch" style="background:#C8A96E;">
+        <span class="color-primary-badge" style="background:rgba(13,31,60,0.12); border-color:rgba(13,31,60,0.2); color:#0D1F3C;">Accent</span>
+      </div>
+      <div class="color-info">
+        <div class="color-name">Gold</div>
+        <div class="color-meta">
+          HEX &nbsp;#C8A96E<br>
+          RGB &nbsp;200, 169, 110<br>
+          HSL &nbsp;38° 46% 61%
+        </div>
+        <div class="color-role">CTAs, highlights, detalles de autoridad</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Palette strip -->
+  <div class="section-num mt48 mb16">Escala tonal — Navy</div>
+  <div class="palette-strip">
+    <div class="palette-strip-cell" style="background:#08142A; color:rgba(255,255,255,0.4);">08142A</div>
+    <div class="palette-strip-cell" style="background:#0D1F3C; color:rgba(255,255,255,0.5);">0D1F3C</div>
+    <div class="palette-strip-cell" style="background:#162B52; color:rgba(255,255,255,0.6);">162B52</div>
+    <div class="palette-strip-cell" style="background:#1E3A6E; color:rgba(255,255,255,0.65);">1E3A6E</div>
+    <div class="palette-strip-cell" style="background:#2D5490; color:rgba(255,255,255,0.7);">2D5490</div>
+    <div class="palette-strip-cell" style="background:#4A7BC4; color:rgba(255,255,255,0.8);">4A7BC4</div>
+    <div class="palette-strip-cell" style="background:#8AAEDF; color:rgba(13,31,60,0.6);">8AAEDF</div>
+    <div class="palette-strip-cell" style="background:#C5D9F0; color:rgba(13,31,60,0.5);">C5D9F0</div>
+    <div class="palette-strip-cell" style="background:#E8EDF5; color:rgba(13,31,60,0.4);">E8EDF5</div>
+  </div>
+
+  <div class="section-num mt32 mb16">Escala tonal — Gold</div>
+  <div class="palette-strip">
+    <div class="palette-strip-cell" style="background:#6B4E1A; color:rgba(255,255,255,0.5);">6B4E1A</div>
+    <div class="palette-strip-cell" style="background:#8A6628; color:rgba(255,255,255,0.55);">8A6628</div>
+    <div class="palette-strip-cell" style="background:#A8853A; color:rgba(255,255,255,0.6);">A8853A</div>
+    <div class="palette-strip-cell" style="background:#C8A96E; color:rgba(13,31,60,0.7);">C8A96E</div>
+    <div class="palette-strip-cell" style="background:#DCC08E; color:rgba(13,31,60,0.6);">DCC08E</div>
+    <div class="palette-strip-cell" style="background:#E8D5B0; color:rgba(13,31,60,0.5);">E8D5B0</div>
+    <div class="palette-strip-cell" style="background:#F5EDD8; color:rgba(13,31,60,0.4);">F5EDD8</div>
+  </div>
+
+  <!-- Supporting colors -->
+  <div class="section-num mt48 mb16">Colores de soporte</div>
+  <div class="color-row">
+    <div class="color-chip">
+      <div class="color-chip-dot" style="background:#F7F8FA; border-color:#E2E8F0;"></div>
+      <div class="color-chip-text">
+        <span class="color-chip-label">Off White</span>
+        <span class="color-chip-hex">#F7F8FA — Fondo de página</span>
+      </div>
+    </div>
+    <div class="color-chip">
+      <div class="color-chip-dot" style="background:#E8EDF5;"></div>
+      <div class="color-chip-text">
+        <span class="color-chip-label">Navy Faint</span>
+        <span class="color-chip-hex">#E8EDF5 — Secciones sutiles</span>
+      </div>
+    </div>
+    <div class="color-chip">
+      <div class="color-chip-dot" style="background:#8795A8;"></div>
+      <div class="color-chip-text">
+        <span class="color-chip-label">Slate</span>
+        <span class="color-chip-hex">#8795A8 — Texto secundario</span>
+      </div>
+    </div>
+    <div class="color-chip">
+      <div class="color-chip-dot" style="background:#4A5568;"></div>
+      <div class="color-chip-text">
+        <span class="color-chip-label">Ink Mid</span>
+        <span class="color-chip-hex">#4A5568 — Cuerpo de texto</span>
+      </div>
+    </div>
+    <div class="color-chip">
+      <div class="color-chip-dot" style="background:#E2E8F0;"></div>
+      <div class="color-chip-text">
+        <span class="color-chip-label">Border</span>
+        <span class="color-chip-hex">#E2E8F0 — Bordes y separadores</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 02. TIPOGRAFÍA ═════════════════════════════════════════════════════ -->
+<div class="section section-navy-faint">
+  <div class="section-num">02 — Tipografía</div>
+  <div class="section-title">Las Fuentes<br>de Marca</div>
+  <div class="section-intro">Dos familias tipográficas en diálogo: Playfair Display aporta autoridad y carácter editorial; DM Sans aporta modernidad y legibilidad. DM Mono se reserva para etiquetas técnicas.</div>
+
+  <!-- Display font -->
+  <div class="type-showcase">
+    <div class="type-header">
+      <span class="type-tag">Display — Playfair Display</span>
+      <span class="type-spec">Google Fonts · Serif · Pesos: 400, 500, 700</span>
+    </div>
+    <div class="type-body">
+      <div class="type-sample-display">Tu Gestoría de<br>Confianza</div>
+      <div class="type-sample-display-light" style="margin-top:8px;">en España</div>
+      <div class="rule mt24"></div>
+      <div class="type-sample-body mt16" style="font-size:13px; color: #8795A8;">
+        Uso: Titulares H1, H2 de sección, nombre de marca en el logo, citas destacadas. Transmite autoridad, confianza y carácter humano. Combinar con DM Sans para el cuerpo.
+      </div>
+    </div>
+  </div>
+
+  <!-- Body font -->
+  <div class="type-showcase">
+    <div class="type-header">
+      <span class="type-tag">Body — DM Sans</span>
+      <span class="type-spec">Google Fonts · Sans-serif · Pesos: 300, 400, 500, 600</span>
+    </div>
+    <div class="type-body">
+      <div class="type-sample-h2">Especialistas en extranjería para latinoamericanos</div>
+      <div class="type-sample-body mt16">
+        Gestionamos tu residencia, NIE, reagrupación familiar y proceso de nacionalidad. Te acompañamos en cada paso con claridad, cercanía y sin tecnicismos innecesarios. Tu tranquilidad es nuestra responsabilidad.
+      </div>
+    </div>
+  </div>
+
+  <!-- Type scale -->
+  <div class="section-num mt32 mb16">Escala tipográfica — web</div>
+  <div class="type-showcase" style="background: white;">
+    <div class="type-body" style="padding: 8px 28px;">
+      <div class="type-scale-row">
+        <div class="type-scale-label">Display</div>
+        <div class="type-scale-sample" style="font-family:'Playfair Display',serif; font-size:56px; font-weight:700; line-height:1; color:#0D1F3C;">Aa</div>
+        <div class="type-scale-spec">Playfair Display 700 · 56px · leading 1.05</div>
+      </div>
+      <div class="type-scale-row">
+        <div class="type-scale-label">H1</div>
+        <div class="type-scale-sample" style="font-family:'Playfair Display',serif; font-size:40px; font-weight:700; color:#0D1F3C;">Tu Gestoría de Confianza</div>
+        <div class="type-scale-spec">Playfair Display 700 · 40px · leading 1.15</div>
+      </div>
+      <div class="type-scale-row">
+        <div class="type-scale-label">H2</div>
+        <div class="type-scale-sample" style="font-family:'DM Sans',sans-serif; font-size:28px; font-weight:600; color:#0D1F3C;">Nuestros Servicios</div>
+        <div class="type-scale-spec">DM Sans 600 · 28px · leading 1.25</div>
+      </div>
+      <div class="type-scale-row">
+        <div class="type-scale-label">H3</div>
+        <div class="type-scale-sample" style="font-family:'DM Sans',sans-serif; font-size:20px; font-weight:600; color:#0D1F3C;">Extranjería y Nacionalidad</div>
+        <div class="type-scale-spec">DM Sans 600 · 20px · leading 1.35</div>
+      </div>
+      <div class="type-scale-row">
+        <div class="type-scale-label">Body</div>
+        <div class="type-scale-sample" style="font-family:'DM Sans',sans-serif; font-size:16px; font-weight:400; color:#4A5568; line-height:1.75;">Gestionamos tu residencia, NIE y reagrupación familiar.</div>
+        <div class="type-scale-spec">DM Sans 400 · 16px · leading 1.75</div>
+      </div>
+      <div class="type-scale-row">
+        <div class="type-scale-label">Small</div>
+        <div class="type-scale-sample" style="font-family:'DM Sans',sans-serif; font-size:14px; font-weight:400; color:#4A5568;">Texto de soporte y descripciones breves</div>
+        <div class="type-scale-spec">DM Sans 400 · 14px · leading 1.65</div>
+      </div>
+      <div class="type-scale-row">
+        <div class="type-scale-label">Label</div>
+        <div class="type-scale-sample" style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:#A8853A;">01 — SERVICIOS PRINCIPALES</div>
+        <div class="type-scale-spec">DM Mono 400 · 11px · tracking 0.18em · uppercase</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 03. COMPONENTES ════════════════════════════════════════════════════ -->
+<div class="section section-navy-faint">
+  <div class="section-num">03 — Componentes UI</div>
+  <div class="section-title">Elementos<br>de Interfaz</div>
+  <div class="section-intro">Los componentes son la expresión visual del sistema de diseño. Cada elemento sigue el mismo vocabulario de color, tipografía y espacio.</div>
+
+  <!-- Nav preview -->
+  <div class="section-num mb16">Navegación principal</div>
+  <div class="nav-preview">
+    <div class="nav-logo-text">Travesía Legal</div>
+    <div class="nav-links">
+      <a class="nav-link" href="#">Inicio</a>
+      <a class="nav-link" href="#">Servicios</a>
+      <a class="nav-link" href="#">Nosotros</a>
+      <a class="nav-link" href="#">Blog</a>
+      <a class="nav-link" href="#">Contacto</a>
+      <a class="nav-cta" href="#">Consulta Gratuita</a>
+    </div>
+  </div>
+  <div style="font-family:'DM Mono',monospace; font-size:10px; color:#8795A8; margin-bottom:48px;">
+    Fondo: Navy Deep #0D1F3C · Links: rgba(255,255,255,0.6) · CTA: Gold #C8A96E · Backdrop-blur on scroll
+  </div>
+
+  <!-- Buttons -->
+  <div class="section-num mb16">Botones</div>
+  <div class="component-grid mb48">
+
+    <div class="component-card">
+      <div class="component-label">Botones primarios</div>
+      <div class="btn-row">
+        <span class="btn-primary">Consulta Gratuita</span>
+        <span class="btn-gold">WhatsApp</span>
+      </div>
+      <div class="rule-full"></div>
+      <div style="font-family:'DM Mono',monospace; font-size:10px; color:#8795A8; line-height:2;">
+        Primary: Navy #0D1F3C · text white<br>
+        Gold CTA: #C8A96E · text navy · peso 600<br>
+        Padding: 14px 28px · border-radius: 8px<br>
+        Font: DM Sans 500 · 14px
+      </div>
+    </div>
+
+    <div class="component-card">
+      <div class="component-label">Botones secundarios</div>
+      <div class="btn-row">
+        <span class="btn-secondary">Ver servicios</span>
+        <span class="btn-ghost">Saber más &rarr;</span>
+      </div>
+      <div class="rule-full"></div>
+      <div style="font-family:'DM Mono',monospace; font-size:10px; color:#8795A8; line-height:2;">
+        Outline: border 1.5px navy · text navy<br>
+        Ghost: text body · border-bottom 1px slate<br>
+        Usar para CTA secundario o en-texto<br>
+        Nunca dos primarios juntos sin jerarquía
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Service card -->
+  <div class="section-num mb16">Card de servicio</div>
+  <div class="component-grid mb48">
+
+    <div class="service-card-preview">
+      <div class="service-card-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D1F3C" stroke-width="1.5" stroke-linecap="round">
+          <circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          <path d="M2 12h20"/>
+        </svg>
+      </div>
+      <div class="service-card-title">Extranjería y Nacionalidad</div>
+      <div class="service-card-desc">Especialistas en residencia, NIE, reagrupación familiar y nacionalidad para ciudadanos latinoamericanos en España.</div>
+      <div class="service-card-link">Saber más <span>&rarr;</span></div>
+    </div>
+
+    <div style="background:white; border:1px solid #E2E8F0; border-radius:12px; padding:28px;">
+      <div class="component-label">Anatomía de la card</div>
+      <div style="font-family:'DM Mono',monospace; font-size:10px; color:#8795A8; line-height:2.2;">
+        Border-left: 3px solid Gold #C8A96E<br>
+        Icon bg: Navy Faint #E8EDF5 · r:10px<br>
+        Título: Playfair Display 700 · 17px<br>
+        Descripción: DM Sans 400 · 13px · ink-mid<br>
+        CTA link: DM Sans 600 · 13px · navy-mid<br>
+        Hover: box-shadow + transform translateY(-2px)<br>
+        Border-radius: 12px · padding: 28px
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Icons -->
+  <div class="section-num mb16">Iconografía — estilo Lucide</div>
+  <div class="icon-grid mb16">
+    <div class="icon-box" style="background:#E8EDF5;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0D1F3C" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+    </div>
+    <div class="icon-box" style="background:#E8EDF5;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0D1F3C" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+    </div>
+    <div class="icon-box" style="background:#E8EDF5;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0D1F3C" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+    </div>
+    <div class="icon-box" style="background:#E8EDF5;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0D1F3C" stroke-width="1.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.6 1.22l3-.01a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </div>
+    <div class="icon-box" style="background:#E8EDF5;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0D1F3C" stroke-width="1.5" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    </div>
+    <div class="icon-box" style="background:#E8EDF5;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0D1F3C" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    </div>
+    <div class="icon-box" style="background:#E8EDF5;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0D1F3C" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </div>
+    <div class="icon-box" style="background:#0D1F3C;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+  </div>
+  <div style="font-family:'DM Mono',monospace; font-size:10px; color:#8795A8;">
+    Librería: lucide-react · Stroke: 1.5px · Sin relleno · Color: Navy #0D1F3C o Gold #C8A96E · Nunca emojis
+  </div>
+</div>
+
+
+<!-- ══ 05. VOZ & TONO ══════════════════════════════════════════════════════ -->
+<div class="section section-white">
+  <div class="section-num">04 — Voz y Tono</div>
+  <div class="section-title">Cómo Habla<br>Travesía Legal</div>
+  <div class="section-intro">Somos profesionales cercanos. Expertos que hablan en el idioma de sus clientes, sin tecnicismos innecesarios. Transmitimos seguridad sin distancia, autoridad sin arrogancia.</div>
+
+  <div class="tone-grid">
+
+    <div class="tone-card tone-do">
+      <div class="tone-card-header">Correcto</div>
+      <div class="tone-example">"Gestionamos tu residencia paso a paso. Sin sorpresas, sin esperas innecesarias."</div>
+      <div class="tone-note">Directo, concreto, centrado en el cliente. Promesa clara y verificable.</div>
+      <div class="tone-example" style="margin-top:16px;">"¿Cuánto tarda el arraigo social? Por lo general, entre 3 y 6 meses si la documentación está completa."</div>
+      <div class="tone-note">Responde directamente. No elude. Usa números cuando los hay.</div>
+      <div class="tone-example" style="margin-top:16px;">"Somos Pau y Raul. Llevamos años ayudando a latinoamericanos a construir su vida en España."</div>
+      <div class="tone-note">Humano, personal, específico. Genera confianza real.</div>
+    </div>
+
+    <div class="tone-card tone-dont">
+      <div class="tone-card-header">Incorrecto</div>
+      <div class="tone-example">"Somos líderes del sector con soluciones integrales y valor añadido para el cliente."</div>
+      <div class="tone-note">Vacío y genérico. No dice nada concreto sobre lo que hace Travesía Legal.</div>
+      <div class="tone-example" style="margin-top:16px;">"El proceso de arraigo social implica la acreditación de la permanencia continuada en territorio nacional durante un periodo no inferior a tres años."</div>
+      <div class="tone-note">Demasiado formal y técnico. El cliente no entiende, se va.</div>
+      <div class="tone-example" style="margin-top:16px;">"¡Hola! Somos tu gestoría de confianza y estamos aquí para ayudarte a resolver todos tus tramites!"</div>
+      <div class="tone-note">Excesivo, exclamativo, no profesional. No usa emojis ni signos innecesarios.</div>
+    </div>
+
+  </div>
+
+  <div class="rule-full"></div>
+
+  <!-- Pillars -->
+  <div class="tone-grid mt32">
+    <div style="padding:8px;">
+      <div class="section-num mb8">Cercano</div>
+      <div style="font-size:15px; color:#4A5568; line-height:1.75;">Hablamos como una persona real, no como un bufete. Usamos "tú". Reconocemos que los trámites son estresantes y lo decimos.</div>
+    </div>
+    <div style="padding:8px;">
+      <div class="section-num mb8">Claro</div>
+      <div style="font-size:15px; color:#4A5568; line-height:1.75;">Sin jerga jurídica innecesaria. Si hay un término técnico, lo explicamos. Oraciones cortas. Una idea por párrafo.</div>
+    </div>
+    <div style="padding:8px;">
+      <div class="section-num mb8">Experto</div>
+      <div style="font-size:15px; color:#4A5568; line-height:1.75;">Damos respuestas concretas, no vagas. Citamos plazos reales, documentación específica, casos prácticos. Eso genera confianza.</div>
+    </div>
+    <div style="padding:8px;">
+      <div class="section-num mb8">Resolutivo</div>
+      <div style="font-size:15px; color:#4A5568; line-height:1.75;">No describimos problemas: ofrecemos soluciones. El cliente llega con una preocupación; nosotros terminamos con un CTA claro y accionable.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 06. REGLAS DE USO ═══════════════════════════════════════════════════ -->
+<div class="section section-dark">
+  <div class="section-num">05 — Reglas de Uso</div>
+  <div class="section-title">Lo que Nunca<br>Debe Hacerse</div>
+
+  <ul class="rules-list mt32">
+    <li>
+      <span class="rule-num">01</span>
+      No usar emojis en ningún elemento de la web — encabezados, botones, nav, footer, cuerpo de texto. Todos los elementos visuales son iconos lucide-react o SVG personalizado.
+    </li>
+    <li>
+      <span class="rule-num">02</span>
+      No usar el gold #C8A96E como color de fondo de páginas o secciones enteras. Es un color de acento reservado para CTAs, highlights y detalles.
+    </li>
+    <li>
+      <span class="rule-num">03</span>
+      No mezclar Playfair Display con fuentes distintas a DM Sans. El sistema tipográfico es un par cerrado. Añadir una tercera fuente rompe la coherencia.
+    </li>
+    <li>
+      <span class="rule-num">04</span>
+      No usar fotografías de stock genéricas (personas sonriendo en oficinas, apretones de manos, mapamundis). Cuando haya fotos, deben ser reales: los fundadores, las oficinas, los clientes (con permiso).
+    </li>
+    <li>
+      <span class="rule-num">05</span>
+      No usar más de dos CTAs primarios en la misma pantalla. Uno principal (WhatsApp / Consulta Gratuita) y uno secundario máximo. La jerarquía de llamadas a la acción debe ser clara.
+    </li>
+    <li>
+      <span class="rule-num">06</span>
+      No publicar contenido sin una fecha de revisión. La web es un activo SEO activo. Los artículos del blog deben indicar fecha de publicación y actualizarse cuando cambia la normativa.
+    </li>
+  </ul>
+</div>
+
+
+<!-- ══ FOOTER ══════════════════════════════════════════════════════════════ -->
+<div class="brand-footer">
+  <div class="brand-footer-left">Travesía <span>Legal</span></div>
+  <div class="brand-footer-right">
+    Brand Guidelines v1.0<br>
+    Barcelona &amp; Sabadell · 2026<br>
+    <a href="/cdn-cgi/l/email-protection" class="__cf_email_

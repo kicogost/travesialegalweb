@@ -1,0 +1,297 @@
+:root {
+  --navy:        #0D1F3C;
+  --navy-deep:   #08142A;
+  --navy-mid:    #162B52;
+  --navy-light:  #1E3A6E;
+  --navy-faint:  #E8EDF5;
+  --white:       #FFFFFF;
+  --off-white:   #F7F8FA;
+  --gold:        #C8A96E;
+  --gold-light:  #E8D5B0;
+  --gold-dark:   #A8853A;
+  --slate:       #8795A8;
+  --slate-light: #C4CDD8;
+  --ink:         #0D1F3C;
+  --ink-mid:     #4A5568;
+  --ink-light:   #718096;
+  --border:      #E2E8F0;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+  --font-mono:    'DM Mono', monospace;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  --shadow-sm: 0 1px 3px rgba(13,31,60,0.06), 0 1px 2px rgba(13,31,60,0.04);
+  --shadow-md: 0 4px 12px rgba(13,31,60,0.08), 0 2px 4px rgba(13,31,60,0.04);
+  --shadow-lg: 0 8px 32px rgba(13,31,60,0.12), 0 4px 8px rgba(13,31,60,0.06);
+  --shadow-xl: 0 20px 60px rgba(13,31,60,0.16), 0 8px 16px rgba(13,31,60,0.08);
+
+  --nav-height: 72px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--off-white);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; height: auto; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--navy);
+  line-height: 1.15;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .container { padding: 0 40px; }
+}
+@media (min-width: 1024px) {
+  .container { padding: 0 64px; }
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.2s cubic-bezier(0.25,0.46,0.45,0.94);
+  text-decoration: none;
+}
+.btn-primary:hover { background: var(--navy-light); transform: translateY(-1px); }
+.btn-primary:active { transform: translateY(0); }
+.btn-primary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold);
+  color: var(--navy);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.2s cubic-bezier(0.25,0.46,0.45,0.94);
+  text-decoration: none;
+}
+.btn-gold:hover { background: var(--gold-dark); color: var(--white); transform: translateY(-1px); }
+.btn-gold:active { transform: translateY(0); }
+.btn-gold:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--navy);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 13px 27px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--navy);
+  cursor: pointer;
+  transition: background 0.2s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.2s cubic-bezier(0.25,0.46,0.45,0.94);
+  text-decoration: none;
+}
+.btn-outline:hover { background: var(--navy-faint); transform: translateY(-1px); }
+.btn-outline:active { transform: translateY(0); }
+.btn-outline:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  color: var(--ink-mid);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  border-bottom: 1px solid var(--slate-light);
+  border-radius: 0;
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+  text-decoration: none;
+}
+.btn-ghost:hover { color: var(--navy); border-color: var(--navy); }
+.btn-ghost:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* Interactive hover button (sliding dot animation) */
+.btn-interactive {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  -webkit-font-smoothing: antialiased;
+}
+.btn-interactive:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* Gold variant */
+.btn-interactive--gold {
+  background: var(--gold);
+  color: var(--navy);
+}
+/* Outline-on-dark variant (hero secondary, dark backgrounds) */
+.btn-interactive--outline-dark {
+  background: transparent;
+  color: white;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  padding: 13px 27px;
+}
+/* Outline-on-light variant (light backgrounds, navy border) */
+.btn-interactive--outline {
+  background: transparent;
+  color: var(--navy);
+  border: 1.5px solid var(--navy);
+  padding: 13px 27px;
+}
+
+/* The expanding dot */
+.btn-interactive__dot {
+  position: absolute;
+  left: 20%;
+  top: 40%;
+  width: 8px;
+  height: 8px;
+  border-radius: 6px;
+  transform: scale(1);
+  opacity: 0;
+  transition: left 0.32s cubic-bezier(0.25,0.46,0.45,0.94),
+              top 0.32s cubic-bezier(0.25,0.46,0.45,0.94),
+              width 0.32s cubic-bezier(0.25,0.46,0.45,0.94),
+              height 0.32s cubic-bezier(0.25,0.46,0.45,0.94),
+              transform 0.32s cubic-bezier(0.25,0.46,0.45,0.94),
+              opacity 0.2s cubic-bezier(0.25,0.46,0.45,0.94);
+  pointer-events: none;
+  z-index: 0;
+}
+.btn-interactive--gold .btn-interactive__dot { background: var(--gold-dark); }
+.btn-interactive--outline-dark .btn-interactive__dot { background: rgba(255,255,255,0.15); }
+.btn-interactive--outline .btn-interactive__dot { background: var(--navy); }
+
+.btn-interactive:hover .btn-interactive__dot {
+  opacity: 1;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  transform: scale(1.8);
+}
+
+/* Default label (slides out on hover) */
+.btn-interactive__label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94),
+              opacity 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+  transform: translateX(0);
+  opacity: 1;
+}
+.btn-interactive:hover .btn-interactive__label {
+  transform: translateX(40px);
+  opacity: 0;
+}
+
+/* Hover label (slides in on hover) */
+.btn-interactive__hover-label {
+  position: absolute;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94),
+              opacity 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+  transform: translateX(-40px);
+  opacity: 0;
+}
+.btn-interactive--gold .btn-interactive__hover-label { color: var(--white); }
+.btn-interactive--outline-dark .btn-interactive__hover-label { color: var(--white); }
+.btn-interactive--outline .btn-interactive__hover-label { color: var(--white); }
+
+.btn-interactive:hover .btn-interactive__hover-label {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Whatsapp green button */
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #25D366;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.2s cubic-bezier(0.25,0.46,0.45,0.94);
+  text-decoration: none;
+}
+.btn-whatsapp:hover { background: #1DA851; transform: translateY(-1px); }
+.btn-whatsapp:active { transform: translateY(0); }
+.btn-whatsapp:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; }
