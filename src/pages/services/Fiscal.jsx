@@ -58,7 +58,7 @@ export default function Fiscal() {
     <>
       <Helmet>
         <title>Gestión Fiscal y Contable para Autónomos y Empresas | Travesía Legal</title>
-        <meta name="description" content="Declaraciones trimestrales, contabilidad completa, IVA, IRPF y cierre anual para autónomos y empresas en Barcelona y Sabadell. Consulta gratuita." />
+        <meta name="description" content="Declaraciones trimestrales, contabilidad completa, IVA, IRPF y cierre anual para autónomos y empresas en España. Consulta gratuita." />
         <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
       </Helmet>
 
@@ -86,7 +86,7 @@ export default function Fiscal() {
               <span style={{ color: 'var(--gold)' }}>y Contable</span>
             </h1>
             <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, marginBottom: '36px', maxWidth: '520px' }}>
-              Declaraciones trimestrales, contabilidad completa, IVA, IRPF y cierre anual para autónomos y empresas en Barcelona y Sabadell.
+              Declaraciones trimestrales, contabilidad completa, IVA, IRPF y cierre anual para autónomos y empresas en España.
             </p>
             <InteractiveButton variant="gold" href="https://wa.me/34694269008" target="_blank" rel="noopener noreferrer">
               <MessageCircle size={18} />

@@ -18,6 +18,10 @@ const BlogReagrupacionFamiliar = lazy(() => import('./pages/blog/ReagrupacionFam
 const BlogNacionalidadEspanola = lazy(() => import('./pages/blog/NacionalidadEspanola.jsx'))
 const BlogAltaAutonomo = lazy(() => import('./pages/blog/AltaAutonomo.jsx'))
 const BlogIvaAutonomos = lazy(() => import('./pages/blog/IvaAutonomos.jsx'))
+const BlogComoLlegarEspana = lazy(() => import('./pages/blog/ComoLlegarEspanaLegalmente.jsx'))
+const BlogVisadoEstudios = lazy(() => import('./pages/blog/VisadoEstudios.jsx'))
+const BlogAntecedentesPenales = lazy(() => import('./pages/blog/AntecedentesPenales.jsx'))
+const BlogDespidoPreaviso = lazy(() => import('./pages/blog/DespidoPreaviso.jsx'))
 const AvisoLegal = lazy(() => import('./pages/legal/AvisoLegal.jsx'))
 const PoliticaPrivacidad = lazy(() => import('./pages/legal/PoliticaPrivacidad.jsx'))
 const PoliticaCookies = lazy(() => import('./pages/legal/PoliticaCookies.jsx'))
@@ -48,6 +52,10 @@ function App() {
           <Route path="/blog/nacionalidad-espanola-latinoamericanos-requisitos" element={<BlogNacionalidadEspanola />} />
           <Route path="/blog/alta-autonomo-espana-guia-completa" element={<BlogAltaAutonomo />} />
           <Route path="/blog/iva-autonomos-pymes-modelo-303" element={<BlogIvaAutonomos />} />
+          <Route path="/blog/como-llegar-a-espana-legalmente" element={<BlogComoLlegarEspana />} />
+          <Route path="/blog/visado-estudios-espana" element={<BlogVisadoEstudios />} />
+          <Route path="/blog/antecedentes-penales-colombia-peru-honduras-el-salvador" element={<BlogAntecedentesPenales />} />
+          <Route path="/blog/despido-preaviso-plazos" element={<BlogDespidoPreaviso />} />
           <Route path="/aviso-legal" element={<AvisoLegal />} />
           <Route path="/politica-de-privacidad" element={<PoliticaPrivacidad />} />
           <Route path="/politica-de-cookies" element={<PoliticaCookies />} />

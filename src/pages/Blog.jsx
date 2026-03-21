@@ -78,9 +78,41 @@ const posts = [
     readTime: '7 min',
     href: '/blog/iva-autonomos-pymes-modelo-303',
   },
+  {
+    id: 10,
+    category: 'Extranjería',
+    title: 'Cómo llegar a España legalmente desde un inicio (2026)',
+    excerpt: 'Guía completa sobre las opciones para llegar a España de forma legal: visado de estudios, contratación en origen y los pasos a seguir en cada caso.',
+    readTime: '9 min',
+    href: '/blog/como-llegar-a-espana-legalmente',
+  },
+  {
+    id: 11,
+    category: 'Extranjería',
+    title: 'Cómo obtener tu visado de estudios en España (2026)',
+    excerpt: 'Requisitos, documentación, proceso paso a paso y consejos para obtener el visado de estudios en España y comenzar tu formación de forma completamente legal.',
+    readTime: '8 min',
+    href: '/blog/visado-estudios-espana',
+  },
+  {
+    id: 12,
+    category: 'Extranjería',
+    title: 'Cómo sacar tus antecedentes penales en Colombia, Perú, Honduras y El Salvador',
+    excerpt: 'Guía por país para obtener el certificado de antecedentes penales, tramitar la Apostilla de La Haya y presentarlo correctamente para trámites de extranjería en España.',
+    readTime: '10 min',
+    href: '/blog/antecedentes-penales-colombia-peru-honduras-el-salvador',
+  },
+  {
+    id: 13,
+    category: 'Legal',
+    title: '¿Con cuánto tiempo me tienen que avisar para despedirme? (2026)',
+    excerpt: 'Todo sobre los plazos de preaviso en España: tipos de despido, días que te corresponden, qué hacer si no se respetan y cómo calcular tu indemnización.',
+    readTime: '7 min',
+    href: '/blog/despido-preaviso-plazos',
+  },
 ]
 
-const categories = ['Todos', 'Extranjería', 'Fiscal', 'Laboral']
+const categories = ['Todos', 'Extranjería', 'Fiscal', 'Laboral', 'Legal']
 
 const fadeUp = {
   initial: { opacity: 1, y: 30 },

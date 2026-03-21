@@ -22,7 +22,7 @@ const faqSchema = {
   "@type": "FAQPage",
   "mainEntity": [
     { "@type": "Question", "name": "¿Cuánto tarda el proceso de residencia en España?", "acceptedAnswer": { "@type": "Answer", "text": "El proceso de residencia inicial suele tardar entre 3 y 6 meses desde la presentación de la solicitud." } },
-    { "@type": "Question", "name": "¿Qué documentos necesito para el NIE?", "acceptedAnswer": { "@type": "Answer", "text": "Para obtener el NIE necesitas pasaporte original en vigor, formulario EX-15 o EX-17 cumplimentado, justificante del motivo de la solicitud y tasa abonada (modelo 790 código 012)." } },
+    { "@type": "Question", "name": "¿Qué documentos necesito para solicitar la residencia?", "acceptedAnswer": { "@type": "Answer", "text": "Para solicitar la residencia necesitas pasaporte original en vigor, formulario de solicitud cumplimentado, justificante del motivo de la solicitud y tasa abonada correspondiente." } },
     { "@type": "Question", "name": "¿Puedo solicitar la nacionalidad si llevo 10 años en España?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, y para ciudadanos iberoamericanos el plazo se reduce a 2 años de residencia legal continuada." } },
     { "@type": "Question", "name": "¿Qué es el arraigo social y quién puede solicitarlo?", "acceptedAnswer": { "@type": "Answer", "text": "El arraigo social es una autorización de residencia temporal para personas que llevan al menos 3 años en España en situación irregular." } },
     { "@type": "Question", "name": "¿Cuánto cuesta tramitar la residencia con una gestoría?", "acceptedAnswer": { "@type": "Answer", "text": "Los honorarios varían según la complejidad del trámite. Ofrecemos consulta inicial gratuita para evaluar tu caso." } },
@@ -36,8 +36,8 @@ const faqItems = [
     a: 'El proceso de residencia inicial suele tardar entre 3 y 6 meses desde la presentación de la solicitud, dependiendo de la comunidad autónoma y la carga de trabajo de la oficina de extranjería. Con la documentación completa y correcta, los plazos pueden reducirse significativamente. Recomendamos siempre iniciar el trámite con antelación suficiente.',
   },
   {
-    q: '¿Qué documentos necesito para el NIE?',
-    a: 'Para obtener el NIE necesitas pasaporte original en vigor, formulario EX-15 o EX-17 cumplimentado, justificante del motivo de la solicitud (contrato laboral, matrícula universitaria, escritura de compraventa, etc.) y tasa abonada (modelo 790 código 012). Los documentos en idioma extranjero deben estar debidamente traducidos y apostillados.',
+    q: '¿Qué documentos necesito para solicitar la residencia?',
+    a: 'Para solicitar la residencia necesitas pasaporte original en vigor, formulario de solicitud cumplimentado, justificante del motivo de la solicitud (contrato laboral, matrícula universitaria, etc.) y tasa abonada correspondiente. Los documentos en idioma extranjero deben estar debidamente traducidos y apostillados.',
   },
   {
     q: '¿Puedo solicitar la nacionalidad si llevo 10 años en España?',
@@ -65,7 +65,7 @@ const fadeUp = {
 }
 
 const subServices = [
-  { icon: FileText, label: 'NIE y TIE' },
+  { icon: FileText, label: 'Visados de estudios y trabajo' },
   { icon: RefreshCw, label: 'Residencia inicial y renovaciones' },
   { icon: Users, label: 'Reagrupación familiar' },
   { icon: Star, label: 'Nacionalidad española' },
@@ -78,8 +78,8 @@ export default function Extranjeria() {
   return (
     <>
       <Helmet>
-        <title>Extranjería y Nacionalidad para Latinoamericanos en España | Travesía Legal</title>
-        <meta name="description" content="Especialistas en residencia, NIE, arraigo social y nacionalidad para latinoamericanos en España. Consulta gratuita. Oficinas en Barcelona y Sabadell." />
+        <title>Extranjería y Nacionalidad para Inmigrantes en España | Travesía Legal</title>
+        <meta name="description" content="Especialistas en residencia, visados, arraigo social y nacionalidad para inmigrantes en España. Consulta gratuita. Oficinas en Barcelona y Madrid." />
         <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
@@ -108,7 +108,7 @@ export default function Extranjeria() {
               <span style={{ color: 'var(--gold)' }}>Nacionalidad</span>
             </h1>
             <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, marginBottom: '36px', maxWidth: '520px' }}>
-              Especialistas en residencia, NIE, arraigo social y nacionalidad para latinoamericanos en España. Gestionamos tu expediente de principio a fin con total transparencia.
+              Especialistas en residencia, NIE, arraigo social y nacionalidad para inmigrantes en España. Gestionamos tu expediente de principio a fin con total transparencia.
             </p>
             <InteractiveButton variant="gold" href="https://wa.me/34694269008" target="_blank" rel="noopener noreferrer">
               <MessageCircle size={18} />
@@ -210,7 +210,6 @@ export default function Extranjeria() {
       <section style={{ background: 'var(--navy-faint)', padding: '64px 0' }}>
         <div className="container">
           <motion.div {...fadeUp} style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
-            {/* TODO: Replace with real testimonial */}
             <div style={{ display: 'flex', gap: '4px', justifyContent: 'center', marginBottom: '20px' }}>
               {[1,2,3,4,5].map(s => <Star key={s} size={16} fill="var(--gold)" color="var(--gold)" />)}
             </div>
@@ -224,7 +223,7 @@ export default function Extranjeria() {
             }}>
               "Travesía Legal me ayudó a conseguir mi arraigo social después de tres años de espera. Profesionales, claros y siempre disponibles para resolver mis dudas."
             </p>
-            <p style={{ fontWeight: '600', fontSize: '14px', color: 'var(--navy)' }}>Ana R.</p>
+            <p style={{ fontWeight: '600', fontSize: '14px', color: 'var(--navy)' }}>Héctor Didier</p>
             <p style={{ fontSize: '12px', color: 'var(--slate)', fontFamily: 'var(--font-mono)' }}>Arraigo Social — Barcelona</p>
           </motion.div>
         </div>

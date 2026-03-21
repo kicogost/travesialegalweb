@@ -19,8 +19,14 @@ const orgSchema = {
     },
     {
       "@type": "Person",
-      "name": "Raul Lopez",
-      "jobTitle": "Asesor Fiscal y Laboral",
+      "name": "Nombre Apellido",
+      "jobTitle": "Asesora Fiscal",
+      "worksFor": { "@type": "Organization", "name": "Travesía Legal" }
+    },
+    {
+      "@type": "Person",
+      "name": "Nombre Apellido",
+      "jobTitle": "Asesor Laboral",
       "worksFor": { "@type": "Organization", "name": "Travesía Legal" }
     }
   ]
@@ -37,8 +43,8 @@ export default function Nosotros() {
   return (
     <>
       <Helmet>
-        <title>Quiénes Somos | Travesía Legal — Gestoría en Barcelona y Sabadell</title>
-        <meta name="description" content="Conoce al equipo de Travesía Legal: especialistas en extranjería, fiscal y laboral con oficinas en Barcelona y Sabadell. Pau Iglesias y Raul Lopez." />
+        <title>Quiénes Somos | Travesía Legal — Gestoría en España</title>
+        <meta name="description" content="Conoce al equipo de Travesía Legal: especialistas en extranjería, fiscal y laboral con oficinas en Barcelona y Madrid." />
         <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
       </Helmet>
 
@@ -65,8 +71,48 @@ export default function Nosotros() {
               Quiénes Somos
             </h1>
             <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, maxWidth: '520px' }}>
-              Somos una gestoría especializada en extranjería, laboral y fiscal para latinoamericanos, autónomos y empresas en Barcelona y Sabadell. Nuestro objetivo es que los trámites burocráticos no sean un obstáculo para tu vida en España.
+              Somos una gestoría especializada en extranjería, laboral y fiscal para extranjeros, autónomos y empresas en España. Nuestro objetivo es que los trámites burocráticos no sean un obstáculo para tu vida en España.
             </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Video */}
+      <section style={{ background: 'var(--white)', padding: '80px 0' }}>
+        <div className="container">
+          <motion.div {...fadeUp} style={{ textAlign: 'center', marginBottom: '32px' }}>
+            <span className="section-label">Conócenos</span>
+            <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: '700', color: 'var(--navy)' }}>
+              Conócenos en persona
+            </h2>
+          </motion.div>
+          <motion.div {...fadeUp} style={{ maxWidth: '720px', margin: '0 auto' }}>
+            <div style={{
+              aspectRatio: '16/9',
+              background: 'var(--navy)',
+              borderRadius: 'var(--radius-xl)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '16px',
+              border: '1px solid var(--border)',
+            }}>
+              <div style={{
+                width: '64px', height: '64px',
+                borderRadius: '50%',
+                background: 'rgba(200,169,110,0.15)',
+                border: '2px solid var(--gold)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+              }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+              </div>
+              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)' }}>
+                Vídeo próximamente
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -83,7 +129,7 @@ export default function Nosotros() {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
             gap: '40px',
           }}>
             {[
@@ -93,20 +139,30 @@ export default function Nosotros() {
                 name: 'Pau Iglesias',
                 title: 'Especialista en Extranjería',
                 badge: 'Extranjería y Nacionalidad',
-                bio: `Pau Iglesias es el especialista en derecho de extranjería de Travesía Legal. Con más de una década de experiencia gestionando expedientes de residencia, arraigo y nacionalidad, conoce en profundidad los procedimientos de las administraciones catalanas y los criterios actualizados de resolución de la Delegación del Gobierno en Barcelona.
+                bio: `Pau Iglesias es el especialista en derecho de extranjería de Travesía Legal. Con más de una década de experiencia gestionando expedientes de residencia, arraigo y nacionalidad, conoce en profundidad los procedimientos de la administración española y los criterios actualizados de resolución de las Delegaciones del Gobierno.
 
-Su trayectoria incluye la gestión de cientos de casos de regularización, reagrupación familiar y procesos de nacionalización para ciudadanos latinoamericanos. También es el responsable del canal de Instagram @iglesiasextranjeria, donde comparte información útil y actualizada sobre trámites de extranjería.`,
+Su trayectoria incluye la gestión de cientos de casos de regularización, reagrupación familiar y procesos de nacionalización para ciudadanos extranjeros. También es el responsable del canal de Instagram @iglesiasextranjeria, donde comparte información útil y actualizada sobre trámites de extranjería.`,
                 instagram: 'https://www.instagram.com/iglesiasextranjeria/',
               },
               {
-                photo: null,
-                initials: 'RL',
-                name: 'Raul Lopez',
-                title: 'Asesor Fiscal y Laboral',
-                badge: 'Fiscal y Laboral',
-                bio: `Raul Lopez lidera el área fiscal y laboral de Travesía Legal. Con amplia experiencia en la asesoría de autónomos, pymes y empresas en el área metropolitana de Barcelona, gestiona desde declaraciones trimestrales de IVA e IRPF hasta contabilidades completas de sociedades.
+                photo: 'https://placehold.co/400x400',
+                initials: 'NA',
+                name: 'Nombre Apellido',
+                title: 'Asesora Fiscal',
+                badge: 'Gestión Fiscal',
+                bio: `Especialista en gestión fiscal y contable para autónomos y empresas. Con amplia experiencia en declaraciones trimestrales, IVA, IRPF y planificación fiscal anual, acompaña a nuestros clientes en todas sus obligaciones tributarias.
 
-Su especialidad es ayudar a los autónomos a optimizar su carga fiscal dentro del marco legal, identificando todas las deducciones aplicables a su actividad y planificando la tributación anual. También gestiona la relación con Hacienda y la Seguridad Social ante requerimientos, inspecciones y recursos.`,
+Su enfoque está en optimizar la carga fiscal dentro del marco legal, identificando todas las deducciones aplicables y anticipando los plazos con Hacienda.`,
+              },
+              {
+                photo: 'https://placehold.co/400x400',
+                initials: 'NA',
+                name: 'Nombre Apellido',
+                title: 'Asesor Laboral',
+                badge: 'Asesoramiento Laboral',
+                bio: `Experto en asesoramiento laboral integral para autónomos y empresas. Gestiona nóminas, contratos, altas y bajas en la Seguridad Social, así como relaciones con la inspección de trabajo y convenios colectivos.
+
+Su especialidad es acompañar a las empresas en el cumplimiento normativo laboral con total seguridad jurídica.`,
               },
             ].map(({ photo, initials, name, title, badge, bio, instagram }) => (
               <motion.div key={name} {...fadeUp} style={{

@@ -29,8 +29,8 @@ const orgSchema = {
       "addressCountry": "ES"
     }
   ],
-  "areaServed": ["Barcelona", "Sabadell"],
-  "description": "Gestoría especializada en extranjería, asesoramiento laboral y gestión fiscal para latinoamericanos, autónomos y empresas en Barcelona y Sabadell."
+  "areaServed": ["Barcelona", "Madrid", "España"],
+  "description": "Gestoría especializada en extranjería, asesoramiento laboral y gestión fiscal para extranjeros, autónomos y empresas en España."
 }
 
 const fadeUp = {
@@ -44,8 +44,8 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Travesía Legal — Gestoría en Barcelona y Sabadell</title>
-        <meta name="description" content="Especialistas en extranjería para latinoamericanos, gestión laboral y asesoría fiscal para autónomos y empresas en Barcelona y Sabadell. Consulta gratuita." />
+        <title>Travesía Legal — Gestoría en Barcelona y Madrid</title>
+        <meta name="description" content="Especialistas en extranjería para inmigrantes, gestión laboral y asesoría fiscal para autónomos y empresas en España. Consulta gratuita." />
         <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
       </Helmet>
 
@@ -120,7 +120,7 @@ export default function Home() {
                 marginBottom: '20px',
                 display: 'block',
               }}>
-                Gestoría en Barcelona y Sabadell
+                Gestoría en Barcelona y Madrid
               </span>
             </motion.div>
 
@@ -154,7 +154,7 @@ export default function Home() {
                 maxWidth: '520px',
               }}
             >
-              Especialistas en extranjería, gestión laboral y asesoría fiscal para autónomos y empresas en Barcelona y Sabadell.
+              Especialistas en extranjería, gestión laboral y asesoría fiscal para autónomos y empresas en Barcelona y Madrid.
             </motion.p>
 
             <motion.div
@@ -192,10 +192,10 @@ export default function Home() {
             gap: '32px',
           }}>
             {[
-              { icon: Shield, label: 'Especialistas certificados', desc: 'Expertos en derecho de extranjería, laboral y fiscal' },
-              { icon: TrendingUp, label: '+500 casos gestionados', desc: 'Expedientes resueltos con éxito en toda Cataluña' },
+              { icon: Shield, label: 'Especialistas Colegiados', desc: 'Expertos en derecho de extranjería, laboral y fiscal' },
+              { icon: TrendingUp, label: '+500 casos gestionados', desc: 'Expedientes resueltos con éxito en toda España' },
               { icon: Clock, label: 'Atención en 24 horas', desc: 'Respuesta garantizada en menos de un día hábil' },
-              { icon: MapPin, label: 'Dos oficinas en Cataluña', desc: 'Presencia física en Barcelona y Sabadell' },
+              { icon: MapPin, label: 'Oficinas en toda España', desc: 'Presencia física en Barcelona y Madrid' },
             ].map(({ icon: Icon, label, desc }) => (
               <motion.div key={label} {...fadeUp} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
                 <div style={{
@@ -238,13 +238,13 @@ export default function Home() {
             <ServiceCard
               icon={Globe}
               title="Extranjería y Nacionalidad"
-              description="NIE, TIE, residencia, arraigo, reagrupación familiar y nacionalidad española para latinoamericanos y ciudadanos extranjeros."
+              description="Visados, arraigo y nacionalidad española para ciudadanos extranjeros. Gestionamos tu expediente de principio a fin."
               href="/servicios/extranjeria-y-nacionalidad"
             />
             <ServiceCard
               icon={Briefcase}
               title="Asesoramiento Laboral"
-              description="Gestión de contratos, nóminas, altas y bajas en la Seguridad Social, para autónomos y empresas en toda Cataluña."
+              description="Gestión de contratos, nóminas, altas y bajas en la Seguridad Social, para autónomos y empresas en toda España."
               href="/servicios/asesoramiento-laboral"
             />
             <ServiceCard
@@ -267,7 +267,7 @@ export default function Home() {
                 Años de experiencia,<br />resultados reales
               </h2>
               <p style={{ fontSize: '16px', color: 'var(--ink-mid)', lineHeight: 1.75, marginBottom: '36px' }}>
-                En Travesía Legal combinamos el rigor técnico con una atención cercana y personalizada. Conocemos los procedimientos de las administraciones catalanas, los plazos reales y los criterios de resolución vigentes.
+                En Travesía Legal combinamos el rigor técnico con una atención cercana y personalizada. Conocemos los procedimientos de la administración española, los plazos reales y los criterios de resolución.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 {[
@@ -292,7 +292,7 @@ export default function Home() {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }}>
                 {[
                   { value: '+500', label: 'Expedientes gestionados' },
-                  { value: '2', label: 'Oficinas en Cataluña' },
+                  { value: '2', label: 'Oficinas en España' },
                   { value: '24h', label: 'Tiempo de respuesta' },
                   { value: '100%', label: 'Transparencia en costes' },
                 ].map(({ value, label }) => (
@@ -321,7 +321,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section style={{ background: 'var(--navy-faint)', padding: '96px 0' }}>
+      <section style={{ background: 'var(--navy-faint)', padding: '96px 0', overflow: 'hidden' }}>
         <div className="container">
           <motion.div {...fadeUp} style={{ textAlign: 'center', marginBottom: '56px' }}>
             <span className="section-label">Testimonios</span>
@@ -329,62 +329,92 @@ export default function Home() {
               Lo que dicen nuestros clientes
             </h2>
           </motion.div>
-
-          <motion.div {...fadeUp} style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '24px',
-          }}>
-            {[
-              {
-                name: 'Vanessa Triana',
-                service: 'Visado',
-                text: 'Tuve una excelente experiencia con Travesía Legal durante todo mi proceso de visado. Desde el inicio fueron muy claros al explicar cada paso, resolvieron todas mis dudas y me acompañaron durante todo el procedimiento con mucho profesionalismo y atención al detalle. Gracias a su asesoría el proceso se llevó de forma ordenada y finalmente mi visa fue aprobada. Recomiendo totalmente sus servicios.',
-                source: 'Google',
-              },
-              {
-                name: 'María G.',
-                service: 'Arraigo Social',
-                text: 'Gracias a Travesía Legal conseguí regularizar mi situación tras 4 años en España. El equipo fue claro con los pasos y muy rápido en los trámites.',
-                source: null,
-              },
-              {
-                name: 'Carlos M.',
-                service: 'Alta Autónomo',
-                text: 'Me dieron de alta como autónomo en menos de 48 horas y llevan todas mis declaraciones. Muy recomendable para cualquier emprendedor.',
-                source: null,
-              },
-            ].map(({ name, service, text, source }) => (
-              <div key={name} style={{
-                background: 'var(--white)',
-                border: '1px solid var(--border)',
-                borderRadius: 'var(--radius-lg)',
-                padding: '28px',
-              }}>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
-                  <div style={{ display: 'flex', gap: '2px' }}>
-                    {[1,2,3,4,5].map(s => <Star key={s} size={14} fill="var(--gold)" color="var(--gold)" />)}
-                  </div>
-                  {source === 'Google' && (
-                    <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-                    </svg>
-                  )}
-                </div>
-                <p style={{ fontSize: '15px', color: 'var(--ink-mid)', lineHeight: 1.7, marginBottom: '20px', fontStyle: 'italic' }}>
-                  "{text}"
-                </p>
-                <div>
-                  <p style={{ fontWeight: '600', fontSize: '14px', color: 'var(--navy)' }}>{name}</p>
-                  <p style={{ fontSize: '12px', color: 'var(--slate)', fontFamily: 'var(--font-mono)' }}>{service}</p>
-                </div>
-              </div>
-            ))}
-          </motion.div>
         </div>
+
+        <style>{`
+          @keyframes testimonials-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .testimonials-track {
+            display: flex;
+            gap: 24px;
+            width: max-content;
+            animation: testimonials-scroll 32s linear infinite;
+          }
+          .testimonials-track:hover {
+            animation-play-state: paused;
+          }
+          .testimonial-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            width: 340px;
+            flex-shrink: 0;
+          }
+        `}</style>
+
+        {(() => {
+          const reviews = [
+            {
+              name: 'Vanessa Triana',
+              service: 'Visado',
+              text: 'Tuve una excelente experiencia con Travesía Legal durante todo mi proceso de visado. Desde el inicio fueron muy claros al explicar cada paso, resolvieron todas mis dudas y me acompañaron con mucho profesionalismo. Recomiendo totalmente sus servicios.',
+              google: true,
+            },
+            {
+              name: 'Héctor Didier',
+              service: 'Arraigo Social — Barcelona',
+              text: 'Travesía Legal me ayudó a conseguir mi arraigo social después de tres años de espera. Profesionales, claros y siempre disponibles para resolver mis dudas.',
+              google: true,
+            },
+            {
+              name: 'María G.',
+              service: 'Arraigo Social',
+              text: 'Gracias a Travesía Legal conseguí regularizar mi situación tras 4 años en España. El equipo fue claro con los pasos y muy rápido en los trámites.',
+              google: false,
+            },
+            {
+              name: 'Carlos M.',
+              service: 'Alta Autónomo',
+              text: 'Me dieron de alta como autónomo en menos de 48 horas y llevan todas mis declaraciones. Muy recomendable para cualquier emprendedor.',
+              google: false,
+            },
+          ]
+          const googleIcon = (
+            <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+          )
+          const allReviews = [...reviews, ...reviews]
+          return (
+            <div style={{ overflow: 'hidden', padding: '8px 0' }}>
+              <div className="testimonials-track">
+                {allReviews.map(({ name, service, text, google }, i) => (
+                  <div key={`${name}-${i}`} className="testimonial-card">
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
+                      <div style={{ display: 'flex', gap: '2px' }}>
+                        {[1,2,3,4,5].map(s => <Star key={s} size={14} fill="var(--gold)" color="var(--gold)" />)}
+                      </div>
+                      {google && googleIcon}
+                    </div>
+                    <p style={{ fontSize: '15px', color: 'var(--ink-mid)', lineHeight: 1.7, marginBottom: '20px', fontStyle: 'italic' }}>
+                      "{text}"
+                    </p>
+                    <div>
+                      <p style={{ fontWeight: '600', fontSize: '14px', color: 'var(--navy)' }}>{name}</p>
+                      <p style={{ fontSize: '12px', color: 'var(--slate)', fontFamily: 'var(--font-mono)' }}>{service}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )
+        })()}
       </section>
 
       {/* Founders teaser */}
@@ -399,9 +429,9 @@ export default function Home() {
 
           <motion.div {...fadeUp} style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
             gap: '32px',
-            maxWidth: '720px',
+            maxWidth: '960px',
             margin: '0 auto',
           }}>
             {[
@@ -413,14 +443,21 @@ export default function Home() {
                 bio: 'Experto en derecho de extranjería y nacionalidad con más de una década de experiencia en la gestión de permisos de residencia, arraigo y procesos de nacionalización.',
               },
               {
-                photo: null,
-                initials: 'RL',
-                name: 'Raul Lopez',
-                title: 'Asesor Fiscal y Laboral',
-                bio: 'Especialista en asesoría fiscal y laboral para autónomos y pymes. Gestiona declaraciones tributarias, contabilidad empresarial y relaciones con la administración.',
+                photo: 'https://placehold.co/400x400',
+                initials: 'NA',
+                name: 'Nombre Apellido',
+                title: 'Asesora Fiscal',
+                bio: 'Especialista en gestión fiscal y contable para autónomos y empresas. Declaraciones trimestrales, IVA, IRPF y planificación fiscal anual.',
+              },
+              {
+                photo: 'https://placehold.co/400x400',
+                initials: 'NA',
+                name: 'Nombre Apellido',
+                title: 'Asesor Laboral',
+                bio: 'Experto en asesoramiento laboral integral para autónomos y empresas. Nóminas, contratos, altas en la Seguridad Social y gestión de relaciones laborales.',
               },
             ].map(({ photo, initials, name, title, bio }) => (
-              <div key={name} style={{
+              <div key={title} style={{
                 background: 'var(--off-white)',
                 border: '1px solid var(--border)',
                 borderRadius: 'var(--radius-xl)',

@@ -51,7 +51,7 @@ export default function Laboral() {
     <>
       <Helmet>
         <title>Asesoramiento Laboral para Autónomos y Empresas | Travesía Legal Barcelona</title>
-        <meta name="description" content="Gestión laboral integral para autónomos y empresas en Barcelona y Sabadell. Nóminas, contratos, altas Seguridad Social, ERTEs y más. Consulta gratuita." />
+        <meta name="description" content="Gestión laboral integral para autónomos y empresas en España. Nóminas, contratos, altas Seguridad Social, ERTEs y más. Consulta gratuita." />
         <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
       </Helmet>
 
@@ -79,7 +79,7 @@ export default function Laboral() {
               <span style={{ color: 'var(--gold)' }}>Laboral</span>
             </h1>
             <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, marginBottom: '36px', maxWidth: '520px' }}>
-              Gestión laboral integral para autónomos y empresas en Barcelona y Sabadell. Nóminas, contratos, altas Seguridad Social y asesoramiento continuo.
+              Gestión laboral integral para autónomos y empresas en España. Nóminas, contratos, altas Seguridad Social y asesoramiento continuo.
             </p>
             <InteractiveButton variant="gold" href="https://wa.me/34694269008" target="_blank" rel="noopener noreferrer">
               <MessageCircle size={18} />
@@ -215,7 +215,7 @@ export default function Laboral() {
               "Llevan todas mis nóminas y gestiones laborales desde hace dos años. Muy profesionales y siempre al día con los cambios de normativa."
             </p>
             <p style={{ fontWeight: '600', fontSize: '14px', color: 'var(--navy)' }}>Roberto F.</p>
-            <p style={{ fontSize: '12px', color: 'var(--slate)', fontFamily: 'var(--font-mono)' }}>Empresa con 5 empleados — Sabadell</p>
+            <p style={{ fontSize: '12px', color: 'var(--slate)', fontFamily: 'var(--font-mono)' }}>Empresa con 5 empleados — Barcelona</p>
           </motion.div>
         </div>
       </section>
