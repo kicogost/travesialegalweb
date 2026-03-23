@@ -20,7 +20,7 @@ export default function Footer() {
               style={{ height: '32px', width: 'auto', filter: 'brightness(0) invert(1)', marginBottom: '16px' }}
             />
             <p style={{ fontSize: '14px', color: 'var(--slate)', lineHeight: 1.75, marginBottom: '20px', maxWidth: '260px' }}>
-              Gestoría especializada en extranjería, laboral y fiscal para latinoamericanos, autónomos y empresas en Barcelona y Sabadell.
+              Gestoría especializada en extranjería, laboral y fiscal para autónomos y empresas en Barcelona y Madrid.
             </p>
             <div style={{ display: 'flex', gap: '12px' }}>
               {/* Instagram */}
