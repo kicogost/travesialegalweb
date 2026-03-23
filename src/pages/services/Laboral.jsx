@@ -170,8 +170,9 @@ export default function Laboral() {
           </motion.div>
 
           <motion.div {...fadeUp} style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
             gap: '20px',
           }}>
             {[
@@ -184,6 +185,8 @@ export default function Laboral() {
               { icon: Briefcase, label: 'Finiquitos y liquidaciones' },
             ].map(({ icon: Icon, label }) => (
               <div key={label} style={{
+                flex: '0 0 calc(25% - 15px)',
+                minWidth: '200px',
                 background: 'var(--navy-faint)',
                 borderRadius: 'var(--radius-md)',
                 padding: '20px',

@@ -176,8 +176,9 @@ export default function Fiscal() {
           </motion.div>
 
           <motion.div {...fadeUp} style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
             gap: '20px',
           }}>
             {[
@@ -190,6 +191,8 @@ export default function Fiscal() {
               { icon: Clock, label: 'Cierre contable y cuentas anuales' },
             ].map(({ icon: Icon, label }) => (
               <div key={label} style={{
+                flex: '0 0 calc(25% - 15px)',
+                minWidth: '200px',
                 background: 'var(--white)',
                 border: '1px solid var(--border)',
                 borderRadius: 'var(--radius-md)',

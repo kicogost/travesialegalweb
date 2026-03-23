@@ -129,12 +129,15 @@ export default function Extranjeria() {
           </motion.div>
 
           <motion.div {...fadeUp} style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
             gap: '20px',
           }}>
             {subServices.map(({ icon: Icon, label }) => (
               <div key={label} style={{
+                flex: '0 0 calc(25% - 15px)',
+                minWidth: '210px',
                 background: 'var(--white)',
                 border: '1px solid var(--border)',
                 borderRadius: 'var(--radius-lg)',
