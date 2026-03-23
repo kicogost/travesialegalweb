@@ -268,6 +268,29 @@ export default function Fiscal() {
         </div>
       </section>
 
+      {/* Testimonial */}
+      <section style={{ background: 'var(--navy-faint)', padding: '64px 0' }}>
+        <div className="container">
+          <motion.div {...fadeUp} style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
+            <div style={{ display: 'flex', gap: '4px', justifyContent: 'center', marginBottom: '20px' }}>
+              {[1,2,3,4,5].map(s => <Star key={s} size={16} fill="var(--gold)" color="var(--gold)" />)}
+            </div>
+            <p style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '19px',
+              fontStyle: 'italic',
+              color: 'var(--navy)',
+              lineHeight: 1.6,
+              marginBottom: '24px',
+            }}>
+              "Me realizaron la declaración de la renta, fue un proceso rápido y fácil. Los volveré a elegir el año que viene sin duda. Gracias."
+            </p>
+            <p style={{ fontWeight: '600', fontSize: '14px', color: 'var(--navy)' }}>Ariadna Calatayud</p>
+            <p style={{ fontSize: '12px', color: 'var(--slate)', fontFamily: 'var(--font-mono)' }}>Declaración de la Renta — Barcelona</p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section style={{ background: 'var(--off-white)', padding: '80px 0' }}>
         <div className="container">
