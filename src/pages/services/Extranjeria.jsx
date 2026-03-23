@@ -224,10 +224,10 @@ export default function Extranjeria() {
               lineHeight: 1.6,
               marginBottom: '24px',
             }}>
-              "Travesía Legal me ayudó a conseguir mi arraigo social después de tres años de espera. Profesionales, claros y siempre disponibles para resolver mis dudas."
+              "Son unas personas confiables y efectivas en especial Pau Iglesias, es muy eficiente, su estrategia de trabajo es rápida y segura, gracias a él y a su equipo de trabajo."
             </p>
-            <p style={{ fontWeight: '600', fontSize: '14px', color: 'var(--navy)' }}>Héctor Didier</p>
-            <p style={{ fontSize: '12px', color: 'var(--slate)', fontFamily: 'var(--font-mono)' }}>Arraigo Social — Barcelona</p>
+            <p style={{ fontWeight: '600', fontSize: '14px', color: 'var(--navy)' }}>Didier Moreno</p>
+            <p style={{ fontSize: '12px', color: 'var(--slate)', fontFamily: 'var(--font-mono)' }}>Extranjería — Barcelona</p>
           </motion.div>
         </div>
       </section>
