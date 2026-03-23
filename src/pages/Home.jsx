@@ -418,7 +418,7 @@ export default function Home() {
 
         <div style={{ textAlign: 'center', marginTop: '40px' }}>
           <a
-            href="https://share.google/yboj8yo50XrQleNBo"
+            href="https://www.google.com/search?q=travesia+legal&num=10&cs=1&hl=en-ES&rlz=1C5CHFA_enES1178ES1179&sca_esv=e2250487dc351849&tbm=lcl&sxsrf=ANbL-n6JrVE6CKgUF2GXuGXoyfcTVUVMYg%3A1774279664615&ei=8FvBacOnJc3y7M8Ps9XqwQI&biw=1470&bih=797&ved=0ahUKEwjD35DpqraTAxVNOfsDHbOqOigQ4dUDCAo&uact=5&oq=travesia+legal&gs_lp=Eg1nd3Mtd2l6LWxvY2FsIg50cmF2ZXNpYSBsZWdhbDIHEAAYgAQYEzIHEAAYgAQYEzIIEAAYFhgeGBMyCxAAGIAEGIoFGIYDMgUQABjvBTIFEAAY7wUyCBAAGIAEGKIEMgUQABjvBUjlMlDaHljhMHAFeACQAQCYAXCgAekKqgEEMTUuM7gBA8gBAPgBAZgCF6AC1QvCAgYQABgWGB7CAgsQABiABBiKBRiRAsICChAAGIAEGIoFGEPCAgUQABiABMICChAAGIAEGBQYhwLCAgkQABiABBgKGAvCAgcQABiABBgNwgIGEAAYHhgNmAMAiAYBkgcEMjAuM6AHn2GyBwQxNS4zuAfCC8IHBjAuNS4xOMgHSoAIAQ&sclient=gws-wiz-local#rlfi=hd:;si:15949484553280797983,l,Cg50cmF2ZXNpYSBsZWdhbEivspOLpbyAgAhaHBAAEAEYABgBIg50cmF2ZXNpYSBsZWdhbDICZXOSARRpbW1pZ3JhdGlvbl9hdHRvcm5leQ;mv:[[41.4616407,2.5407214],[40.378685,-4.3285168999999994]]"
             target="_blank"
             rel="noopener noreferrer"
             style={{
