@@ -1,6 +1,4 @@
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import { MessageCircle, Calendar, Clock, ArrowLeft, ChevronDown } from 'lucide-react'
 import { useState } from 'react'
 import InteractiveButton from '../../components/InteractiveButton.jsx'
@@ -52,20 +50,12 @@ function FAQ({ question, answer }) {
 export default function VisadoEstudios() {
   return (
     <>
-      <Helmet>
-        <title>Cómo obtener tu visado de estudios en España (2026) | Travesía Legal</title>
-        <meta name="description" content="Guía completa para obtener el visado de estudios en España: requisitos, documentación, proceso paso a paso y consejos para una solicitud exitosa." />
-        <link rel="canonical" href="https://travesialegal.com/blog/visado-estudios-espana" />
-        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
-
       <section style={{ background: 'linear-gradient(135deg, #08142A 0%, #0D1F3C 60%, #162B52 100%)', paddingTop: 'calc(var(--nav-height) + 60px)', paddingBottom: '60px' }}>
         <div className="container">
           <motion.div initial={{ opacity: 1, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <Link to="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '24px', textDecoration: 'none' }}>
+            <a href="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '24px', textDecoration: 'none' }}>
               <ArrowLeft size={14} /> Volver al blog
-            </Link>
+            </a>
             <div style={{ display: 'flex', gap: '12px', marginBottom: '20px', flexWrap: 'wrap' }}>
               <span style={{ background: '#EBF4FF', color: '#1E3A6E', fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', padding: '4px 10px', borderRadius: '4px' }}>Extranjería</span>
               <span style={{ display: 'flex', alignItems: 'center', gap: '4px', color: 'rgba(255,255,255,0.5)', fontSize: '13px', fontFamily: 'var(--font-mono)' }}><Clock size={12} /> 8 min de lectura</span>

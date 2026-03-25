@@ -1,6 +1,4 @@
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import { FileText, RefreshCw, Users, Star, Shield, Heart, Scale, MessageCircle, ArrowRight, CheckCircle } from 'lucide-react'
 import FAQ from '../../components/FAQ.jsx'
 import InteractiveButton from '../../components/InteractiveButton.jsx'
@@ -77,13 +75,6 @@ const subServices = [
 export default function Extranjeria() {
   return (
     <>
-      <Helmet>
-        <title>Extranjería y Nacionalidad para Inmigrantes en España | Travesía Legal</title>
-        <meta name="description" content="Especialistas en residencia, visados, arraigo social y nacionalidad para inmigrantes en España. Consulta gratuita. Oficinas en Barcelona y Madrid." />
-        <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
-
       {/* Hero */}
       <section style={{
         background: 'radial-gradient(ellipse 600px 400px at 80% 50%, rgba(200,169,110,0.08) 0%, transparent 70%), linear-gradient(135deg, #08142A 0%, #0D1F3C 60%, #162B52 100%)',

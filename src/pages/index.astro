@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Home from './Home.jsx'
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "name": "Travesía Legal",
+  "url": "https://travesialegal.com",
+  "telephone": "+34694269008",
+  "email": "info@travesialegal.com",
+  "address": [
+    { "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" },
+    { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }
+  ],
+  "areaServed": ["Barcelona", "Madrid", "España"],
+  "description": "Gestoría especializada en extranjería, asesoramiento laboral y gestión fiscal para extranjeros, autónomos y empresas en España."
+})
+---
+<BaseLayout
+  title="Travesía Legal — Gestoría en Barcelona y Madrid"
+  description="Especialistas en extranjería para inmigrantes, gestión laboral y asesoría fiscal para autónomos y empresas en España. Consulta gratuita."
+  schema={schema}
+>
+  <Home client:load />
+</BaseLayout>

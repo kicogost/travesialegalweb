@@ -1,4 +1,3 @@
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { MessageCircle, FileText, Users, Shield, TrendingUp, Clock, Briefcase, UserCheck, Star } from 'lucide-react'
 import FAQ from '../../components/FAQ.jsx'
@@ -49,12 +48,6 @@ const fadeUp = {
 export default function Laboral() {
   return (
     <>
-      <Helmet>
-        <title>Asesoramiento Laboral para Autónomos y Empresas | Travesía Legal Barcelona</title>
-        <meta name="description" content="Gestión laboral integral para autónomos y empresas en España. Nóminas, contratos, altas Seguridad Social, ERTEs y más. Consulta gratuita." />
-        <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
-      </Helmet>
-
       {/* Hero */}
       <section style={{
         background: 'radial-gradient(ellipse 600px 400px at 80% 50%, rgba(200,169,110,0.08) 0%, transparent 70%), linear-gradient(135deg, #08142A 0%, #0D1F3C 60%, #162B52 100%)',

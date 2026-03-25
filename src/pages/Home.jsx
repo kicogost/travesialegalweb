@@ -1,6 +1,4 @@
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import { Shield, TrendingUp, Clock, MapPin, Globe, Briefcase, BarChart2, CheckCircle, Star, ArrowRight, MessageCircle } from 'lucide-react'
 import ServiceCard from '../components/ServiceCard.jsx'
 import BlogCard from '../components/BlogCard.jsx'
@@ -43,12 +41,6 @@ const fadeUp = {
 export default function Home() {
   return (
     <>
-      <Helmet>
-        <title>Travesía Legal — Gestoría en Barcelona y Madrid</title>
-        <meta name="description" content="Especialistas en extranjería para inmigrantes, gestión laboral y asesoría fiscal para autónomos y empresas en España. Consulta gratuita." />
-        <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
-      </Helmet>
-
       {/* Hero */}
       <section style={{
         minHeight: '100vh',
@@ -551,9 +543,9 @@ export default function Home() {
                 Guías prácticas y actualizadas
               </h2>
             </div>
-            <Link to="/blog" className="btn-ghost">
+            <a href="/blog" className="btn-ghost">
               Ver todos los artículos <ArrowRight size={14} />
-            </Link>
+            </a>
           </motion.div>
 
           <motion.div {...fadeUp} style={{

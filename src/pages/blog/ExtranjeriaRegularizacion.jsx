@@ -1,6 +1,4 @@
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import { MessageCircle, Calendar, Clock, ArrowLeft } from 'lucide-react'
 import InteractiveButton from '../../components/InteractiveButton.jsx'
 
@@ -35,13 +33,6 @@ const fadeUp = {
 export default function ExtranjeriaRegularizacion() {
   return (
     <>
-      <Helmet>
-        <title>Extranjería y Regularización para Latinoamericanos en España (2026) | Travesía Legal</title>
-        <meta name="description" content="Guía completa sobre arraigo social, residencia y nacionalidad española para latinoamericanos en España. Requisitos, documentación y errores a evitar." />
-        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
-
       {/* Hero */}
       <section style={{
         background: 'linear-gradient(135deg, #08142A 0%, #0D1F3C 60%, #162B52 100%)',
@@ -50,9 +41,9 @@ export default function ExtranjeriaRegularizacion() {
       }}>
         <div className="container">
           <motion.div initial={{ opacity: 1, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <Link to="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '24px', textDecoration: 'none' }}>
+            <a href="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '24px', textDecoration: 'none' }}>
               <ArrowLeft size={14} /> Volver al blog
-            </Link>
+            </a>
             <div style={{ display: 'flex', gap: '12px', marginBottom: '20px', flexWrap: 'wrap' }}>
               <span style={{ background: '#EBF4FF', color: '#1E3A6E', fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', padding: '4px 10px', borderRadius: '4px' }}>Extranjería</span>
               <span style={{ display: 'flex', alignItems: 'center', gap: '4px', color: 'rgba(255,255,255,0.5)', fontSize: '13px', fontFamily: 'var(--font-mono)' }}><Clock size={12} /> 8 min de lectura</span>
@@ -212,11 +203,11 @@ export default function ExtranjeriaRegularizacion() {
                   { to: '/gestoria-extranjeria-barcelona', label: 'Gestoría Extranjería Barcelona' },
                   { to: '/gestoria-extranjeria-sabadell', label: 'Gestoría Extranjería Sabadell' },
                 ].map(l => (
-                  <Link key={l.to} to={l.to} style={{ display: 'block', fontSize: '13px', color: 'var(--ink-mid)', marginBottom: '10px', textDecoration: 'none', paddingLeft: '12px', borderLeft: '2px solid var(--gold)', transition: 'color 0.2s' }}
+                  <a key={l.to} href={l.to} style={{ display: 'block', fontSize: '13px', color: 'var(--ink-mid)', marginBottom: '10px', textDecoration: 'none', paddingLeft: '12px', borderLeft: '2px solid var(--gold)', transition: 'color 0.2s' }}
                     onMouseEnter={e => e.currentTarget.style.color = 'var(--navy)'}
                     onMouseLeave={e => e.currentTarget.style.color = 'var(--ink-mid)'}>
                     {l.label}
-                  </Link>
+                  </a>
                 ))}
               </div>
             </motion.aside>

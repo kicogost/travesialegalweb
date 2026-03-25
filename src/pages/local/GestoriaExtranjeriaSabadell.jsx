@@ -1,4 +1,3 @@
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { MessageCircle, MapPin, FileText, RefreshCw, Users, Star, Shield, Heart, Scale, CheckCircle } from 'lucide-react'
 import FAQ from '../../components/FAQ.jsx'
@@ -49,12 +48,6 @@ const fadeUp = {
 export default function GestoriaExtranjeriaSabadell() {
   return (
     <>
-      <Helmet>
-        <title>Gestoría de Extranjería en Sabadell | Travesía Legal</title>
-        <meta name="description" content="Especialistas en extranjería en Sabadell: NIE, residencia, arraigo y nacionalidad para latinoamericanos. Oficina en C/ Vallirana, 7. Consulta gratuita." />
-        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
-      </Helmet>
-
       {/* Hero */}
       <section style={{
         background: 'radial-gradient(ellipse 600px 400px at 80% 50%, rgba(200,169,110,0.08) 0%, transparent 70%), linear-gradient(135deg, #08142A 0%, #0D1F3C 60%, #162B52 100%)',

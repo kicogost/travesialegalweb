@@ -1,0 +1,29 @@
+---
+const { title, description, canonical, schema } = Astro.props
+const pathname = Astro.url.pathname
+
+import '../styles/globals.css'
+import Navbar from '../components/Navbar.jsx'
+import Footer from '../components/Footer.jsx'
+import WhatsAppButton from '../components/WhatsAppButton.jsx'
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  {canonical && <link rel="canonical" href={canonical} />}
+  {schema && <script type="application/ld+json" set:html={schema} />}
+</head>
+<body>
+  <Navbar pathname={pathname} client:load />
+  <main><slot /></main>
+  <Footer client:load />
+  <WhatsAppButton client:load />
+</body>
+</html>

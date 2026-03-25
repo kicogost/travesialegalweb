@@ -1,4 +1,3 @@
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { MessageCircle } from 'lucide-react'
@@ -130,11 +129,6 @@ export default function Blog() {
 
   return (
     <>
-      <Helmet>
-        <title>Blog y Recursos Legales | Travesía Legal</title>
-        <meta name="description" content="Guías prácticas y actualizadas sobre extranjería, fiscal y laboral para latinoamericanos, autónomos y empresas en España." />
-      </Helmet>
-
       {/* Hero */}
       <section style={{
         background: 'linear-gradient(135deg, #08142A 0%, #0D1F3C 60%, #162B52 100%)',

@@ -1,4 +1,3 @@
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { MessageCircle, FileText, BarChart2, Calculator, TrendingDown, Clock, BookOpen, Shield, Star } from 'lucide-react'
 import FAQ from '../../components/FAQ.jsx'
@@ -56,12 +55,6 @@ const quarters = [
 export default function Fiscal() {
   return (
     <>
-      <Helmet>
-        <title>Gestión Fiscal y Contable para Autónomos y Empresas | Travesía Legal</title>
-        <meta name="description" content="Declaraciones trimestrales, contabilidad completa, IVA, IRPF y cierre anual para autónomos y empresas en España. Consulta gratuita." />
-        <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
-      </Helmet>
-
       {/* Hero */}
       <section style={{
         background: 'radial-gradient(ellipse 600px 400px at 80% 50%, rgba(200,169,110,0.08) 0%, transparent 70%), linear-gradient(135deg, #08142A 0%, #0D1F3C 60%, #162B52 100%)',

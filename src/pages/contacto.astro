@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Contacto from './Contacto.jsx'
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "name": "Travesía Legal",
+  "url": "https://travesialegal.com",
+  "telephone": "+34694269008",
+  "email": "info@travesialegal.com",
+  "openingHours": "Mo-Fr 08:30-18:30",
+  "sameAs": [
+    "https://www.instagram.com/iglesiasextranjeria/",
+    "https://www.tiktok.com/@travesialegal"
+  ],
+  "address": [
+    { "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" },
+    { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }
+  ]
+})
+---
+<BaseLayout
+  title="Contacto | Travesía Legal — Gestoría en Barcelona y Sabadell"
+  description="Contacta con Travesía Legal: consulta gratuita por WhatsApp o reserva una cita. Oficinas en C/ Sardenya 311 Barcelona y C/ Vallirana 7 Sabadell."
+  schema={schema}
+>
+  <Contacto client:load />
+</BaseLayout>

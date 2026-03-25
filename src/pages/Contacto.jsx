@@ -1,4 +1,3 @@
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { MessageCircle, Phone, Mail, MapPin, Clock } from 'lucide-react'
 
@@ -30,17 +29,6 @@ const fadeUp = {
 export default function Contacto() {
   return (
     <>
-      <Helmet>
-        <title>Contacto | Travesía Legal — Gestoría en Barcelona y Sabadell</title>
-        <meta name="description" content="Contacta con Travesía Legal: consulta gratuita por WhatsApp o reserva una cita. Oficinas en C/ Sardenya 311 Barcelona y C/ Vallirana 7 Sabadell." />
-        <link rel="canonical" href="https://travesialegal.com/contacto" />
-        <meta property="og:title" content="Contacto | Travesía Legal" />
-        <meta property="og:description" content="Consulta gratuita por WhatsApp o reserva una cita. Oficinas en Barcelona y Sabadell." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://travesialegal.com/contacto" />
-        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
-      </Helmet>
-
       {/* Hero */}
       <section style={{
         background: 'linear-gradient(135deg, #08142A 0%, #0D1F3C 60%, #162B52 100%)',

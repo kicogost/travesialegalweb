@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { MapPin, Phone, Mail } from 'lucide-react'
 
 export default function Footer() {
@@ -46,11 +45,11 @@ export default function Footer() {
               { to: '/servicios/asesoramiento-laboral', label: 'Asesoramiento Laboral' },
               { to: '/servicios/gestion-fiscal-contable', label: 'Gestión Fiscal y Contable' },
             ].map(l => (
-              <Link key={l.to} to={l.to} style={{ display: 'block', fontSize: '14px', color: 'var(--slate)', marginBottom: '10px', textDecoration: 'none', transition: 'color 0.2s' }}
+              <a key={l.to} href={l.to} style={{ display: 'block', fontSize: '14px', color: 'var(--slate)', marginBottom: '10px', textDecoration: 'none', transition: 'color 0.2s' }}
                 onMouseEnter={e => e.currentTarget.style.color = 'var(--white)'}
                 onMouseLeave={e => e.currentTarget.style.color = 'var(--slate)'}>
                 {l.label}
-              </Link>
+              </a>
             ))}
           </div>
 
@@ -62,11 +61,11 @@ export default function Footer() {
               { to: '/blog', label: 'Blog y Recursos' },
               { to: '/contacto', label: 'Contacto' },
             ].map(l => (
-              <Link key={l.to} to={l.to} style={{ display: 'block', fontSize: '14px', color: 'var(--slate)', marginBottom: '10px', textDecoration: 'none', transition: 'color 0.2s' }}
+              <a key={l.to} href={l.to} style={{ display: 'block', fontSize: '14px', color: 'var(--slate)', marginBottom: '10px', textDecoration: 'none', transition: 'color 0.2s' }}
                 onMouseEnter={e => e.currentTarget.style.color = 'var(--white)'}
                 onMouseLeave={e => e.currentTarget.style.color = 'var(--slate)'}>
                 {l.label}
-              </Link>
+              </a>
             ))}
           </div>
 
@@ -106,14 +105,14 @@ export default function Footer() {
               { to: '/declaracion-accesibilidad', label: 'Declaración de accesibilidad' },
             ].map((l, i, arr) => (
               <span key={l.to} style={{ display: 'flex', alignItems: 'center' }}>
-                <Link
-                  to={l.to}
+                <a
+                  href={l.to}
                   style={{ fontSize: '11px', color: 'rgba(135,149,168,0.7)', textDecoration: 'none', transition: 'color 0.2s', whiteSpace: 'nowrap' }}
                   onMouseEnter={e => e.currentTarget.style.color = 'var(--slate)'}
                   onMouseLeave={e => e.currentTarget.style.color = 'rgba(135,149,168,0.7)'}
                 >
                   {l.label}
-                </Link>
+                </a>
                 {i < arr.length - 1 && (
                   <span style={{ color: 'rgba(135,149,168,0.35)', margin: '0 10px', fontSize: '11px' }}>·</span>
                 )}

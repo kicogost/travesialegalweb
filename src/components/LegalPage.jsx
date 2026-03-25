@@ -1,6 +1,4 @@
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 
 const fadeUp = {
@@ -50,13 +48,6 @@ export { Section, P, Ul }
 export default function LegalPage({ title, description, canonical, children }) {
   return (
     <>
-      <Helmet>
-        <title>{title} | Travesía Legal</title>
-        <meta name="description" content={description} />
-        <link rel="canonical" href={`https://travesialegal.com${canonical}`} />
-        <meta name="robots" content="noindex, follow" />
-      </Helmet>
-
       {/* Mini hero */}
       <section style={{
         background: 'linear-gradient(135deg, #08142A 0%, #0D1F3C 100%)',
@@ -64,9 +55,9 @@ export default function LegalPage({ title, description, canonical, children }) {
         paddingBottom: '40px',
       }}>
         <div className="container">
-          <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'rgba(255,255,255,0.5)', fontSize: '13px', marginBottom: '16px', textDecoration: 'none' }}>
+          <a href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'rgba(255,255,255,0.5)', fontSize: '13px', marginBottom: '16px', textDecoration: 'none' }}>
             <ArrowLeft size={13} /> Inicio
-          </Link>
+          </a>
           <h1 style={{
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(22px, 3vw, 32px)',

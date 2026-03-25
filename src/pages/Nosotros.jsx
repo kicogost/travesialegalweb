@@ -1,6 +1,4 @@
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import { MapPin, MessageCircle, Shield, Heart, TrendingUp } from 'lucide-react'
 import InteractiveButton from '../components/InteractiveButton.jsx'
 
@@ -42,12 +40,6 @@ const fadeUp = {
 export default function Nosotros() {
   return (
     <>
-      <Helmet>
-        <title>Quiénes Somos | Travesía Legal — Gestoría en España</title>
-        <meta name="description" content="Conoce al equipo de Travesía Legal: especialistas en extranjería, fiscal y laboral con oficinas en Barcelona y Madrid." />
-        <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
-      </Helmet>
-
       {/* Hero */}
       <section style={{
         background: 'radial-gradient(ellipse 600px 400px at 80% 50%, rgba(200,169,110,0.08) 0%, transparent 70%), linear-gradient(135deg, #08142A 0%, #0D1F3C 60%, #162B52 100%)',

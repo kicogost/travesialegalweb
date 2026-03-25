@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Extranjeria from '../services/Extranjeria.jsx'
+
+const schema = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "Travesía Legal",
+    "url": "https://travesialegal.com",
+    "telephone": "+34694269008",
+    "address": [
+      { "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" },
+      { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Cuánto tarda el proceso de residencia en España?", "acceptedAnswer": { "@type": "Answer", "text": "El proceso de residencia inicial suele tardar entre 3 y 6 meses desde la presentación de la solicitud." } },
+      { "@type": "Question", "name": "¿Qué documentos necesito para solicitar la residencia?", "acceptedAnswer": { "@type": "Answer", "text": "Para solicitar la residencia necesitas pasaporte original en vigor, formulario de solicitud cumplimentado, justificante del motivo de la solicitud y tasa abonada correspondiente." } },
+      { "@type": "Question", "name": "¿Puedo solicitar la nacionalidad si llevo 10 años en España?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, y para ciudadanos iberoamericanos el plazo se reduce a 2 años de residencia legal continuada." } },
+      { "@type": "Question", "name": "¿Qué es el arraigo social y quién puede solicitarlo?", "acceptedAnswer": { "@type": "Answer", "text": "El arraigo social es una autorización de residencia temporal para personas que llevan al menos 3 años en España en situación irregular." } },
+      { "@type": "Question", "name": "¿Cuánto cuesta tramitar la residencia con una gestoría?", "acceptedAnswer": { "@type": "Answer", "text": "Los honorarios varían según la complejidad del trámite. Ofrecemos consulta inicial gratuita para evaluar tu caso." } },
+      { "@type": "Question", "name": "¿Puedo traer a mi familia a España con la reagrupación familiar?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, si tienes residencia legal en España puedes solicitar la reagrupación familiar para tu cónyuge e hijos menores de edad." } }
+    ]
+  }
+])
+---
+<BaseLayout
+  title="Extranjería y Nacionalidad para Inmigrantes en España | Travesía Legal"
+  description="Especialistas en residencia, visados, arraigo social y nacionalidad para inmigrantes en España. Consulta gratuita. Oficinas en Barcelona y Madrid."
+  schema={schema}
+>
+  <Extranjeria client:load />
+</BaseLayout>

@@ -1,10 +1,9 @@
-import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 
 export default function ServiceCard({ icon: Icon, title, description, href }) {
   return (
-    <Link
-      to={href}
+    <a
+      href={href}
       style={{
         display: 'block',
         background: 'var(--white)',
@@ -58,6 +57,6 @@ export default function ServiceCard({ icon: Icon, title, description, href }) {
       }}>
         Saber más <ArrowRight size={14} />
       </span>
-    </Link>
+    </a>
   )
 }

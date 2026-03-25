@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 
 const categoryColors = {
@@ -61,8 +60,8 @@ export default function BlogCard({ category, title, excerpt, readTime, href }) {
         WebkitBoxOrient: 'vertical',
         overflow: 'hidden',
       }}>{excerpt}</p>
-      <Link
-        to={href}
+      <a
+        href={href}
         style={{
           display: 'inline-flex',
           alignItems: 'center',
@@ -78,7 +77,7 @@ export default function BlogCard({ category, title, excerpt, readTime, href }) {
         onMouseLeave={e => e.currentTarget.style.gap = '6px'}
       >
         Leer más <ArrowRight size={14} />
-      </Link>
+      </a>
     </article>
   )
 }

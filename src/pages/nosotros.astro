@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Nosotros from './Nosotros.jsx'
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "name": "Travesía Legal",
+  "url": "https://travesialegal.com",
+  "telephone": "+34694269008",
+  "employee": [
+    { "@type": "Person", "name": "Pau Iglesias", "jobTitle": "Especialista en Extranjería", "worksFor": { "@type": "Organization", "name": "Travesía Legal" } },
+    { "@type": "Person", "name": "Nombre Apellido", "jobTitle": "Asesora Fiscal", "worksFor": { "@type": "Organization", "name": "Travesía Legal" } },
+    { "@type": "Person", "name": "Nombre Apellido", "jobTitle": "Asesor Laboral", "worksFor": { "@type": "Organization", "name": "Travesía Legal" } }
+  ]
+})
+---
+<BaseLayout
+  title="Quiénes Somos | Travesía Legal — Gestoría en España"
+  description="Conoce al equipo de Travesía Legal: especialistas en extranjería, fiscal y laboral con oficinas en Barcelona y Madrid."
+  schema={schema}
+>
+  <Nosotros client:load />
+</BaseLayout>

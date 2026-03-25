@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Fiscal from '../services/Fiscal.jsx'
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "name": "Travesía Legal",
+  "url": "https://travesialegal.com",
+  "telephone": "+34694269008"
+})
+---
+<BaseLayout
+  title="Gestión Fiscal y Contable para Autónomos y Empresas | Travesía Legal"
+  description="Declaraciones trimestrales, contabilidad completa, IVA, IRPF y cierre anual para autónomos y empresas en España. Consulta gratuita."
+  schema={schema}
+>
+  <Fiscal client:load />
+</BaseLayout>

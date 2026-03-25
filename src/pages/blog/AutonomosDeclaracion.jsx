@@ -1,6 +1,4 @@
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import { MessageCircle, Calendar, Clock, ArrowLeft } from 'lucide-react'
 import InteractiveButton from '../../components/InteractiveButton.jsx'
 
@@ -50,12 +48,6 @@ const articleStyles = {
 export default function AutonomosDeclaracion() {
   return (
     <>
-      <Helmet>
-        <title>Autónomos en España: Declaración de la Renta y Deducciones (2026) | Travesía Legal</title>
-        <meta name="description" content="Guía práctica para autónomos: modelos 303, 130, 111, deducciones fiscales y declaración anual de la renta en España 2026." />
-        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
-      </Helmet>
-
       {/* Hero */}
       <section style={{
         background: 'linear-gradient(135deg, #08142A 0%, #0D1F3C 60%, #162B52 100%)',
@@ -64,9 +56,9 @@ export default function AutonomosDeclaracion() {
       }}>
         <div className="container">
           <motion.div initial={{ opacity: 1, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <Link to="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '24px', textDecoration: 'none' }}>
+            <a href="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '24px', textDecoration: 'none' }}>
               <ArrowLeft size={14} /> Volver al blog
-            </Link>
+            </a>
             <div style={{ display: 'flex', gap: '12px', marginBottom: '20px', flexWrap: 'wrap' }}>
               <span style={{ background: '#FEF9EC', color: '#A8853A', fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', padding: '4px 10px', borderRadius: '4px' }}>Fiscal</span>
               <span style={{ display: 'flex', alignItems: 'center', gap: '4px', color: 'rgba(255,255,255,0.5)', fontSize: '13px', fontFamily: 'var(--font-mono)' }}><Clock size={12} /> 7 min de lectura</span>
@@ -226,11 +218,11 @@ export default function AutonomosDeclaracion() {
                   { to: '/gestoria-autonomos-barcelona', label: 'Gestoría Autónomos Barcelona' },
                   { to: '/gestoria-autonomos-sabadell', label: 'Gestoría Autónomos Sabadell' },
                 ].map(l => (
-                  <Link key={l.to} to={l.to} style={{ display: 'block', fontSize: '13px', color: 'var(--ink-mid)', marginBottom: '10px', textDecoration: 'none', paddingLeft: '12px', borderLeft: '2px solid var(--gold)', transition: 'color 0.2s' }}
+                  <a key={l.to} href={l.to} style={{ display: 'block', fontSize: '13px', color: 'var(--ink-mid)', marginBottom: '10px', textDecoration: 'none', paddingLeft: '12px', borderLeft: '2px solid var(--gold)', transition: 'color 0.2s' }}
                     onMouseEnter={e => e.currentTarget.style.color = 'var(--navy)'}
                     onMouseLeave={e => e.currentTarget.style.color = 'var(--ink-mid)'}>
                     {l.label}
-                  </Link>
+                  </a>
                 ))}
               </div>
             </motion.aside>

@@ -1,5 +1,4 @@
 import { ArrowRight } from 'lucide-react'
-import { Link } from 'react-router-dom'
 
 /**
  * InteractiveButton — sliding dot hover animation.
@@ -7,8 +6,8 @@ import { Link } from 'react-router-dom'
  *
  * Props:
  *  variant   'gold' | 'outline-dark'
- *  href      external URL  → renders <a>
- *  to        internal path → renders <Link>
+ *  href      URL (internal or external)
+ *  to        internal path (alias for href, kept for backwards compat)
  *  children  button label (icon + text)
  *  style     extra inline styles
  */
@@ -26,12 +25,8 @@ export default function InteractiveButton({ variant = 'gold', href, to, children
     </>
   )
 
-  if (to) {
-    return <Link to={to} className={cls} style={style} {...rest}>{inner}</Link>
-  }
-
   return (
-    <a href={href} className={cls} style={style} {...rest}>
+    <a href={to || href} className={cls} style={style} {...rest}>
       {inner}
     </a>
   )

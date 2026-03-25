@@ -1,4 +1,3 @@
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { MessageCircle, MapPin, FileText, BarChart2, Users, Shield, Calculator, BookOpen, TrendingDown, UserCheck } from 'lucide-react'
 import FAQ from '../../components/FAQ.jsx'
@@ -49,12 +48,6 @@ const fadeUp = {
 export default function GestoriaAutonomosSabadell() {
   return (
     <>
-      <Helmet>
-        <title>Gestoría para Autónomos en Sabadell | Travesía Legal</title>
-        <meta name="description" content="Gestoría fiscal y laboral para autónomos en Sabadell. Alta, declaraciones, IVA, IRPF y asesoramiento continuo. Oficina en C/ Vallirana, 7. Consulta gratuita." />
-        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
-      </Helmet>
-
       {/* Hero */}
       <section style={{
         background: 'radial-gradient(ellipse 600px 400px at 80% 50%, rgba(200,169,110,0.08) 0%, transparent 70%), linear-gradient(135deg, #08142A 0%, #0D1F3C 60%, #162B52 100%)',
