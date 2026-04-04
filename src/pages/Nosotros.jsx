@@ -17,14 +17,8 @@ const orgSchema = {
     },
     {
       "@type": "Person",
-      "name": "Nombre Apellido",
-      "jobTitle": "Asesora Fiscal",
-      "worksFor": { "@type": "Organization", "name": "Travesía Legal" }
-    },
-    {
-      "@type": "Person",
-      "name": "Nombre Apellido",
-      "jobTitle": "Asesor Laboral",
+      "name": "Leidy Yhoana Reina Vanegas",
+      "jobTitle": "Especialista Fiscal y Contable",
       "worksFor": { "@type": "Organization", "name": "Travesía Legal" }
     }
   ]
@@ -137,24 +131,14 @@ Su trayectoria incluye la gestión de cientos de casos de regularización, reagr
                 instagram: 'https://www.instagram.com/iglesiasextranjeria/',
               },
               {
-                photo: 'https://placehold.co/400x400',
-                initials: 'NA',
-                name: 'Nombre Apellido',
-                title: 'Asesora Fiscal',
-                badge: 'Gestión Fiscal',
-                bio: `Especialista en gestión fiscal y contable para autónomos y empresas. Con amplia experiencia en declaraciones trimestrales, IVA, IRPF y planificación fiscal anual, acompaña a nuestros clientes en todas sus obligaciones tributarias.
+                photo: '/founders/Leidy%20Yhoana%20Reina%20Vanegas.jpg',
+                initials: 'LY',
+                name: 'Leidy Yhoana Reina Vanegas',
+                title: 'Especialista Fiscal y Contable',
+                badge: 'Fiscal y Contable',
+                bio: `Especialista en fiscalidad, contabilidad y gestión tributaria para empresas y autónomos, con sólida trayectoria en el asesoramiento integral en el cumplimiento de obligaciones fiscales y contables.
 
-Su enfoque está en optimizar la carga fiscal dentro del marco legal, identificando todas las deducciones aplicables y anticipando los plazos con Hacienda.`,
-              },
-              {
-                photo: 'https://placehold.co/400x400',
-                initials: 'NA',
-                name: 'Nombre Apellido',
-                title: 'Asesor Laboral',
-                badge: 'Asesoramiento Laboral',
-                bio: `Experto en asesoramiento laboral integral para autónomos y empresas. Gestiona nóminas, contratos, altas y bajas en la Seguridad Social, así como relaciones con la inspección de trabajo y convenios colectivos.
-
-Su especialidad es acompañar a las empresas en el cumplimiento normativo laboral con total seguridad jurídica.`,
+Experta en cierres contables, presentación de impuestos, cuentas anuales y planificación fiscal. Combina un riguroso conocimiento técnico con atención al detalle y orientación a la seguridad jurídica del cliente.`,
               },
             ].map(({ photo, initials, name, title, badge, bio, instagram }) => (
               <motion.div key={name} {...fadeUp} style={{

@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Extranjería y Residencia',
+  categorySlug: 'extranjeria-y-residencia',
+  title: 'Reagrupación Familiar',
+  titleLine1: 'Reagrupación',
+  titleLine2: 'Familiar',
+  description: 'Si tienes residencia legal en España, puedes traer a tu familia. Gestionamos la reagrupación familiar para cónyuge, hijos y ascendientes, incluyendo el visado y la tarjeta de residencia.',
+  featuresTitle: 'Qué gestionamos',
+  features: [
+    { icon: 'Heart', label: 'Reagrupación de cónyuge o pareja de hecho' },
+    { icon: 'Users', label: 'Reagrupación de hijos menores' },
+    { icon: 'Home', label: 'Reagrupación de ascendientes (padres)' },
+    { icon: 'FileText', label: 'Preparación del expediente completo' },
+    { icon: 'Globe', label: 'Tramitación del visado consular' },
+    { icon: 'RefreshCw', label: 'Renovaciones y modificaciones' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre reagrupación familiar',
+  faqItems: [
+    {
+      q: '¿Quién puede solicitar la reagrupación familiar en España?',
+      a: 'Puede solicitar la reagrupación quien disponga de autorización de residencia en vigor de al menos 1 año y haya solicitado o esté en condiciones de obtener la renovación. No pueden iniciar la reagrupación quienes tengan una autorización como estudiante, práctica, ni quienes estén en proceso de obtener otra autorización. Los reagrupables son: cónyuge o pareja registrada, hijos menores de 18 años, y ascendientes (con condiciones específicas).'
+    },
+    {
+      q: '¿Qué medios económicos se necesitan para reagrupar a la familia?',
+      a: 'El reagrupante debe acreditar medios económicos suficientes para mantener a los familiares que reagrupa, sin que sean una carga para los servicios sociales. Los importes mínimos son: para 2 personas (reagrupante + 1 familiar): el 150% del IPREM mensual; para 3 personas: el 200%; para 4: el 250%. También debe disponer de vivienda adecuada.'
+    },
+    {
+      q: '¿Cómo se acredita la vivienda adecuada para la reagrupación?',
+      a: 'La vivienda adecuada se acredita mediante informe de habitabilidad emitido por el Ayuntamiento, que verifica que el domicilio tiene las condiciones mínimas de superficie, habitaciones, equipamiento e higiene para alojar a los reagrupados. En Barcelona y otros municipios, este informe puede solicitarse en las oficinas municipales de vivienda.'
+    },
+    {
+      q: '¿Cuánto tiempo tarda la reagrupación familiar?',
+      a: 'El proceso completo suele durar entre 4 y 8 meses. Primero se obtiene el informe de vivienda (1-2 meses), luego se presenta la solicitud ante la Delegación del Gobierno (resolución en 3 meses), y una vez aprobada, el familiar solicita el visado en el consulado y viaja a España para obtener la tarjeta de residencia.'
+    },
+    {
+      q: '¿Pueden trabajar los familiares reagrupados?',
+      a: 'Sí. Los cónyuges e hijos mayores de 16 años reagrupados obtienen una autorización de residencia y trabajo, lo que les permite trabajar por cuenta ajena o propia sin necesidad de trámites adicionales desde el primer momento.'
+    },
+  ],
+  ctaTitle: '¿Quieres traer a tu familia a España?',
+  ctaDesc: 'Analizamos tu situación y gestionamos la reagrupación familiar de principio a fin.',
+  relatedPost: {
+    title: 'Reagrupación familiar en España: guía completa 2025',
+    href: '/blog/reagrupacion-familiar-espana'
+  }
+}
+
+const schema = JSON.stringify([
+  { "@context": "https://schema.org", "@type": "LegalService", "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008", "address": [{ "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" }, { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }] },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Reagrupación Familiar en España: Trae a tu Familia | Travesía Legal"
+  description="Especialistas en reagrupación familiar en España. Tramitamos cónyuge, hijos y ascendientes. Consulta gratuita en Barcelona y Madrid."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/extranjeria-y-residencia/reagrupacion-familiar"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

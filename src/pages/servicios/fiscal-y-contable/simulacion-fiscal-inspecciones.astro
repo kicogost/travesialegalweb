@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Fiscal y Contable',
+  categorySlug: 'fiscal-y-contable',
+  title: 'Simulación Fiscal e Inspecciones',
+  titleLine1: 'Simulación',
+  titleLine2: 'e Inspecciones',
+  description: 'Analizamos tu situación fiscal antes de que lo haga Hacienda y te defendemos ante inspecciones, requerimientos y recursos. Previsión y defensa fiscal de la mano de expertos.',
+  featuresTitle: 'Qué gestionamos',
+  features: [
+    { icon: 'Search', label: 'Simulación y revisión previa de la situación fiscal' },
+    { icon: 'AlertCircle', label: 'Gestión de requerimientos de Hacienda' },
+    { icon: 'Shield', label: 'Defensa ante inspecciones tributarias' },
+    { icon: 'FileText', label: 'Recursos contra liquidaciones y sanciones' },
+    { icon: 'Scale', label: 'Reclamaciones económico-administrativas' },
+    { icon: 'CheckCircle', label: 'Regularización voluntaria (actas con acuerdo)' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre inspecciones fiscales',
+  faqItems: [
+    {
+      q: '¿Qué es una inspección fiscal y cuánto puede remontarse en el tiempo?',
+      a: 'Una inspección fiscal es un procedimiento de comprobación e investigación que lleva a cabo la Agencia Tributaria para verificar el correcto cumplimiento de las obligaciones tributarias. El plazo de prescripción general es de 4 años desde la fecha límite de presentación de cada declaración. En casos de infracción muy grave o cuando hay ocultación o simulación, el plazo puede extenderse hasta 10 años.'
+    },
+    {
+      q: '¿Qué debo hacer si recibo un requerimiento de Hacienda?',
+      a: 'Lo primero es no ignorarlo: los plazos de contestación son cortos (generalmente 10 días hábiles en vía electrónica). Es fundamental analizar detenidamente qué información solicita y preparar la respuesta adecuada. Si el requerimiento se refiere a discrepancias en declaraciones o a operaciones complejas, es muy recomendable contar con asesoramiento fiscal especializado antes de contestar.'
+    },
+    {
+      q: '¿Qué es una acta de inspección y qué tipos existen?',
+      a: 'El acta es el documento que formaliza el resultado de una inspección. Existen tres tipos: actas de conformidad (el contribuyente acepta la propuesta de regularización, con reducción del 30% en la sanción), actas de disconformidad (el contribuyente no acepta y puede recurrir), y actas con acuerdo (negociadas entre Hacienda y el contribuyente, con reducción del 50% en la sanción).'
+    },
+    {
+      q: '¿Cuáles son las sanciones por infracción tributaria?',
+      a: 'Las sanciones tributarias en España se clasifican en leves, graves y muy graves. Las infracciones leves tienen una sanción del 50% de la cuota no ingresada; las graves, entre el 50% y el 100%; y las muy graves (con ocultación o uso de medios fraudulentos), entre el 100% y el 150%. Además, se añaden recargos e intereses de demora. La correcta gestión puede reducir sustancialmente el importe final.'
+    },
+    {
+      q: '¿Qué es una simulación fiscal y cómo puede ayudarme?',
+      a: 'Una simulación fiscal es un análisis previo en el que revisamos tu situación tributaria desde la perspectiva de la Agencia Tributaria: identificamos posibles discrepancias, inconsistencias o riesgos en tus declaraciones antes de que Hacienda lo haga. Esto permite corregir errores de forma voluntaria (con sanciones reducidas), preparar documentación justificativa de las operaciones realizadas, y anticipar argumentos de defensa.'
+    },
+  ],
+  ctaTitle: '¿Has recibido un requerimiento de Hacienda?',
+  ctaDesc: 'No respondas sin asesoramiento. Te ayudamos a gestionar inspecciones y recursos fiscales.',
+}
+
+const schema = JSON.stringify([
+  { "@context": "https://schema.org", "@type": "LegalService", "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008", "address": [{ "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" }, { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }] },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Inspecciones Fiscales y Simulación Tributaria en España | Travesía Legal"
+  description="Defensa ante inspecciones de Hacienda, requerimientos y recursos fiscales. Simulación previa para detectar riesgos. Consulta gratuita."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/fiscal-y-contable/simulacion-fiscal-inspecciones"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

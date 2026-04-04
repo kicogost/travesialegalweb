@@ -166,7 +166,7 @@ export default function Home() {
               </InteractiveButton>
               <InteractiveButton
                 variant="outline-dark"
-                to="/servicios/extranjeria-y-nacionalidad"
+                to="/servicios/ciudadania/"
               >
                 Ver nuestros servicios
               </InteractiveButton>
@@ -231,22 +231,153 @@ export default function Home() {
               icon={Globe}
               title="Extranjería y Nacionalidad"
               description="Visados, arraigo y nacionalidad española para ciudadanos extranjeros. Gestionamos tu expediente de principio a fin."
-              href="/servicios/extranjeria-y-nacionalidad"
+              href="/servicios/extranjeria-y-residencia/"
             />
             <ServiceCard
               icon={Briefcase}
-              title="Asesoramiento Laboral"
-              description="Gestión de contratos, nóminas, altas y bajas en la Seguridad Social, para autónomos y empresas en toda España."
-              href="/servicios/asesoramiento-laboral"
+              title="Empresas e Inversión"
+              description="Constitución de sociedades, visados para emprendedores, traslado de empleados y asesoramiento legal integral."
+              href="/servicios/empresas-e-inversion/"
             />
             <ServiceCard
               icon={BarChart2}
-              title="Gestión Fiscal y Contable"
-              description="Declaraciones trimestrales, contabilidad completa, IVA, IRPF y cierre anual para autónomos y sociedades."
-              href="/servicios/gestion-fiscal-contable"
+              title="Fiscal y Contable"
+              description="Declaraciones trimestrales, contabilidad completa, IVA, IRPF, Ley Beckham y planificación fiscal."
+              href="/servicios/fiscal-y-contable/"
             />
           </motion.div>
         </div>
+      </section>
+
+      {/* Cómo trabajamos */}
+      <section style={{ background: 'var(--navy-faint)', padding: '96px 0' }}>
+        <div className="container">
+          <motion.div {...fadeUp} style={{ textAlign: 'center', marginBottom: '64px' }}>
+            <span className="section-label">Cómo trabajamos</span>
+            <h2 style={{ fontSize: 'clamp(28px, 3.5vw, 40px)', fontWeight: '700', color: 'var(--navy)', marginBottom: '16px' }}>
+              Qué esperar cuando nos contactas
+            </h2>
+            <p style={{ fontSize: '17px', color: 'var(--ink-mid)', maxWidth: '500px', margin: '0 auto', lineHeight: 1.7 }}>
+              Queremos que sepas exactamente cómo trabajamos antes de escribirnos. Sin sorpresas.
+            </p>
+          </motion.div>
+
+          <motion.div {...fadeUp} style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: '0',
+            position: 'relative',
+          }}>
+            {[
+              {
+                step: '01',
+                title: 'Consulta inicial',
+                desc: 'Nos escribes por WhatsApp o rellenas el formulario. Hablamos de tu situación y te decimos qué vía es la adecuada para tu caso.',
+                icon: MessageCircle,
+              },
+              {
+                step: '02',
+                title: 'Revisamos tu documentación',
+                desc: 'Te pedimos los documentos necesarios y te guiamos para conseguir los que te falten, paso a paso y sin complicaciones.',
+                icon: CheckCircle,
+              },
+              {
+                step: '03',
+                title: 'Gestionamos tu expediente',
+                desc: 'Nos encargamos de presentar la solicitud y hacemos el seguimiento con la administración. Te mantenemos informado en todo momento.',
+                icon: TrendingUp,
+              },
+              {
+                step: '04',
+                title: 'Resolución',
+                desc: 'Te comunicamos el resultado y te ayudamos con los trámites posteriores si los hay. El proceso no termina hasta que tú estás tranquilo.',
+                icon: Shield,
+              },
+            ].map(({ step, title, desc, icon: Icon }, i, arr) => (
+              <div key={step} style={{
+                position: 'relative',
+                padding: '0 32px',
+                borderRight: i < arr.length - 1 ? '1px dashed var(--border)' : 'none',
+              }}>
+                {/* Step number */}
+                <div style={{
+                  width: '64px', height: '64px',
+                  borderRadius: '50%',
+                  background: 'var(--navy)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  margin: '0 auto 24px',
+                  position: 'relative',
+                  boxShadow: '0 4px 16px rgba(13,31,60,0.18)',
+                }}>
+                  <span style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '20px',
+                    fontWeight: '600',
+                    color: 'var(--gold)',
+                  }}>{step}</span>
+                  {/* Small icon badge */}
+                  <div style={{
+                    position: 'absolute',
+                    bottom: '-4px', right: '-4px',
+                    width: '24px', height: '24px',
+                    borderRadius: '50%',
+                    background: 'var(--gold)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    border: '2px solid var(--white)',
+                  }}>
+                    <Icon size={12} color="var(--navy)" strokeWidth={2.5} />
+                  </div>
+                </div>
+                <h3 style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '19px', fontWeight: '700',
+                  color: 'var(--navy)', marginBottom: '12px',
+                  textAlign: 'center',
+                }}>{title}</h3>
+                <p style={{
+                  fontSize: '14px', color: 'var(--ink-mid)',
+                  lineHeight: 1.75, textAlign: 'center',
+                }}>{desc}</p>
+              </div>
+            ))}
+          </motion.div>
+
+          <motion.div {...fadeUp} style={{ textAlign: 'center', marginTop: '56px' }}>
+            <a
+              href="https://wa.me/34694269008"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '10px',
+                background: 'var(--gold)', color: 'var(--navy)',
+                fontFamily: 'var(--font-body)', fontSize: '15px', fontWeight: '600',
+                padding: '14px 28px', borderRadius: 'var(--radius-md)',
+                textDecoration: 'none', transition: 'background 0.2s, box-shadow 0.2s',
+                boxShadow: '0 4px 16px rgba(200,169,110,0.3)',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'var(--gold-dark)'; e.currentTarget.style.color = 'white' }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'var(--gold)'; e.currentTarget.style.color = 'var(--navy)' }}
+            >
+              <MessageCircle size={18} />
+              Empieza tu consulta gratuita
+            </a>
+          </motion.div>
+        </div>
+        <style>{`
+          @media (max-width: 768px) {
+            section div[style*='border-right'] {
+              border-right: none !important;
+              border-bottom: 1px dashed var(--border);
+              padding: 0 0 32px !important;
+              margin-bottom: 32px;
+            }
+            section div[style*='border-right']:last-child {
+              border-bottom: none !important;
+              margin-bottom: 0;
+              padding-bottom: 0 !important;
+            }
+          }
+        `}</style>
       </section>
 
       {/* Why us */}
@@ -323,55 +454,57 @@ export default function Home() {
           </motion.div>
         </div>
 
-        <style>{`
-          @keyframes testimonials-scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-          .testimonials-track {
-            display: flex;
-            gap: 24px;
-            width: max-content;
-            animation: testimonials-scroll 32s linear infinite;
-          }
-          .testimonials-track:hover {
-            animation-play-state: paused;
-          }
-          .testimonial-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 28px;
-            width: 340px;
-            flex-shrink: 0;
-          }
-        `}</style>
-
+        {/*
+          TRUSTINDEX WIDGET
+          ─────────────────
+          1. Ve a https://trustindex.io y crea una cuenta gratuita
+          2. Conecta tu ficha de Google Business → el widget se sincroniza automáticamente
+          3. En el panel de Trustindex, personaliza los colores:
+               • Fondo de tarjeta: #FFFFFF   • Texto: #0D1F3C   • Estrellas: #C8A96E
+          4. Selecciona "Iframe embed" y copia la URL (formato: https://cdn.trustindex.io/iframeV2.html?XXXXXX)
+          5. Reemplaza el valor de TRUSTINDEX_WIDGET_URL aquí abajo y borra este comentario
+        */}
         {(() => {
+          const TRUSTINDEX_WIDGET_URL = '' // ← pega aquí tu URL de Trustindex
+          if (TRUSTINDEX_WIDGET_URL) {
+            return (
+              <div className="container">
+                <iframe
+                  src={TRUSTINDEX_WIDGET_URL}
+                  loading="lazy"
+                  title="Reseñas de clientes en Google"
+                  style={{
+                    width: '100%',
+                    border: 'none',
+                    display: 'block',
+                    minHeight: '420px',
+                    borderRadius: 'var(--radius-lg)',
+                  }}
+                />
+              </div>
+            )
+          }
+          // Mientras no se configure el widget, mostramos las reseñas existentes
           const reviews = [
             {
               name: 'Didier Moreno',
               service: 'Extranjería',
               text: 'Son unas personas confiables y efectivas en especial Pau Iglesias, es muy eficiente, su estrategia de trabajo es rápida y segura, gracias a él y a su equipo de trabajo.',
-              google: true,
             },
             {
               name: 'Ariadna Calatayud',
               service: 'Declaración de la Renta',
               text: 'Me realizaron la declaración de la renta, fue un proceso rápido y fácil. Los volveré a elegir el año que viene sin duda. Gracias.',
-              google: true,
             },
             {
               name: 'Daniel Gómez Fernández',
               service: 'Nacionalidad Española',
               text: 'Me ayudaron a regularizar mi situación una vez llegué a España. Gracias a ellos disfruto de la nacionalidad española junto con mi mujer y mis dos hijas.',
-              google: true,
             },
             {
               name: 'Vanessa Triana',
               service: 'Visado',
-              text: 'Tuve una excelente experiencia con Travesía Legal durante todo mi proceso de visado. Desde el inicio fueron muy claros al explicar cada paso, resolvieron todas mis dudas y me acompañaron con mucho profesionalismo. Recomiendo totalmente sus servicios.',
-              google: true,
+              text: 'Tuve una excelente experiencia con Travesía Legal durante todo mi proceso de visado. Desde el inicio fueron muy claros al explicar cada paso, resolvieron todas mis dudas y me acompañaron con mucho profesionalismo.',
             },
           ]
           const googleIcon = (
@@ -382,17 +515,31 @@ export default function Home() {
               <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
             </svg>
           )
-          const allReviews = [...reviews, ...reviews]
           return (
             <div style={{ overflow: 'hidden', padding: '8px 0' }}>
+              <style>{`
+                @keyframes testimonials-scroll {
+                  0% { transform: translateX(0); }
+                  100% { transform: translateX(-50%); }
+                }
+                .testimonials-track {
+                  display: flex; gap: 24px; width: max-content;
+                  animation: testimonials-scroll 32s linear infinite;
+                }
+                .testimonials-track:hover { animation-play-state: paused; }
+                .testimonial-card {
+                  background: var(--white); border: 1px solid var(--border);
+                  border-radius: var(--radius-lg); padding: 28px; width: 340px; flex-shrink: 0;
+                }
+              `}</style>
               <div className="testimonials-track">
-                {allReviews.map(({ name, service, text, google }, i) => (
+                {[...reviews, ...reviews].map(({ name, service, text }, i) => (
                   <div key={`${name}-${i}`} className="testimonial-card">
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
                       <div style={{ display: 'flex', gap: '2px' }}>
                         {[1,2,3,4,5].map(s => <Star key={s} size={14} fill="var(--gold)" color="var(--gold)" />)}
                       </div>
-                      {google && googleIcon}
+                      {googleIcon}
                     </div>
                     <p style={{ fontSize: '15px', color: 'var(--ink-mid)', lineHeight: 1.7, marginBottom: '20px', fontStyle: 'italic' }}>
                       "{text}"
@@ -467,18 +614,11 @@ export default function Home() {
                 bio: 'Experto en derecho de extranjería y nacionalidad con más de una década de experiencia en la gestión de permisos de residencia, arraigo y procesos de nacionalización.',
               },
               {
-                photo: 'https://placehold.co/400x400',
-                initials: 'NA',
-                name: 'Nombre Apellido',
-                title: 'Asesora Fiscal',
-                bio: 'Especialista en gestión fiscal y contable para autónomos y empresas. Declaraciones trimestrales, IVA, IRPF y planificación fiscal anual.',
-              },
-              {
-                photo: 'https://placehold.co/400x400',
-                initials: 'NA',
-                name: 'Nombre Apellido',
-                title: 'Asesor Laboral',
-                bio: 'Experto en asesoramiento laboral integral para autónomos y empresas. Nóminas, contratos, altas en la Seguridad Social y gestión de relaciones laborales.',
+                photo: '/founders/Leidy%20Yhoana%20Reina%20Vanegas.jpg',
+                initials: 'LY',
+                name: 'Leidy Yhoana Reina',
+                title: 'Especialista Fiscal y Contable',
+                bio: 'Especialista en fiscalidad, contabilidad y gestión tributaria para empresas y autónomos. Experta en cierres contables, declaraciones de impuestos, cuentas anuales y planificación fiscal.',
               },
             ].map(({ photo, initials, name, title, bio }) => (
               <div key={title} style={{

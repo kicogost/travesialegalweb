@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import Fiscal from '../../services/Fiscal.jsx'
+
+const schema = JSON.stringify([
+  {
+    "@context": "https://schema.org", "@type": "LegalService",
+    "name": "Travesía Legal", "url": "https://travesialegal.com",
+    "telephone": "+34694269008",
+    "address": [
+      { "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" },
+      { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }
+    ]
+  }
+])
+---
+<BaseLayout
+  title="Gestoría Fiscal y Contable en Barcelona y Madrid | Travesía Legal"
+  description="Asesoría fiscal y contable: IRPF, IVA, Impuesto de Sociedades, Ley Beckham, planificación fiscal para autónomos y empresas. Consulta gratuita."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/fiscal-y-contable/"
+>
+  <Fiscal client:load />
+</BaseLayout>

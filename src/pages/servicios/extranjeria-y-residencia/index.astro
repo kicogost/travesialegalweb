@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import Extranjeria from '../../services/Extranjeria.jsx'
+
+const schema = JSON.stringify([
+  {
+    "@context": "https://schema.org", "@type": "LegalService",
+    "name": "Travesía Legal", "url": "https://travesialegal.com",
+    "telephone": "+34694269008",
+    "address": [
+      { "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" },
+      { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }
+    ]
+  }
+])
+---
+<BaseLayout
+  title="Extranjería y Residencia en España | Permisos, Visados y Arraigo | Travesía Legal"
+  description="Especialistas en extranjería y residencia: arraigo social, permisos de trabajo, reagrupación familiar, visados y más. Consulta gratuita en Barcelona y Madrid."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/extranjeria-y-residencia/"
+>
+  <Extranjeria client:load />
+</BaseLayout>

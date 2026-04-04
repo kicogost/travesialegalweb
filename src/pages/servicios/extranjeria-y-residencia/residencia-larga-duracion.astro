@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Extranjería y Residencia',
+  categorySlug: 'extranjeria-y-residencia',
+  title: 'Residencia de Larga Duración',
+  titleLine1: 'Larga',
+  titleLine2: 'Duración',
+  description: 'Tras 5 años de residencia legal continua en España, puedes acceder a la residencia de larga duración o la Tarjeta de Residencia Permanente. Gestionamos tu solicitud y renovaciones.',
+  featuresTitle: 'Qué gestionamos',
+  features: [
+    { icon: 'Shield', label: 'Verificación de los 5 años de residencia' },
+    { icon: 'FileText', label: 'Expediente de larga duración o LDC-UE' },
+    { icon: 'Globe', label: 'Tarjeta de Residencia Permanente UE' },
+    { icon: 'CheckCircle', label: 'Situación nacional de empleo exenta' },
+    { icon: 'RefreshCw', label: 'Renovaciones cada 5 años' },
+    { icon: 'Users', label: 'Extensión a familiares reagrupados' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre la residencia de larga duración',
+  faqItems: [
+    {
+      q: '¿Qué es la residencia de larga duración y cuándo se puede solicitar?',
+      a: 'La residencia de larga duración se puede solicitar tras 5 años de residencia legal y continua en España. Ofrece una mayor estabilidad que las autorizaciones ordinarias: acceso al mercado laboral sin restricciones, igual trato que los ciudadanos españoles en materia de trabajo, educación, y seguridad social, y renovación cada 5 años.'
+    },
+    {
+      q: '¿Qué diferencia hay entre la residencia de larga duración española y la de la UE (LDC-UE)?',
+      a: 'La residencia de larga duración española solo tiene validez en España. La Tarjeta de Residencia de Larga Duración UE (LDC-UE) permite, además de residir en España, establecerse en otros países de la UE con condiciones facilitadas. Para obtenerla se requiere cumplir los mismos 5 años, además de acreditar recursos económicos suficientes y seguro médico.'
+    },
+    {
+      q: '¿Todos los años de residencia cuentan para los 5 años?',
+      a: 'No todos. Para el cómputo de los 5 años se tienen en cuenta las autorizaciones de residencia temporal. Los períodos de estancia como turista, estudiante (con ciertas excepciones), o en situación irregular no se computan. También hay que tener cuidado con las ausencias: no pueden superar los 10 meses en el total de los 5 años, ni más de 6 meses consecutivos.'
+    },
+    {
+      q: '¿Necesito trabajar para renovar la residencia de larga duración?',
+      a: 'No es necesario estar trabajando para renovar la residencia de larga duración. Sin embargo, sí es necesario acreditar que se dispone de medios económicos suficientes para vivir (en torno al 100% del IPREM mensual). La larga duración es una de las autorizaciones más sólidas del sistema de extranjería español.'
+    },
+    {
+      q: '¿Se puede perder la residencia de larga duración?',
+      a: 'Sí, puede perderse en caso de: ausencias de España superiores a 12 meses consecutivos, adquisición de la residencia de larga duración en otro estado de la UE, condena penal que implique expulsión, o fraude comprobado en la obtención. La residencia de larga duración UE se pierde también por ausencias superiores a 6 años del territorio de la UE.'
+    },
+  ],
+  ctaTitle: '¿Llevas 5 años en España?',
+  ctaDesc: 'Solicita tu residencia de larga duración y consolida tu situación legal de forma definitiva.',
+}
+
+const schema = JSON.stringify([
+  { "@context": "https://schema.org", "@type": "LegalService", "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008", "address": [{ "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" }, { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }] },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Residencia de Larga Duración en España: 5 Años | Travesía Legal"
+  description="Tramitamos la residencia de larga duración y la Tarjeta UE tras 5 años en España. Mayor estabilidad y derechos. Consulta gratuita."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/extranjeria-y-residencia/residencia-larga-duracion"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Fiscal y Contable',
+  categorySlug: 'fiscal-y-contable',
+  title: 'Régimen de Impatriados (Ley Beckham)',
+  titleLine1: 'Ley Beckham',
+  titleLine2: 'Impatriados',
+  description: 'Tributación al 24% fijo durante 6 años para personas que se trasladan a España por trabajo. La Ley Beckham es la opción fiscal más ventajosa para profesionales y directivos que llegan a España.',
+  featuresTitle: 'Qué gestionamos',
+  features: [
+    { icon: 'Calculator', label: 'Análisis de elegibilidad para el régimen' },
+    { icon: 'FileText', label: 'Solicitud del régimen especial (modelo 149)' },
+    { icon: 'Globe', label: 'Planificación fiscal internacional' },
+    { icon: 'Shield', label: 'Compatibilidad con visado de nómada digital' },
+    { icon: 'TrendingUp', label: 'Optimización salarial y retributiva' },
+    { icon: 'BarChart2', label: 'Gestión anual del IRNR e IRPF especial' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre la Ley Beckham',
+  faqItems: [
+    {
+      q: '¿Qué es el régimen de impatriados (Ley Beckham)?',
+      a: 'El régimen especial de impatriados, popularmente conocido como "Ley Beckham", es una opción fiscal prevista en el artículo 93 de la Ley del IRPF. Permite a determinadas personas que se desplazan a España por motivos laborales tributar como no residentes durante 6 años fiscales, aplicando un tipo fijo del 24% a los primeros 600.000 € de rendimientos del trabajo de fuente española, y el 47% al exceso.'
+    },
+    {
+      q: '¿Quién puede acogerse a la Ley Beckham?',
+      a: 'Pueden acogerse quienes: (1) adquieren residencia fiscal en España por primera vez o no han sido residentes en los 5 años anteriores; (2) se desplazan a España a consecuencia de un contrato de trabajo, de un nombramiento como administrador de una entidad (con condiciones), o por actividad emprendedora (Ley de Startups); (3) solicitan el régimen dentro de los 6 meses siguientes al inicio de la actividad en España.'
+    },
+    {
+      q: '¿Cuánto se ahorra con la Ley Beckham respecto al IRPF ordinario?',
+      a: 'El ahorro depende del nivel de ingresos. Para un salario de 100.000 €/año, el IRPF ordinario puede superar el 43-45%, mientras que la Ley Beckham aplica el 24% fijo, suponiendo un ahorro de más de 19.000 € anuales. Para salarios de 200.000 €, el ahorro puede superar los 45.000 € al año. En 6 años, el ahorro total puede ser muy significativo.'
+    },
+    {
+      q: '¿Cuál es el plazo para solicitar la Ley Beckham?',
+      a: 'La solicitud debe presentarse mediante el modelo 149 ante la Agencia Tributaria dentro de los 6 meses siguientes al inicio de la actividad laboral o al alta en la Seguridad Social. Este plazo es improrrogable. Si se supera, no es posible acogerse al régimen para ese ejercicio, perdiéndose uno de los 6 años disponibles.'
+    },
+    {
+      q: '¿Se puede aplicar la Ley Beckham siendo nómada digital?',
+      a: 'Sí. Desde 2023, los titulares del visado o autorización de nómada digital (teletrabajadores internacionales) pueden acogerse al régimen de impatriados. También los emprendedores con visado de startup. Esto hace de la combinación visado de nómada digital + Ley Beckham una de las opciones más atractivas para profesionales internacionales que se trasladan a España.'
+    },
+  ],
+  ctaTitle: '¿Te estás trasladando a España por trabajo?',
+  ctaDesc: 'Analizamos si puedes acogerte a la Ley Beckham y tramitamos el modelo 149 en el plazo correcto.',
+}
+
+const schema = JSON.stringify([
+  { "@context": "https://schema.org", "@type": "LegalService", "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008", "address": [{ "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" }, { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }] },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Ley Beckham en España: Régimen de Impatriados 24% | Travesía Legal"
+  description="Aplicamos el régimen de impatriados (Ley Beckham) para que tributes al 24% fijo durante 6 años. Nómadas digitales, directivos y emprendedores. Consulta gratuita."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/fiscal-y-contable/regimen-impatriados-ley-beckham"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

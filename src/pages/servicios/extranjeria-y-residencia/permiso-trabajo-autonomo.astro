@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Extranjería y Residencia',
+  categorySlug: 'extranjeria-y-residencia',
+  title: 'Permiso de Trabajo como Autónomo',
+  titleLine1: 'Trabajo',
+  titleLine2: 'Autónomo',
+  description: 'Obtén tu autorización de residencia y trabajo por cuenta propia en España. Te ayudamos a preparar el plan de negocio y toda la documentación para que puedas ejercer tu actividad como autónomo.',
+  featuresTitle: 'Qué gestionamos',
+  features: [
+    { icon: 'Briefcase', label: 'Autorización de trabajo por cuenta propia' },
+    { icon: 'ClipboardList', label: 'Elaboración del plan de negocio' },
+    { icon: 'FileText', label: 'Licencias y habilitaciones profesionales' },
+    { icon: 'Calculator', label: 'Proyección económica y viabilidad' },
+    { icon: 'RefreshCw', label: 'Renovaciones de la autorización' },
+    { icon: 'Shield', label: 'Gestión del alta como autónomo (RETA)' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre el permiso de trabajo autónomo',
+  faqItems: [
+    {
+      q: '¿Qué requisitos hay para obtener la autorización de trabajo por cuenta propia?',
+      a: 'Los principales requisitos son: no estar en situación irregular en España, no tener antecedentes penales, contar con la titulación o habilitación profesional requerida para la actividad, disponer de los medios económicos suficientes para desarrollar el negocio, y presentar un plan de negocio viable que justifique la actividad.'
+    },
+    {
+      q: '¿Qué debe incluir el plan de negocio para el permiso de autónomo?',
+      a: 'El plan de negocio debe incluir: descripción detallada de la actividad, mercado objetivo, previsión de ingresos y gastos para los primeros 2 años, inversión inicial, fuentes de financiación, valor añadido de la actividad para la economía española, y CVs relevantes. Debe demostrar la viabilidad económica y la capacidad del solicitante para desarrollar la actividad.'
+    },
+    {
+      q: '¿Cuánto tiempo tarda la autorización de trabajo por cuenta propia?',
+      a: 'El plazo de resolución es de 3 meses desde la presentación de la solicitud. En la práctica puede variar. La autorización inicial tiene una vigencia de 1 año, prorrogable por 2 años en las renovaciones siguientes, siempre que se mantenga la actividad económica.'
+    },
+    {
+      q: '¿Puedo solicitar el permiso de autónomo si ya tengo una autorización por cuenta ajena?',
+      a: 'Sí, es posible modificar la autorización de cuenta ajena a cuenta propia, o añadir la actividad por cuenta propia como complementaria. También es posible solicitarla como modificación de la autorización vigente. Cada caso requiere un análisis previo para determinar la vía más adecuada.'
+    },
+    {
+      q: '¿Qué diferencia hay entre el permiso de autónomo y el visado de emprendedor?',
+      a: 'El permiso de autónomo por cuenta propia es para quienes desean trabajar como autónomos en actividades económicas convencionales. El visado de emprendedor (Ley de Emprendedores) está orientado a proyectos de base tecnológica o innovadores con potencial de crear empleo. Los requisitos, plazos y condiciones de ambas vías son distintos.'
+    },
+  ],
+  ctaTitle: '¿Quieres emprender como autónomo en España?',
+  ctaDesc: 'Te ayudamos con el plan de negocio y gestionamos tu autorización de trabajo por cuenta propia.',
+}
+
+const schema = JSON.stringify([
+  { "@context": "https://schema.org", "@type": "LegalService", "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008", "address": [{ "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" }, { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }] },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Permiso de Trabajo como Autónomo en España para Extranjeros | Travesía Legal"
+  description="Tramitamos autorizaciones de trabajo por cuenta propia para extranjeros en España. Plan de negocio, alta en RETA y renovaciones. Consulta gratuita."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/extranjeria-y-residencia/permiso-trabajo-autonomo"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

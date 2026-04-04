@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Fiscal y Contable',
+  categorySlug: 'fiscal-y-contable',
+  title: 'Gestión Fiscal Autónomos y Sociedades',
+  titleLine1: 'Fiscal para',
+  titleLine2: 'Autónomos',
+  description: 'Llevamos la gestión fiscal y contable de autónomos y sociedades de forma integral: IVA, IRPF, Impuesto de Sociedades, contabilidad mensual y todas las obligaciones tributarias.',
+  featuresTitle: 'Qué gestionamos',
+  features: [
+    { icon: 'Calculator', label: 'Presentación de modelos IVA (303, 390)' },
+    { icon: 'FileText', label: 'Retenciones IRPF (modelo 111, 115, 190)' },
+    { icon: 'BookOpen', label: 'Contabilidad mensual y anual' },
+    { icon: 'TrendingUp', label: 'Impuesto sobre Sociedades (modelo 200)' },
+    { icon: 'BarChart2', label: 'Cuentas anuales y depósito en Registro' },
+    { icon: 'Shield', label: 'Gestión de requerimientos de Hacienda' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre gestión fiscal para autónomos',
+  faqItems: [
+    {
+      q: '¿Qué obligaciones fiscales tiene un autónomo en España?',
+      a: 'Los autónomos en España deben presentar trimestralmente el modelo 303 (IVA), el modelo 130 (pago fraccionado del IRPF para estimación directa) o el modelo 131 (estimación objetiva), el modelo 111 (retenciones sobre rendimientos del trabajo) si tienen empleados, y el modelo 115 (retenciones por alquileres). Anualmente deben presentar la declaración de la renta (IRPF) y los resúmenes anuales.'
+    },
+    {
+      q: '¿Qué gastos puede deducirse un autónomo en el IRPF?',
+      a: 'Los autónomos pueden deducir los gastos directamente vinculados a la actividad: suministros (luz, internet), alquiler del local o parte proporcional del domicilio, material de oficina, vehículo (según uso profesional acreditado), dietas y desplazamientos, seguros, cuotas de autónomo, amortizaciones, y los gastos de difícil justificación (5% de los rendimientos netos, hasta 2.000 €).'
+    },
+    {
+      q: '¿Cuándo debe una empresa depositar las cuentas anuales?',
+      a: 'Las sociedades mercantiles deben aprobar las cuentas anuales en junta general dentro de los 6 meses siguientes al cierre del ejercicio (30 de junio para ejercicios cerrados en diciembre) y depositarlas en el Registro Mercantil en el plazo de 1 mes desde la aprobación (antes del 31 de julio). El incumplimiento puede dar lugar a sanciones.'
+    },
+    {
+      q: '¿Qué es la estimación directa simplificada y quién puede usarla?',
+      a: 'La estimación directa simplificada es un régimen fiscal para autónomos con facturación inferior a 600.000 € anuales que no hayan renunciado a ella. Permite aplicar una tabla de amortización simplificada y deducir el 5% de los rendimientos netos por gastos de difícil justificación (con un máximo de 2.000 €). Es más sencilla que la estimación directa normal.'
+    },
+    {
+      q: '¿Necesito contratar un gestor si soy autónomo con pocos ingresos?',
+      a: 'No es obligatorio, pero es muy recomendable. Un gestor evita errores en la presentación de modelos, identifica deducciones que quizás desconoces, y gestiona cualquier requerimiento de Hacienda. El coste de una gestoría suele compensarse con el ahorro fiscal obtenido y con la tranquilidad de estar al día con todas las obligaciones tributarias.'
+    },
+  ],
+  ctaTitle: '¿Eres autónomo o tienes una empresa?',
+  ctaDesc: 'Nos ocupamos de toda tu gestión fiscal y contable para que tú te concentres en tu negocio.',
+  relatedPost: {
+    title: 'Gestión contable y fiscal para empresas en España',
+    href: '/blog/gestion-contable-fiscal-empresas'
+  }
+}
+
+const schema = JSON.stringify([
+  { "@context": "https://schema.org", "@type": "LegalService", "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008", "address": [{ "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" }, { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }] },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Gestión Fiscal para Autónomos y Sociedades | Barcelona y Madrid | Travesía Legal"
+  description="IVA, IRPF, Impuesto de Sociedades, contabilidad y cuentas anuales para autónomos y empresas en España. Consulta gratuita."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/fiscal-y-contable/gestion-fiscal-autonomos-sociedades"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

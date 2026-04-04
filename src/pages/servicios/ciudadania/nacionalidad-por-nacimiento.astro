@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Ciudadanía',
+  categorySlug: 'ciudadania',
+  title: 'Nacionalidad por Nacimiento',
+  titleLine1: 'Nacionalidad',
+  titleLine2: 'por Nacimiento',
+  description: 'Las personas nacidas en España de padres extranjeros pueden tener derecho a la nacionalidad española. Te asesoramos sobre los supuestos aplicables y gestionamos la inscripción.',
+  featuresTitle: 'Qué incluye nuestro servicio',
+  features: [
+    { icon: 'Search', label: 'Análisis del supuesto de nacimiento' },
+    { icon: 'FileText', label: 'Inscripción en el Registro Civil' },
+    { icon: 'Flag', label: 'Nacidos de apátridas o de padres desconocidos' },
+    { icon: 'Home', label: 'Nacidos en España con padres extranjeros nacidos aquí' },
+    { icon: 'UserCheck', label: 'Adquisición automática por doble ius soli' },
+    { icon: 'Award', label: 'Gestión del DNI y documentación posterior' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre la nacionalidad por nacimiento',
+  faqItems: [
+    {
+      q: '¿Tiene derecho a la nacionalidad española cualquier persona nacida en España?',
+      a: 'No automáticamente. España aplica el principio de ius sanguinis (por sangre) como regla principal. Sin embargo, hay supuestos en que el nacimiento en suelo español otorga la nacionalidad: (1) cuando el hijo nace en España y los padres también nacieron en España (doble ius soli); (2) cuando el nacido sería apátrida sin la nacionalidad española; (3) cuando los padres son desconocidos.'
+    },
+    {
+      q: '¿Qué es el principio de doble ius soli y cuándo aplica?',
+      a: 'El doble ius soli se aplica cuando una persona nace en España y al menos uno de sus progenitores también nació en España (aunque los progenitores no tengan la nacionalidad española). En este caso, el hijo adquiere la nacionalidad española de origen. Este supuesto es frecuente en familias latinoamericanas con arraigo multigeneracional en España.'
+    },
+    {
+      q: '¿Cuándo se considera que una persona sería apátrida si no fuera española?',
+      a: 'Se produce cuando los padres son de una nacionalidad que no transmite automáticamente la ciudadanía a los hijos nacidos en el extranjero, y el país donde nació tampoco le otorga la suya. En ese caso, para evitar la apatridia, la ley española atribuye la nacionalidad española al recién nacido.'
+    },
+    {
+      q: '¿Cómo se inscribe a un menor nacido en España en el Registro Civil?',
+      a: 'El nacimiento debe inscribirse en el Registro Civil del municipio de nacimiento en un plazo de 8 días hábiles. Los padres deben presentar el parte de nacimiento del hospital, sus documentos de identidad y el libro de familia si lo tienen. En esa inscripción se determinará la nacionalidad del menor según las circunstancias.'
+    },
+    {
+      q: '¿Puede un menor nacido en España de padres irregulares obtener la nacionalidad?',
+      a: 'Sí en ciertos supuestos: si el menor sería apátrida, o si se da el caso del doble ius soli. Sin embargo, el simple hecho de nacer en España de padres extranjeros en situación irregular no otorga automáticamente la nacionalidad española. Cada caso debe analizarse individualmente con un especialista en extranjería y nacionalidad.'
+    },
+  ],
+  ctaTitle: '¿Tu hijo/a nació en España?',
+  ctaDesc: 'Analizamos si tiene derecho a la nacionalidad española y gestionamos la inscripción correctamente.',
+}
+
+const schema = JSON.stringify([
+  {
+    "@context": "https://schema.org", "@type": "LegalService",
+    "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008",
+    "address": [
+      { "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" },
+      { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }
+    ]
+  },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Nacionalidad Española por Nacimiento en España | Travesía Legal"
+  description="Asesoramiento sobre la nacionalidad española por nacimiento: doble ius soli, apatridia e inscripciones en el Registro Civil. Consulta gratuita."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/ciudadania/nacionalidad-por-nacimiento"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

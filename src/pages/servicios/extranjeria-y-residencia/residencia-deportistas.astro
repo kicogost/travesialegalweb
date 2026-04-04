@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Extranjería y Residencia',
+  categorySlug: 'extranjeria-y-residencia',
+  title: 'Residencia para Deportistas',
+  titleLine1: 'Residencia',
+  titleLine2: 'Deportistas',
+  description: 'Tramitamos el visado y la residencia para deportistas profesionales extranjeros que van a desarrollar su actividad en España, ya sea en clubes, federaciones o de forma independiente.',
+  featuresTitle: 'Qué gestionamos',
+  features: [
+    { icon: 'Award', label: 'Visa de deportista profesional' },
+    { icon: 'FileText', label: 'Autorización de trabajo como deportista' },
+    { icon: 'Briefcase', label: 'Contratos con clubes y federaciones' },
+    { icon: 'Shield', label: 'Licencias federativas y habilitaciones' },
+    { icon: 'RefreshCw', label: 'Renovaciones temporada a temporada' },
+    { icon: 'Calculator', label: 'Planificación fiscal (Ley Beckham)' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre la residencia para deportistas',
+  faqItems: [
+    {
+      q: '¿Qué permiso necesita un deportista extranjero para trabajar en España?',
+      a: 'Los deportistas extranjeros no comunitarios que quieran ejercer su actividad de forma retribuida en España necesitan una autorización de residencia y trabajo por cuenta ajena. Existe un procedimiento específico para deportistas profesionales que facilita la gestión, especialmente cuando hay un contrato con un club o entidad deportiva española.'
+    },
+    {
+      q: '¿Qué documentación necesita el club para contratar a un deportista extranjero?',
+      a: 'El club debe presentar la solicitud de autorización de trabajo, el contrato deportivo, la documentación de la entidad (escritura, NIF, solvencia económica), y la habilitación o ficha federativa cuando sea requerida. En algunos casos, como en el fútbol profesional, el proceso implica también la tramitación ante la Real Federación Española de Fútbol.'
+    },
+    {
+      q: '¿Puede un deportista acogerse al régimen fiscal de la Ley Beckham?',
+      a: 'Sí. Los deportistas que se desplazan a España para trabajar por primera vez pueden optar al régimen especial de impatriados (Ley Beckham), siempre que no hayan sido residentes en España en los 5 años anteriores y cumplan los requisitos. Este régimen grava las rentas de fuente española al tipo fijo del 24%, lo que puede suponer un ahorro fiscal muy importante frente al IRPF ordinario.'
+    },
+    {
+      q: '¿Hay límite de deportistas extranjeros por equipo?',
+      a: 'Sí, en muchas disciplinas deportivas existen cupos de extranjeros por equipo, regulados por las federaciones y ligas deportivas correspondientes (LaLiga, ACB, etc.). Estos cupos son independientes de la tramitación del permiso de residencia y trabajo. Es importante verificar la normativa específica del deporte y la categoría antes de iniciar el proceso.'
+    },
+    {
+      q: '¿Pueden los familiares del deportista residir en España?',
+      a: 'Sí, mediante la reagrupación familiar. El cónyuge o pareja e hijos del deportista pueden obtener autorización de residencia (y en el caso del cónyuge, también de trabajo). La reagrupación puede solicitarse desde el inicio o una vez el deportista ya está establecido en España.'
+    },
+  ],
+  ctaTitle: '¿Eres deportista o gestionas un club?',
+  ctaDesc: 'Te asesoramos en la tramitación de permisos para deportistas extranjeros y la planificación fiscal asociada.',
+}
+
+const schema = JSON.stringify([
+  { "@context": "https://schema.org", "@type": "LegalService", "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008", "address": [{ "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" }, { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }] },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Residencia y Permiso de Trabajo para Deportistas Profesionales | Travesía Legal"
+  description="Tramitamos visados y permisos de trabajo para deportistas extranjeros en España. Clubes, contratos y planificación fiscal. Consulta gratuita."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/extranjeria-y-residencia/residencia-deportistas"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

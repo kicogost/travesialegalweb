@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Empresas e Inversión',
+  categorySlug: 'empresas-e-inversion',
+  title: 'Asesoramiento Legal para Startups',
+  titleLine1: 'Legal',
+  titleLine2: 'para Startups',
+  description: 'Acompañamos a startups desde la constitución hasta la ronda de inversión: pactos de socios, propiedad intelectual, contratos, RGPD y planificación fiscal con las ventajas de la Ley de Startups.',
+  featuresTitle: 'Qué gestionamos',
+  features: [
+    { icon: 'Zap', label: 'Constitución y estructura societaria' },
+    { icon: 'Handshake', label: 'Pacto de socios y shareholders agreement' },
+    { icon: 'Shield', label: 'Propiedad intelectual e industrial' },
+    { icon: 'FileText', label: 'Contratos con clientes, proveedores y empleados' },
+    { icon: 'Globe', label: 'Cumplimiento RGPD y aviso legal web' },
+    { icon: 'TrendingUp', label: 'Fiscalidad startup: IS 15% y Ley Beckham' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre asesoramiento legal para startups',
+  faqItems: [
+    {
+      q: '¿Qué ventajas fiscales ofrece la Ley de Startups para empresas emergentes?',
+      a: 'La Ley 28/2022 de Startups introduce importantes ventajas: tipo reducido del 15% en el Impuesto sobre Sociedades durante los 4 primeros años, aplazamiento de pagos de IS en los 2 primeros años, mejora del régimen de stock options (exención hasta 50.000 €/año), acceso al régimen de impatriados (Ley Beckham) para trabajadores extranjeros y fundadores.'
+    },
+    {
+      q: '¿Qué debe incluir un buen pacto de socios para una startup?',
+      a: 'Un pacto de socios completo incluye: régimen de votaciones y mayorías, lock-up periods (restricciones a la transmisión de participaciones), cláusulas de arrastre (drag-along) y acompañamiento (tag-along), vesting de los fundadores, derechos de información, anti-dilución, liquidación preferente en caso de desinversión, y régimen de resolución de conflictos entre socios.'
+    },
+    {
+      q: '¿Es necesario proteger la propiedad intelectual de una startup?',
+      a: 'Sí, es fundamental. La propiedad intelectual es uno de los activos más valiosos de una startup. Esto incluye: registro de marcas y nombres comerciales, protección de software y código fuente, patentes cuando aplique, contratos de cesión de derechos con co-fundadores y empleados, y confidencialidad con colaboradores externos. Los inversores lo verificarán en el proceso de due diligence.'
+    },
+    {
+      q: '¿Cuáles son las obligaciones RGPD más importantes para una startup?',
+      a: 'Las principales obligaciones son: política de privacidad y aviso legal en la web, registro de actividades de tratamiento, análisis de impacto (DPIA) si se tratan datos sensibles, contratos de encargado de tratamiento con proveedores, gestión de consentimientos y derechos de los usuarios, y medidas de seguridad técnicas y organizativas adecuadas.'
+    },
+    {
+      q: '¿Cómo preparamos legalmente una ronda de inversión?',
+      a: 'La preparación de una ronda implica: auditoría legal de la empresa (legal due diligence), revisión y actualización de estatutos, preparación del term sheet, negociación del pacto de socios ampliado con los inversores, documentación de la ampliación de capital, y cierre notarial y registral. Es recomendable contar con asesoramiento legal especializado desde el inicio.'
+    },
+  ],
+  ctaTitle: '¿Eres fundador de una startup?',
+  ctaDesc: 'Te acompañamos en cada fase: desde la constitución hasta la ronda de inversión y más allá.',
+}
+
+const schema = JSON.stringify([
+  { "@context": "https://schema.org", "@type": "LegalService", "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008", "address": [{ "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" }, { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }] },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Asesoramiento Legal para Startups en España | Ley de Startups | Travesía Legal"
+  description="Asesoramiento legal integral para startups: constitución, pacto de socios, propiedad intelectual, RGPD y rondas de inversión. Consulta gratuita."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/empresas-e-inversion/asesoramiento-startups"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Fiscal y Contable',
+  categorySlug: 'fiscal-y-contable',
+  title: 'Impuesto sobre el Patrimonio',
+  titleLine1: 'Impuesto',
+  titleLine2: 'Patrimonio',
+  description: 'Asesoramos y tramitamos el Impuesto sobre el Patrimonio para residentes y no residentes con bienes en España. Optimizamos la declaración para minimizar la tributación dentro de la legalidad.',
+  featuresTitle: 'Qué gestionamos',
+  features: [
+    { icon: 'DollarSign', label: 'Declaración del IP (modelo 714)' },
+    { icon: 'PieChart', label: 'Valoración de activos: inmuebles, acciones, fondos' },
+    { icon: 'Globe', label: 'Patrimonio en el extranjero (modelo 720)' },
+    { icon: 'Shield', label: 'Bonificaciones autonómicas aplicables' },
+    { icon: 'TrendingUp', label: 'Planificación para reducir el IP' },
+    { icon: 'Calculator', label: 'Límite conjunto IP+IRPF (cuota conjunta)' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre el Impuesto sobre el Patrimonio',
+  faqItems: [
+    {
+      q: '¿Quién está obligado a presentar el Impuesto sobre el Patrimonio?',
+      a: 'Están obligados a presentar el Impuesto sobre el Patrimonio (IP) los residentes fiscales en España cuyo patrimonio neto supere 2.000.000 € o cuya cuota tributaria sea positiva (es decir, que una vez aplicado el mínimo exento, haya patrimonio a declarar). En la mayoría de comunidades autónomas, el mínimo exento es de 700.000 €, más 300.000 € adicionales por la vivienda habitual.'
+    },
+    {
+      q: '¿Cómo se valoran los bienes para el Impuesto sobre el Patrimonio?',
+      a: 'Los bienes se valoran de forma diferente según su tipo: los inmuebles al mayor valor entre el catastral, el de adquisición y el comprobado por la administración; los depósitos bancarios por su saldo medio del último trimestre; las acciones cotizadas por su cotización media del último trimestre; las participaciones en sociedades no cotizadas por el valor teórico del último balance; los seguros de vida por su valor de rescate.'
+    },
+    {
+      q: '¿Hay diferencias según la comunidad autónoma?',
+      a: 'Sí, significativas. Las comunidades autónomas tienen competencias para regular el mínimo exento y las deducciones. Madrid tenía una bonificación del 100% (sin IP efectivo), aunque fue eliminada. Cataluña, Valencia o Andalucía aplican el régimen estatal con algunas modificaciones. La comunidad de residencia puede suponer diferencias de miles de euros en la tributación.'
+    },
+    {
+      q: '¿Qué es la cuota conjunta IP+IRPF y cómo afecta al importe a pagar?',
+      a: 'La ley establece un límite para evitar que la suma de IP e IRPF supere el 60% de la base imponible del IRPF. Si la suma de ambos impuestos supera ese límite, se reduce la cuota del IP hasta ese tope (con un mínimo del 20% de la cuota del IP). Este límite puede reducir significativamente el IP a pagar en personas con rentas altas y patrimonio elevado.'
+    },
+    {
+      q: '¿Existe un impuesto similar al IP para grandes fortunas?',
+      a: 'Sí. Desde 2022 existe el Impuesto Temporal de Solidaridad de las Grandes Fortunas (ITSGF), aplicable a patrimonios superiores a 3.000.000 €. Se aplica de forma complementaria al IP: solo tributa por ITSGF lo que no se haya pagado ya por IP. Su vigencia ha sido prorrogada en varias ocasiones y actualmente continúa aplicándose.'
+    },
+  ],
+  ctaTitle: '¿Tienes un patrimonio significativo en España?',
+  ctaDesc: 'Revisamos tu obligación de declarar el IP y optimizamos la valoración dentro de la legalidad.',
+}
+
+const schema = JSON.stringify([
+  { "@context": "https://schema.org", "@type": "LegalService", "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008", "address": [{ "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" }, { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }] },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Impuesto sobre el Patrimonio en España | Declaración y Planificación | Travesía Legal"
+  description="Declaración y optimización del Impuesto sobre el Patrimonio para residentes y no residentes. Modelo 714 y modelo 720. Consulta gratuita."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/fiscal-y-contable/impuesto-patrimonio"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

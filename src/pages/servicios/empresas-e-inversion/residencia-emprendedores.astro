@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Empresas e Inversión',
+  categorySlug: 'empresas-e-inversion',
+  title: 'Residencia para Emprendedores',
+  titleLine1: 'Residencia',
+  titleLine2: 'Emprendedores',
+  description: 'La Ley de Emprendedores y la Ley de Startups ofrecen vías especiales para extranjeros que quieran crear empresas innovadoras en España. Tramitamos tu visado y autorización de residencia.',
+  featuresTitle: 'Qué gestionamos',
+  features: [
+    { icon: 'Zap', label: 'Visado de emprendedor (Ley de Emprendedores)' },
+    { icon: 'Building2', label: 'Autorización de residencia para emprendedores' },
+    { icon: 'FileText', label: 'Evaluación del proyecto por ENISA' },
+    { icon: 'TrendingUp', label: 'Plan de negocio innovador' },
+    { icon: 'Globe', label: 'Startups y base tecnológica' },
+    { icon: 'RefreshCw', label: 'Renovaciones y seguimiento del proyecto' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre la residencia para emprendedores',
+  faqItems: [
+    {
+      q: '¿Qué es el visado de emprendedor en España?',
+      a: 'El visado de emprendedor, regulado por la Ley 14/2013 de apoyo a los emprendedores, es una autorización especial para ciudadanos no comunitarios que desean desarrollar en España una actividad empresarial o profesional de carácter innovador. El proyecto debe ser evaluado favorablemente por el organismo competente (generalmente ENISA o la Oficina Económica y Comercial).'
+    },
+    {
+      q: '¿Qué tipo de proyectos pueden acceder al visado de emprendedor?',
+      a: 'Los proyectos deben ser innovadores o de interés económico especial para España. Se valoran especialmente los proyectos de base tecnológica, los que generan empleo en España, los que suponen transferencia de conocimiento, los que tienen potencial de escalar internacionalmente, y los que desarrollan actividades en sectores estratégicos para la economía española.'
+    },
+    {
+      q: '¿Cuál es el proceso para obtener el visado de emprendedor?',
+      a: 'El proceso incluye: elaboración del plan de negocio y memoria descriptiva del proyecto, presentación ante el organismo evaluador para obtener informe favorable, solicitud del visado en el consulado español del país de origen, entrada en España y solicitud de la autorización de residencia para emprendedores dentro de los 90 días siguientes.'
+    },
+    {
+      q: '¿Puedo traer a mi familia con el visado de emprendedor?',
+      a: 'Sí. Los cónyuges o parejas de hecho y los hijos menores de edad pueden solicitar conjuntamente la autorización de residencia como familiares del emprendedor. El cónyuge también puede solicitar autorización de trabajo, lo que facilita el asentamiento de la unidad familiar en España.'
+    },
+    {
+      q: '¿Qué diferencias hay entre la Ley de Emprendedores y la Ley de Startups?',
+      a: 'La Ley de Emprendedores (2013) regula el visado y la autorización de residencia para emprendedores en general. La Ley de Startups (2022) amplía y mejora las condiciones para empresas emergentes de base tecnológica, con ventajas fiscales adicionales (tipo reducido del 15% en IS, stock options mejoradas) y acceso al régimen de impatriados (Ley Beckham) para los fundadores.'
+    },
+  ],
+  ctaTitle: '¿Tienes un proyecto innovador para España?',
+  ctaDesc: 'Analizamos tu proyecto y gestionamos tu visado de emprendedor o residencia para startups.',
+}
+
+const schema = JSON.stringify([
+  { "@context": "https://schema.org", "@type": "LegalService", "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008", "address": [{ "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" }, { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }] },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Residencia para Emprendedores en España: Visado y Startups | Travesía Legal"
+  description="Tramitamos el visado de emprendedor y la residencia para startups en España. Ley de Emprendedores y Ley de Startups. Consulta gratuita."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/empresas-e-inversion/residencia-emprendedores"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

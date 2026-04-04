@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Ciudadanía',
+  categorySlug: 'ciudadania',
+  title: 'Nacionalidad por Opción',
+  titleLine1: 'Nacionalidad',
+  titleLine2: 'por Opción',
+  description: 'La nacionalidad por opción permite a determinadas personas de ascendencia española o con vínculos especiales con España ejercer su derecho a la ciudadanía española sin necesidad de residir en el país.',
+  featuresTitle: 'Qué incluye nuestro servicio',
+  features: [
+    { icon: 'Search', label: 'Análisis de elegibilidad para la opción' },
+    { icon: 'FileText', label: 'Preparación del expediente genealógico' },
+    { icon: 'Landmark', label: 'Gestión ante Registro Civil o Consulado' },
+    { icon: 'UserCheck', label: 'Tramitación para menores de 18 años' },
+    { icon: 'Shield', label: 'Ley de Memoria Democrática (nietos del exilio)' },
+    { icon: 'CheckCircle', label: 'Seguimiento hasta resolución' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre la nacionalidad por opción',
+  faqItems: [
+    {
+      q: '¿Quién puede optar a la nacionalidad española por opción?',
+      a: 'Pueden optar a la nacionalidad española: (1) los hijos de padre o madre que originariamente hayan sido españoles y nacidos fuera de España; (2) los hijos adoptados por un español; (3) los que hayan estado sujetos a la patria potestad de un español durante dos años consecutivos; (4) en virtud de la Ley de Memoria Democrática, los nietos de personas que perdieron la nacionalidad española durante el exilio republicano.'
+    },
+    {
+      q: '¿Qué es la Ley de Memoria Democrática y cómo afecta a la nacionalidad?',
+      a: 'La Ley 20/2022 de Memoria Democrática permite que los nietos de exiliados republicanos, de personas represaliadas por la dictadura franquista y de personas que murieron en el extranjero durante el exilio puedan optar a la nacionalidad española. A diferencia de la "Ley de Nietos" de 2009, no tiene plazo de caducidad.'
+    },
+    {
+      q: '¿Hay límite de edad para ejercer el derecho de opción?',
+      a: 'Depende del supuesto. En general, los menores de 18 años pueden optar en cualquier momento. Los hijos de padre o madre española que nacieron antes de que el progenitor adquiriera la nacionalidad española tienen un plazo de 2 años desde que la adquirió para ejercer la opción. Para supuestos específicos como la Ley de Memoria Democrática no hay límite de edad.'
+    },
+    {
+      q: '¿Necesito vivir en España para solicitar la nacionalidad por opción?',
+      a: 'No. La opción es un derecho que se puede ejercer desde el extranjero, ante el consulado español del país de residencia. Tampoco es necesario renunciar a la nacionalidad de origen en la mayoría de los casos.'
+    },
+    {
+      q: '¿Cuánto tiempo tarda la tramitación de la nacionalidad por opción?',
+      a: 'Los plazos varían según el consulado o registro civil y el supuesto concreto. En general, puede tardar entre 6 meses y 2 años. La vía consular suele ser más lenta que la presencial en España. Tener la documentación completa y correctamente apostillada desde el inicio es clave para evitar retrasos.'
+    },
+  ],
+  ctaTitle: '¿Tienes derecho a optar a la nacionalidad española?',
+  ctaDesc: 'Analizamos tu caso de forma gratuita para determinar si tienes derecho de opción y cómo tramitarlo.',
+}
+
+const schema = JSON.stringify([
+  {
+    "@context": "https://schema.org", "@type": "LegalService",
+    "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008",
+    "address": [
+      { "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" },
+      { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }
+    ]
+  },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Nacionalidad Española por Opción: Nietos del Exilio y Más | Travesía Legal"
+  description="Tramitamos la nacionalidad española por opción: hijos de español/a, Ley de Memoria Democrática, nietos del exilio. Consulta gratuita."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/ciudadania/nacionalidad-por-opcion"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

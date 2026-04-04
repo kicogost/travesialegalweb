@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Extranjería y Residencia',
+  categorySlug: 'extranjeria-y-residencia',
+  title: 'Visado de Estudiante',
+  titleLine1: 'Visado de',
+  titleLine2: 'Estudiante',
+  description: 'Estudia en España con todas las garantías legales. Tramitamos el visado o autorización de estancia por estudios para cursos de idiomas, másters, grados y programas de intercambio.',
+  featuresTitle: 'Qué gestionamos',
+  features: [
+    { icon: 'GraduationCap', label: 'Visado de estudiante inicial (estancias >90 días)' },
+    { icon: 'FileText', label: 'Autorización de estancia por estudios' },
+    { icon: 'RefreshCw', label: 'Renovaciones anuales de la autorización' },
+    { icon: 'Briefcase', label: 'Permiso de trabajo parcial (hasta 30h/semana)' },
+    { icon: 'Globe', label: 'Programas Erasmus y becas internacionales' },
+    { icon: 'Users', label: 'Familiares acompañantes del estudiante' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre el visado de estudiante en España',
+  faqItems: [
+    {
+      q: '¿Cuándo necesito visado de estudiante para estudiar en España?',
+      a: 'Si eres ciudadano no europeo y tu formación dura más de 90 días, necesitas visado o autorización de estancia por estudios. Para estancias de hasta 90 días (ej. un curso de verano), el visado de turista puede ser suficiente dependiendo de la nacionalidad. Los ciudadanos de la UE no necesitan visado.'
+    },
+    {
+      q: '¿Puedo trabajar con el visado de estudiante?',
+      a: 'Los estudiantes con autorización de estancia por estudios pueden trabajar hasta 30 horas semanales por cuenta ajena, siempre que los estudios sean su actividad principal. Para trabajar, es necesario solicitar una modificación de la autorización o una autorización de trabajo complementaria. Los trabajos no deben interferir con los estudios.'
+    },
+    {
+      q: '¿Qué documentos necesito para el visado de estudiante?',
+      a: 'Los documentos básicos incluyen: pasaporte en vigor (con al menos 6 meses de validez), carta de aceptación del centro educativo en España, justificante de medios económicos (aproximadamente 600 €/mes), seguro médico privado de cobertura completa, certificado de antecedentes penales del país de origen, y formulario de solicitud de visado. Algunos centros educativos facilitan parte de la documentación.'
+    },
+    {
+      q: '¿Puedo solicitar un permiso de trabajo después de terminar mis estudios?',
+      a: 'Sí. Al finalizar los estudios existe la posibilidad de solicitar una autorización de búsqueda de empleo durante 12 meses, que permite permanecer en España buscando trabajo o para crear una empresa. Esta vía es especialmente útil para titulados de másteres y grados universitarios.'
+    },
+    {
+      q: '¿El tiempo como estudiante cuenta para la residencia de larga duración?',
+      a: 'La mitad de los períodos de estancia como estudiante se computa para el período de 5 años necesario para la residencia de larga duración, pero solo cuando se trate de programas de estudio anteriores a que la persona haya tenido ya residencia temporal. Este es un punto que conviene verificar con un abogado de extranjería.'
+    },
+  ],
+  ctaTitle: '¿Quieres estudiar en España?',
+  ctaDesc: 'Tramitamos tu visado de estudiante y te asesoramos en todos los trámites de extranjería relacionados.',
+  relatedPost: {
+    title: 'Visado de estudios en España: trámites y requisitos',
+    href: '/blog/visado-estudios-espana'
+  }
+}
+
+const schema = JSON.stringify([
+  { "@context": "https://schema.org", "@type": "LegalService", "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008", "address": [{ "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" }, { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }] },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Visado de Estudiante en España para Extranjeros | Travesía Legal"
+  description="Tramitamos el visado y la autorización de estancia por estudios en España. Grados, másteres, idiomas e intercambios. Consulta gratuita."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/extranjeria-y-residencia/visado-estudiante"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

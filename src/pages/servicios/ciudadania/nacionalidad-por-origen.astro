@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Ciudadanía',
+  categorySlug: 'ciudadania',
+  title: 'Nacionalidad por Origen',
+  titleLine1: 'Nacionalidad',
+  titleLine2: 'por Origen',
+  description: 'Si tu padre o madre es español/a, tienes derecho a la nacionalidad española por origen. Te ayudamos a tramitar tu inscripción en el Registro Civil Consular o Central.',
+  featuresTitle: 'Qué incluye nuestro servicio',
+  features: [
+    { icon: 'Users', label: 'Verificación de la filiación española' },
+    { icon: 'FileText', label: 'Preparación de documentación consular' },
+    { icon: 'Globe', label: 'Gestión ante Registro Civil Consular' },
+    { icon: 'CheckCircle', label: 'Inscripción en el Registro Civil Central' },
+    { icon: 'Award', label: 'Obtención de DNI y pasaporte español' },
+    { icon: 'Shield', label: 'Recursos ante incidencias registrales' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre nacionalidad por origen',
+  faqItems: [
+    {
+      q: '¿Quién puede solicitar la nacionalidad española por origen?',
+      a: 'Pueden solicitarla los hijos de padre o madre española, con independencia del lugar de nacimiento. También los nacidos en España de padres extranjeros cuando al menos uno de ellos también nació en España. La nacionalidad por origen se atribuye desde el nacimiento y no requiere residencia previa en España.'
+    },
+    {
+      q: '¿Puedo obtener la nacionalidad española si mi padre es español pero nació en el extranjero?',
+      a: 'Sí, siempre que tu padre haya nacido de padre o madre española (iure sanguinis). La transmisión de la nacionalidad española puede extenderse a hijos y nietos de español/a, aunque existen limitaciones a partir de la segunda generación nacida en el extranjero. Es importante analizar el árbol genealógico para determinar el camino correcto.'
+    },
+    {
+      q: '¿Dónde se tramita la nacionalidad por origen si vivo en el extranjero?',
+      a: 'Si resides fuera de España, el trámite se inicia ante el Registro Civil Consular del consulado español en tu país de residencia. Si ya vives en España, se presenta en el Registro Civil del domicilio o en el Registro Civil Central de Madrid. El proceso varía según el país y el consulado correspondiente.'
+    },
+    {
+      q: '¿Cuánto tiempo tarda obtener la nacionalidad española por origen?',
+      a: 'El plazo varía según el consulado y la carga de trabajo. En algunos consulados puede resolverse en pocos meses; en otros puede tardar 1-2 años. La inscripción en el Registro Civil Central de Madrid suele añadir varios meses adicionales. Con la documentación correcta desde el inicio se evitan retrasos por subsanaciones.'
+    },
+    {
+      q: '¿Necesito renunciar a mi otra nacionalidad?',
+      a: 'En la mayoría de los casos, los españoles nacionales que adquieren la nacionalidad por origen no están obligados a renunciar a su nacionalidad de origen. España admite la doble nacionalidad con todos los países iberoamericanos. Para el resto de nacionalidades, puede ser necesaria la renuncia formal, aunque en la práctica muchos países no exigen esa renuncia por su parte.'
+    },
+  ],
+  ctaTitle: '¿Tienes ascendencia española?',
+  ctaDesc: 'Analizamos tu árbol genealógico y te explicamos si tienes derecho a la nacionalidad por origen.',
+}
+
+const schema = JSON.stringify([
+  {
+    "@context": "https://schema.org", "@type": "LegalService",
+    "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008",
+    "address": [
+      { "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" },
+      { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }
+    ]
+  },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Nacionalidad Española por Origen: Hijos de Español/a | Travesía Legal"
+  description="¿Tu padre o madre es español/a? Tramitamos tu nacionalidad española por origen. Gestión consular y registro civil. Consulta gratuita."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/ciudadania/nacionalidad-por-origen"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

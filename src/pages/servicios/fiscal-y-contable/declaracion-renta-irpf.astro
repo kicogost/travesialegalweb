@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Fiscal y Contable',
+  categorySlug: 'fiscal-y-contable',
+  title: 'Declaración de la Renta (IRPF)',
+  titleLine1: 'Declaración',
+  titleLine2: 'de la Renta',
+  description: 'Preparamos y presentamos tu declaración de la renta con todas las deducciones aplicables. Servicio para residentes en España, expatriados, autónomos y personas con rentas en el extranjero.',
+  featuresTitle: 'Qué gestionamos',
+  features: [
+    { icon: 'Calculator', label: 'Revisión y optimización de la declaración' },
+    { icon: 'FileText', label: 'Deducción por vivienda habitual y alquiler' },
+    { icon: 'Globe', label: 'Rentas del extranjero y convenios' },
+    { icon: 'Briefcase', label: 'Rendimientos de actividades económicas' },
+    { icon: 'TrendingUp', label: 'Ganancias y pérdidas patrimoniales' },
+    { icon: 'Shield', label: 'Declaraciones complementarias y rectificativas' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre la declaración de la renta',
+  faqItems: [
+    {
+      q: '¿Quién está obligado a presentar la declaración de la renta en España?',
+      a: 'Están obligados a declarar: quienes tengan rendimientos del trabajo superiores a 22.000 € anuales de un pagador (15.000 € con dos o más pagadores), quienes perciban rendimientos del capital mobiliario o ganancias patrimoniales superiores a 1.600 €, quienes tengan rentas inmobiliarias imputadas superiores a 1.000 €, y los autónomos con cualquier nivel de ingresos.'
+    },
+    {
+      q: '¿Cuándo es el plazo para presentar la renta?',
+      a: 'La campaña de la renta generalmente comienza en abril y termina el 30 de junio del año siguiente al ejercicio que se declara. Para declaraciones con resultado a ingresar con domiciliación bancaria, el plazo suele terminar el 25 de junio. Es importante presentarla dentro del plazo para evitar recargos e intereses de demora.'
+    },
+    {
+      q: '¿Puedo reclamar deducciones por haber vivido en el extranjero parte del año?',
+      a: 'Sí. Si has sido residente fiscal en España solo parte del año, se aplica la tributación como residente solo por el período de residencia. Si tienes rentas obtenidas en el extranjero, es posible que se apliquen convenios de doble imposición para evitar tributar dos veces por las mismas rentas. Es un área compleja que requiere asesoramiento especializado.'
+    },
+    {
+      q: '¿Merece la pena hacer la renta con un gestor si Hacienda ya me da el borrador?',
+      a: 'Muy frecuentemente sí. El borrador de Hacienda solo incluye los datos que tiene disponibles, pero puede omitir deducciones importantes: plan de pensiones, donativos, deducciones autonómicas, gastos deducibles de actividades económicas, pérdidas patrimoniales de años anteriores compensables, y muchos otros. Un gestor puede reducir significativamente el importe a pagar o aumentar la devolución.'
+    },
+    {
+      q: '¿Qué pasa si me equivoco en la declaración o me olvido de presentarla?',
+      a: 'Si te olvidas de presentarla, puedes hacerlo fuera de plazo con un recargo que va del 1% al 20% según el retraso. Si incluiste datos incorrectos que perjudicaban a Hacienda, puedes presentar una declaración complementaria. Si la corrección te favorece a ti (pagaste de más), puedes solicitar la rectificación y la devolución de ingresos indebidos.'
+    },
+  ],
+  ctaTitle: '¿Necesitas ayuda con tu declaración de la renta?',
+  ctaDesc: 'Revisamos tu situación fiscal, aplicamos todas las deducciones posibles y presentamos tu renta sin errores.',
+  relatedPost: {
+    title: 'Declaración de la renta 2025: guía completa',
+    href: '/blog/declaracion-renta-2025-guia-completa'
+  }
+}
+
+const schema = JSON.stringify([
+  { "@context": "https://schema.org", "@type": "LegalService", "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008", "address": [{ "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" }, { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }] },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Declaración de la Renta (IRPF) en Barcelona y Madrid | Travesía Legal"
+  description="Presentamos tu declaración de la renta con todas las deducciones. Residentes, expatriados, autónomos y rentas en el extranjero. Consulta gratuita."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/fiscal-y-contable/declaracion-renta-irpf"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

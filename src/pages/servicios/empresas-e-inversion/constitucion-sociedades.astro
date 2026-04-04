@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Empresas e Inversión',
+  categorySlug: 'empresas-e-inversion',
+  title: 'Constitución de Sociedades',
+  titleLine1: 'Constitución',
+  titleLine2: 'de Sociedades',
+  description: 'Creamos tu empresa en España de forma rápida y segura: SL, SA, SLU o sociedad civil. Gestionamos los trámites notariales, registrales y fiscales para que puedas operar cuanto antes.',
+  featuresTitle: 'Qué gestionamos',
+  features: [
+    { icon: 'Building2', label: 'Elección del tipo societario adecuado' },
+    { icon: 'FileText', label: 'Escritura de constitución ante notario' },
+    { icon: 'Landmark', label: 'Inscripción en el Registro Mercantil' },
+    { icon: 'Calculator', label: 'Alta en Hacienda (NIF definitivo, IAE)' },
+    { icon: 'Shield', label: 'Pacto de socios y estatutos a medida' },
+    { icon: 'TrendingUp', label: 'Apertura de cuenta bancaria empresarial' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre constitución de empresas en España',
+  faqItems: [
+    {
+      q: '¿Cuánto tiempo tarda constituir una Sociedad Limitada (SL) en España?',
+      a: 'Mediante el procedimiento telemático a través del CIRCE (Centro de Información y Red de Creación de Empresas), la constitución puede completarse en 5-10 días hábiles. El proceso notarial presencial tradicional suele tardar entre 2 y 4 semanas, incluyendo la inscripción en el Registro Mercantil.'
+    },
+    {
+      q: '¿Cuánto capital necesito para constituir una SL?',
+      a: 'El capital mínimo para una Sociedad Limitada es de 3.000 € (totalmente desembolsado en el momento de la constitución). Sin embargo, existe la modalidad de "Sociedad Limitada de Formación Sucesiva" que permite comenzar con 1 € de capital, aunque con obligaciones adicionales respecto a reservas y distribución de dividendos.'
+    },
+    {
+      q: '¿Puede un extranjero constituir una empresa en España?',
+      a: 'Sí. Un extranjero puede constituir una empresa en España independientemente de su nacionalidad o situación migratoria. Necesita obtener previamente el NIE (Número de Identificación de Extranjero). Sin embargo, para poder administrar o gestionar la empresa en calidad de directivo residente, puede ser necesaria una autorización de residencia específica.'
+    },
+    {
+      q: '¿Qué diferencia hay entre SL y SA?',
+      a: 'La Sociedad Limitada (SL) es la forma más común para pequeñas y medianas empresas: capital mínimo de 3.000 €, transmisión de participaciones restringida y mayor flexibilidad interna. La Sociedad Anónima (SA) requiere un capital mínimo de 60.000 €, permite cotizar en bolsa y es más adecuada para grandes empresas o cuando se necesita captar inversión de forma amplia.'
+    },
+    {
+      q: '¿Qué impuestos paga una empresa en España?',
+      a: 'Las sociedades tributan por el Impuesto sobre Sociedades (IS) al tipo general del 25%, aunque hay tipos reducidos (15% para empresas de nueva creación durante los 2 primeros ejercicios con base imponible positiva). También deben liquidar el IVA, las retenciones de IRPF a empleados y administradores, y las cotizaciones a la Seguridad Social.'
+    },
+  ],
+  ctaTitle: '¿Quieres crear tu empresa en España?',
+  ctaDesc: 'Gestionamos la constitución de tu sociedad de principio a fin: notaría, registro mercantil y trámites fiscales.',
+}
+
+const schema = JSON.stringify([
+  { "@context": "https://schema.org", "@type": "LegalService", "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008", "address": [{ "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" }, { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }] },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Constitución de Sociedades en España: SL, SA y Más | Travesía Legal"
+  description="Creamos tu empresa en España rápidamente: SL, SA, SLU. Notaría, registro mercantil y trámites fiscales. Consulta gratuita en Barcelona y Madrid."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/empresas-e-inversion/constitucion-sociedades"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

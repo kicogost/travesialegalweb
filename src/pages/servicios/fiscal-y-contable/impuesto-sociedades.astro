@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Fiscal y Contable',
+  categorySlug: 'fiscal-y-contable',
+  title: 'Impuesto de Sociedades',
+  titleLine1: 'Impuesto de',
+  titleLine2: 'Sociedades',
+  description: 'Gestionamos el Impuesto sobre Sociedades de tu empresa: cálculo, optimización de deducciones, pagos fraccionados y presentación del modelo 200. Cumplimiento total con la normativa fiscal.',
+  featuresTitle: 'Qué gestionamos',
+  features: [
+    { icon: 'Calculator', label: 'Cálculo y liquidación del IS (modelo 200)' },
+    { icon: 'TrendingUp', label: 'Pagos fraccionados (modelos 202 y 222)' },
+    { icon: 'FileText', label: 'Deducciones por I+D, inversiones y donaciones' },
+    { icon: 'BarChart2', label: 'Operaciones vinculadas y precios de transferencia' },
+    { icon: 'Layers', label: 'Consolidación fiscal de grupos de sociedades' },
+    { icon: 'Shield', label: 'Planificación para reducir la cuota del IS' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre el Impuesto de Sociedades',
+  faqItems: [
+    {
+      q: '¿Cuál es el tipo general del Impuesto sobre Sociedades en España?',
+      a: 'El tipo general del Impuesto sobre Sociedades es del 25%. Existen tipos reducidos: el 15% para empresas de nueva creación durante los 2 primeros ejercicios con base imponible positiva (tipo especial previsto por la Ley de Startups para empresas emergentes), el 23% para entidades de reducida dimensión con cifra de negocios inferior a 1 millón de euros, y tipos especiales para cooperativas, entidades sin ánimo de lucro, etc.'
+    },
+    {
+      q: '¿Cuándo hay que presentar el Impuesto sobre Sociedades?',
+      a: 'El IS se presenta en los 25 días naturales siguientes a los 6 meses posteriores al cierre del ejercicio social. Para ejercicios cerrados el 31 de diciembre, el plazo es el 25 de julio del año siguiente. Los pagos fraccionados (modelos 202/222) se presentan en abril, octubre y diciembre para las empresas obligadas.'
+    },
+    {
+      q: '¿Qué gastos no son deducibles en el Impuesto sobre Sociedades?',
+      a: 'No son deducibles: las multas y sanciones administrativas y penales, las liberalidades (regalos a clientes no publicitarios), los gastos de representación que superen los límites, las retribuciones a administradores no previstas en estatutos, la retribución de los fondos propios, y los pagos a personas o entidades en paraísos fiscales sin justificación de la realidad de la operación.'
+    },
+    {
+      q: '¿Qué son las operaciones vinculadas y cómo afectan al IS?',
+      a: 'Las operaciones vinculadas son las realizadas entre entidades del mismo grupo empresarial o entre la sociedad y sus socios/administradores. Deben valorarse a precio de mercado (precio que pagarían partes independientes). Si no se documentan correctamente, Hacienda puede regularizar el IS y aplicar ajustes, con las correspondientes sanciones. Para grupos con facturación superior a 250 millones €, es obligatorio el informe país por país.'
+    },
+    {
+      q: '¿Pueden compensarse las bases imponibles negativas de ejercicios anteriores?',
+      a: 'Sí. Las bases imponibles negativas de ejercicios anteriores pueden compensarse con las bases imponibles positivas de ejercicios futuros sin límite temporal. Sin embargo, existe una limitación cuantitativa: solo se puede compensar el 70% de la base imponible previa a la compensación (para empresas con cifra de negocios superior a 20 millones de euros). No hay límite para compensaciones inferiores a 1 millón de euros.'
+    },
+  ],
+  ctaTitle: '¿Necesitas gestionar el IS de tu empresa?',
+  ctaDesc: 'Calculamos y presentamos el Impuesto de Sociedades optimizando todas las deducciones disponibles.',
+}
+
+const schema = JSON.stringify([
+  { "@context": "https://schema.org", "@type": "LegalService", "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008", "address": [{ "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" }, { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }] },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Impuesto de Sociedades en España: Gestión y Optimización | Travesía Legal"
+  description="Calculamos y presentamos el IS de tu empresa. Deducciones, pagos fraccionados y cumplimiento normativo. Consulta gratuita en Barcelona y Madrid."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/fiscal-y-contable/impuesto-sociedades"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

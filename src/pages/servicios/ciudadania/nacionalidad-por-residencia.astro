@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Ciudadanía',
+  categorySlug: 'ciudadania',
+  title: 'Nacionalidad por Residencia',
+  titleLine1: 'Nacionalidad',
+  titleLine2: 'por Residencia',
+  description: 'Obtén la nacionalidad española tras acreditar residencia legal continuada en España. Solo 2 años para ciudadanos iberoamericanos. Gestionamos tu expediente completo.',
+  featuresTitle: 'Qué incluye nuestro servicio',
+  features: [
+    { icon: 'FileText', label: 'Revisión previa de requisitos y documentación' },
+    { icon: 'ClipboardList', label: 'Preparación completa del expediente' },
+    { icon: 'GraduationCap', label: 'Orientación para exámenes CCSE y DELE' },
+    { icon: 'CheckCircle', label: 'Presentación telemática ante el Registro Civil' },
+    { icon: 'RefreshCw', label: 'Seguimiento del estado del expediente' },
+    { icon: 'Shield', label: 'Recursos ante denegaciones o subsanaciones' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre nacionalidad por residencia',
+  faqItems: [
+    {
+      q: '¿Cuántos años de residencia necesito para solicitar la nacionalidad española?',
+      a: 'Depende de la nacionalidad de origen. Los ciudadanos iberoamericanos (América Latina), filipinos, andorranos, ecuatoguineanos, portugueses y sefardíes necesitan solo 2 años de residencia legal y continua. El resto de ciudadanos necesitan 10 años. Los refugiados necesitan 5 años y los nacidos en España, 1 año.'
+    },
+    {
+      q: '¿Qué documentos necesito para solicitar la nacionalidad por residencia?',
+      a: 'Los documentos principales son: pasaporte en vigor, tarjeta de residencia o documento acreditativo de la residencia legal, certificado de nacimiento apostillado, certificado de antecedentes penales del país de origen (apostillado y traducido), certificado de antecedentes penales en España, y justificante del abono de la tasa correspondiente. En algunos casos también se requiere certificado de matrimonio o empadronamiento.'
+    },
+    {
+      q: '¿Qué son los exámenes CCSE y DELE y son obligatorios?',
+      a: 'El CCSE (Conocimientos Constitucionales y Socioculturales de España) es un examen sobre la sociedad y la ley española, y el DELE A2 acredita el conocimiento del idioma español. Ambos son obligatorios salvo que el solicitante tenga el español como lengua oficial de su país de origen o esté exento por razones específicas. Los organiza el Instituto Cervantes.'
+    },
+    {
+      q: '¿Cuánto tiempo tarda el proceso de nacionalidad por residencia?',
+      a: 'Una vez presentada la solicitud correctamente, el proceso puede tardar entre 12 y 24 meses, dependiendo del volumen de expedientes del Registro Civil o el Ministerio de Justicia. Con la documentación completa y correcta desde el inicio, se minimizan los retrasos por subsanaciones.'
+    },
+    {
+      q: '¿Qué pasa si me deniegan la nacionalidad?',
+      a: 'Si la solicitud es denegada, se puede presentar un recurso de alzada en el plazo de un mes desde la notificación, y si este también es desestimado, se puede interponer un recurso contencioso-administrativo ante la justicia. En Travesía Legal analizamos cada denegación para determinar la mejor estrategia.'
+    },
+  ],
+  ctaTitle: '¿Quieres iniciar tu solicitud de nacionalidad?',
+  ctaDesc: 'Analizamos tu situación de forma gratuita y preparamos tu expediente sin errores.',
+  relatedPost: {
+    title: 'Nacionalidad española para latinoamericanos: Requisitos 2025',
+    href: '/blog/nacionalidad-espanola-latinoamericanos-requisitos'
+  }
+}
+
+const schema = JSON.stringify([
+  {
+    "@context": "https://schema.org", "@type": "LegalService",
+    "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008",
+    "address": [
+      { "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" },
+      { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }
+    ]
+  },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Nacionalidad Española por Residencia: Requisitos 2026 | Travesía Legal"
+  description="Especialistas en nacionalidad por residencia en Barcelona y Madrid. 2 años para iberoamericanos. Gestionamos tu expediente completo. Consulta gratuita."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/ciudadania/nacionalidad-por-residencia"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

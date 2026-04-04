@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Servicios',
+  categorySlug: '',
+  title: 'Ciudadanía',
+  titleLine1: 'Nacionalidad',
+  titleLine2: 'Española',
+  description: 'Tramitamos la nacionalidad española por todas las vías legales: residencia, origen, opción y nacimiento. Más de 500 expedientes gestionados con éxito.',
+  featuresTitle: 'Vías para obtener la nacionalidad española',
+  features: [
+    { icon: 'Clock', label: 'Nacionalidad por residencia (2 a 10 años)' },
+    { icon: 'Flag', label: 'Nacionalidad por origen (hijos de español/a)' },
+    { icon: 'UserCheck', label: 'Nacionalidad por opción (nietos de español/a)' },
+    { icon: 'Landmark', label: 'Nacionalidad por nacimiento en España' },
+    { icon: 'FileText', label: 'Examen CCSE y DELE preparación' },
+    { icon: 'CheckCircle', label: 'Registro Civil e inscripciones' },
+    { icon: 'Search', label: 'Revisión previa de requisitos' },
+    { icon: 'Shield', label: 'Recursos ante denegaciones' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre nacionalidad española',
+  faqItems: [
+    {
+      q: '¿Cuánto tiempo se tarda en obtener la nacionalidad española por residencia?',
+      a: 'El proceso suele tardar entre 1 y 2 años desde la presentación de la solicitud, aunque los plazos varían según la vía y el volumen de expedientes. Los ciudadanos iberoamericanos tienen la ventaja de necesitar solo 2 años de residencia legal continua, frente a los 10 años requeridos para otras nacionalidades.'
+    },
+    {
+      q: '¿Qué exámenes hay que superar para la nacionalidad por residencia?',
+      a: 'Es necesario superar el examen CCSE (Conocimientos Constitucionales y Socioculturales de España) y el DELE A2 de español (salvo que el solicitante tenga el español como lengua nativa). Ambos exámenes los organiza el Instituto Cervantes. En Travesía Legal te orientamos sobre la preparación.'
+    },
+    {
+      q: '¿Puedo solicitar la nacionalidad española si soy nieto/a de español/a?',
+      a: 'Sí, existen vías específicas para nietos de personas que perdieron la nacionalidad española durante el exilio o la guerra civil. También la vía de opción puede aplicarse en determinados supuestos familiares. Es fundamental analizar cada caso individualmente, ya que los requisitos varían.'
+    },
+    {
+      q: '¿Qué documentos necesito para iniciar el trámite de nacionalidad?',
+      a: 'Los documentos básicos incluyen pasaporte en vigor, certificado de nacimiento apostillado, certificado de antecedentes penales del país de origen y de España, tarjeta de residencia vigente, y justificante del pago de tasas. Todos los documentos en idioma extranjero deben estar traducidos y apostillados.'
+    },
+    {
+      q: '¿Qué diferencia hay entre la nacionalidad por origen y por residencia?',
+      a: 'La nacionalidad por origen se obtiene por nacimiento de padre o madre español/a, independientemente del tiempo de residencia. La nacionalidad por residencia requiere haber vivido legalmente en España durante un período continuado (2 años para iberoamericanos, 10 para el resto). La primera es un derecho desde el nacimiento; la segunda es un proceso administrativo.'
+    },
+  ],
+  ctaTitle: '¿Quieres obtener la nacionalidad española?',
+  ctaDesc: 'Analizamos tu caso de forma gratuita y te indicamos la vía más adecuada y los pasos a seguir.',
+}
+
+const schema = JSON.stringify([
+  {
+    "@context": "https://schema.org", "@type": "LegalService",
+    "name": "Travesía Legal", "url": "https://travesialegal.com",
+    "telephone": "+34694269008",
+    "address": [
+      { "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" },
+      { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }
+    ]
+  },
+  {
+    "@context": "https://schema.org", "@type": "FAQPage",
+    "mainEntity": data.faqItems.map(i => ({
+      "@type": "Question", "name": i.q,
+      "acceptedAnswer": { "@type": "Answer", "text": i.a }
+    }))
+  }
+])
+---
+<BaseLayout
+  title="Nacionalidad Española: Todas las Vías | Travesía Legal"
+  description="Especialistas en nacionalidad española por residencia, origen, opción y nacimiento. Consulta gratuita en Barcelona y Madrid."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/ciudadania/"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

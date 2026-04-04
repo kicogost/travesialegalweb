@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Extranjería y Residencia',
+  categorySlug: 'extranjeria-y-residencia',
+  title: 'Arraigo Social',
+  titleLine1: 'Arraigo',
+  titleLine2: 'Social',
+  description: 'Regulariza tu situación en España si llevas más de 3 años en el país. El arraigo social es la vía más utilizada para obtener autorización de residencia y trabajo. Gestionamos tu expediente completo.',
+  featuresTitle: 'Qué gestionamos',
+  features: [
+    { icon: 'FileText', label: 'Preparación del informe de arraigo' },
+    { icon: 'Users', label: 'Tramitación ante el Ayuntamiento' },
+    { icon: 'ClipboardList', label: 'Revisión de documentación completa' },
+    { icon: 'Shield', label: 'Verificación de antecedentes penales' },
+    { icon: 'CheckCircle', label: 'Presentación ante la Delegación de Gobierno' },
+    { icon: 'RefreshCw', label: 'Seguimiento y resolución del expediente' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre el arraigo social',
+  faqItems: [
+    {
+      q: '¿Quién puede solicitar el arraigo social?',
+      a: 'Pueden solicitarlo las personas extranjeras que acrediten una permanencia continua en España de al menos 3 años, carezcan de antecedentes penales en España y en su país de origen, y cuenten con un contrato de trabajo (mínimo 30 horas semanales durante 1 año) o un informe de arraigo emitido por el ayuntamiento.'
+    },
+    {
+      q: '¿Qué es el informe de arraigo y cómo se obtiene?',
+      a: 'El informe de arraigo es un documento emitido por el Ayuntamiento del municipio donde reside el solicitante. Acredita la integración social del extranjero en la comunidad: tiempo de empadronamiento, vínculos familiares, participación en actividades sociales, conocimiento del idioma, etc. La tramitación varía según el municipio y puede tardar entre 2 y 6 meses.'
+    },
+    {
+      q: '¿Cómo se acreditan los 3 años de permanencia en España?',
+      a: 'La permanencia puede acreditarse mediante: certificado de empadronamiento histórico, informes policiales de entradas y salidas, contratos de arrendamiento, recibos de servicios, facturas a nombre del solicitante, informes de instituciones sociales, educativas o sanitarias, y cualquier otro documento que acredite la estancia continuada en el territorio español.'
+    },
+    {
+      q: '¿Cuánto tiempo tarda en resolverse el arraigo social?',
+      a: 'El proceso completo puede durar entre 6 y 12 meses, contando la obtención del informe de arraigo municipal y la resolución de la Delegación del Gobierno. La resolución de la Oficina de Extranjería suele tardar entre 3 y 6 meses desde la presentación de la solicitud, si la documentación está completa.'
+    },
+    {
+      q: '¿Puedo trabajar mientras tramito el arraigo?',
+      a: 'Durante la tramitación del arraigo, no se tiene autorización para trabajar. Sin embargo, si la solicitud es admitida a trámite, se puede solicitar en algunos casos un permiso de trabajo provisional. Una vez concedida la autorización de arraigo, se puede trabajar por cuenta ajena o propia según las condiciones del permiso.'
+    },
+  ],
+  ctaTitle: '¿Llevas 3 años en España y quieres regularizarte?',
+  ctaDesc: 'Analizamos tu caso de forma gratuita y gestionamos tu arraigo social de principio a fin.',
+  relatedPost: {
+    title: 'Arraigo social: requisitos y documentación paso a paso',
+    href: '/blog/arraigo-social-requisitos-documentacion'
+  }
+}
+
+const schema = JSON.stringify([
+  { "@context": "https://schema.org", "@type": "LegalService", "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008", "address": [{ "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" }, { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }] },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Arraigo Social en España: Requisitos y Trámites 2026 | Travesía Legal"
+  description="Especialistas en arraigo social en Barcelona y Madrid. Regulariza tu situación si llevas 3 años en España. Consulta gratuita."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/extranjeria-y-residencia/arraigo-social"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

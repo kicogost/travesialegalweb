@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Empresas e Inversión',
+  categorySlug: 'empresas-e-inversion',
+  title: 'Traslado de Empleados a España',
+  titleLine1: 'Traslado de',
+  titleLine2: 'Empleados',
+  description: 'Gestionamos el traslado intraempresarial (ICT) de empleados extranjeros a la filial española de su empresa. Un proceso ágil para directivos, especialistas y trabajadores en prácticas.',
+  featuresTitle: 'Qué gestionamos',
+  features: [
+    { icon: 'Users', label: 'Traslado intraempresarial (ICT)' },
+    { icon: 'Briefcase', label: 'Autorizaciones para directivos y especialistas' },
+    { icon: 'Globe', label: 'Coordinación con filiales internacionales' },
+    { icon: 'FileText', label: 'Contratos de desplazamiento y condiciones laborales' },
+    { icon: 'Calculator', label: 'Planificación fiscal del desplazamiento' },
+    { icon: 'Users', label: 'Reagrupación familiar para el empleado' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre el traslado de empleados a España',
+  faqItems: [
+    {
+      q: '¿Qué es el traslado intraempresarial (ICT)?',
+      a: 'El traslado intraempresarial (ICT, por sus siglas en inglés) permite a empresas multinacionales desplazar temporalmente a empleados de sedes extranjeras a su filial, sucursal o establecimiento en España. Está regulado por la Directiva Europea 2014/66/UE y la Ley Orgánica 4/2000. Es aplicable a directivos, especialistas y trabajadores en prácticas.'
+    },
+    {
+      q: '¿Cuánto tiempo puede durar el traslado intraempresarial?',
+      a: 'La duración máxima del traslado intraempresarial en España es de 3 años para directivos y especialistas, y de 1 año para trabajadores en prácticas. Una vez finalizado el período máximo, el empleado debe regresar al país de origen o solicitar otro tipo de autorización si desea continuar en España.'
+    },
+    {
+      q: '¿Qué condiciones laborales debe garantizar la empresa española?',
+      a: 'La empresa receptora en España debe garantizar al empleado trasladado, como mínimo, las mismas condiciones de trabajo aplicables a los trabajadores españoles que realizan funciones equivalentes: salario, jornada laboral, vacaciones, prevención de riesgos laborales y respeto a los convenios colectivos aplicables. El empleado conserva su contrato con la empresa de origen.'
+    },
+    {
+      q: '¿Cuánto tarda la tramitación del ICT?',
+      a: 'La solicitud de traslado intraempresarial se presenta ante la Unidad de Grandes Empresas y Colectivos Estratégicos (UGE-CE). El plazo de resolución es de 20 días hábiles para los supuestos del ICT. Este plazo preferente es una ventaja significativa respecto a las autorizaciones ordinarias de trabajo.'
+    },
+    {
+      q: '¿Puede el empleado trasladado traer a su familia?',
+      a: 'Sí. Los cónyuges o parejas de hecho y los hijos menores de edad pueden obtener autorización de residencia en España durante la vigencia del traslado. El cónyuge o pareja del empleado también puede obtener autorización de trabajo de forma simultánea, facilitando así el traslado de toda la unidad familiar.'
+    },
+  ],
+  ctaTitle: '¿Necesitas trasladar empleados a tu empresa en España?',
+  ctaDesc: 'Gestionamos el ICT y toda la tramitación migratoria para tu empresa y sus empleados desplazados.',
+}
+
+const schema = JSON.stringify([
+  { "@context": "https://schema.org", "@type": "LegalService", "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008", "address": [{ "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" }, { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }] },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Traslado de Empleados a España: ICT Intraempresarial | Travesía Legal"
+  description="Gestionamos el traslado intraempresarial (ICT) para multinacionales con sede en España. Directivos y especialistas. Consulta gratuita."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/empresas-e-inversion/traslado-empleados"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

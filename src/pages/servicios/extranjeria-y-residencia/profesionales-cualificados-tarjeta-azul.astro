@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Extranjería y Residencia',
+  categorySlug: 'extranjeria-y-residencia',
+  title: 'Tarjeta Azul UE',
+  titleLine1: 'Profesionales',
+  titleLine2: 'Tarjeta Azul UE',
+  description: 'La Tarjeta Azul UE es el permiso de trabajo para profesionales altamente cualificados de países no comunitarios. Ofrece una vía rápida y privilegiada para trabajar en Europa.',
+  featuresTitle: 'Qué gestionamos',
+  features: [
+    { icon: 'Award', label: 'Solicitud de la Tarjeta Azul UE' },
+    { icon: 'FileText', label: 'Verificación de titulación superior' },
+    { icon: 'Briefcase', label: 'Contrato con salario mínimo exigido' },
+    { icon: 'Globe', label: 'Movilidad intraeuropea tras 18 meses' },
+    { icon: 'RefreshCw', label: 'Renovaciones y modificaciones' },
+    { icon: 'Users', label: 'Reagrupación familiar acelerada' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre la Tarjeta Azul UE',
+  faqItems: [
+    {
+      q: '¿Qué es la Tarjeta Azul UE y para quién está pensada?',
+      a: 'La Tarjeta Azul UE es una autorización de residencia y trabajo de alta cualificación para ciudadanos de países no comunitarios. Está diseñada para atraer talento extranjero altamente cualificado a Europa. En España, permite trabajar por cuenta ajena en actividades que requieran titulación universitaria superior o acreditación de experiencia profesional equivalente.'
+    },
+    {
+      q: '¿Qué salario mínimo se exige para la Tarjeta Azul UE?',
+      a: 'Para obtener la Tarjeta Azul UE en España, el salario anual bruto del contrato debe ser al menos 1,5 veces el salario medio bruto anual en España. Para 2025-2026, este umbral se sitúa aproximadamente en 45.000 € brutos anuales. Para profesiones con escasez de mano de obra, el umbral puede ser 1,2 veces el salario medio.'
+    },
+    {
+      q: '¿Qué ventajas tiene la Tarjeta Azul frente a una autorización ordinaria?',
+      a: 'Las principales ventajas son: plazos de resolución más rápidos (proceso preferente), reagrupación familiar inmediata (no es necesario esperar 1 año), acceso a la residencia de larga duración en menos tiempo, y movilidad intraeuropea: tras 18 meses en España, el titular puede trabajar en otro país de la UE con condiciones facilitadas.'
+    },
+    {
+      q: '¿Tengo que pasar la situación nacional de empleo para la Tarjeta Azul?',
+      a: 'En general, la Tarjeta Azul UE está exenta de la comprobación de la situación nacional de empleo (no es necesario demostrar que no hay candidatos en España). Sin embargo, puede ser necesaria en algunos casos específicos. La resolución de la solicitud tiene un plazo máximo de 90 días desde su presentación.'
+    },
+    {
+      q: '¿Cuánto tiempo dura la Tarjeta Azul UE y cómo se renueva?',
+      a: 'La Tarjeta Azul UE tiene una duración igual a la del contrato de trabajo más 3 meses adicionales, con un máximo de 4 años. Se puede renovar siempre que se mantenga el contrato de trabajo y los requisitos. Tras 5 años de residencia legal, se puede acceder a la residencia de larga duración.'
+    },
+  ],
+  ctaTitle: '¿Eres un profesional altamente cualificado?',
+  ctaDesc: 'La Tarjeta Azul UE puede ser tu mejor opción. Analizamos tu caso de forma gratuita.',
+}
+
+const schema = JSON.stringify([
+  { "@context": "https://schema.org", "@type": "LegalService", "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008", "address": [{ "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" }, { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }] },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Tarjeta Azul UE en España: Profesionales Altamente Cualificados | Travesía Legal"
+  description="Tramitamos la Tarjeta Azul UE para profesionales altamente cualificados en España. Rápida, con movilidad europea y reagrupación familiar. Consulta gratuita."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/extranjeria-y-residencia/profesionales-cualificados-tarjeta-azul"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Extranjería y Residencia',
+  categorySlug: 'extranjeria-y-residencia',
+  title: 'Residencia No Lucrativa',
+  titleLine1: 'Residencia',
+  titleLine2: 'No Lucrativa',
+  description: 'Vive en España sin necesidad de trabajar. La residencia no lucrativa es ideal para rentistas, jubilados y personas con ingresos suficientes procedentes del extranjero. Gestionamos tu solicitud completa.',
+  featuresTitle: 'Qué gestionamos',
+  features: [
+    { icon: 'DollarSign', label: 'Verificación de medios económicos' },
+    { icon: 'FileText', label: 'Preparación del expediente completo' },
+    { icon: 'Shield', label: 'Seguro médico privado de amplia cobertura' },
+    { icon: 'Globe', label: 'Gestión del visado consular' },
+    { icon: 'RefreshCw', label: 'Renovaciones bianuales' },
+    { icon: 'Home', label: 'Asesoramiento sobre empadronamiento' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre la residencia no lucrativa',
+  faqItems: [
+    {
+      q: '¿Qué es la residencia no lucrativa y quién puede solicitarla?',
+      a: 'La residencia no lucrativa permite residir en España sin realizar actividades laborales o profesionales. Está diseñada para personas que disponen de recursos económicos suficientes para vivir sin trabajar: rentistas, jubilados, personas con inversiones o ahorros, o quienes reciben ingresos pasivos del extranjero. No permite trabajar en España.'
+    },
+    {
+      q: '¿Cuántos ingresos mensuales necesito para la residencia no lucrativa?',
+      a: 'La cantidad mínima exigida se calcula en función del IPREM (Indicador Público de Renta de Efectos Múltiples). Para 2025-2026, el solicitante principal debe acreditar ingresos de aproximadamente el 400% del IPREM mensual (alrededor de 2.400 € al mes), más el 100% del IPREM adicional por cada familiar incluido en la solicitud.'
+    },
+    {
+      q: '¿Puedo trabajar con la residencia no lucrativa?',
+      a: 'No. La residencia no lucrativa prohíbe expresamente el ejercicio de actividades lucrativas en España, tanto por cuenta ajena como por cuenta propia. Si deseas trabajar en España, deberás solicitar una autorización de trabajo. Sin embargo, sí se pueden percibir rendimientos del capital procedentes del extranjero (dividendos, rentas, pensiones).'
+    },
+    {
+      q: '¿Cómo se tramita la residencia no lucrativa?',
+      a: 'El proceso comienza en el consulado español del país de residencia habitual del solicitante, donde se solicita el visado de residencia no lucrativa. Tras 90 días en España, se debe solicitar la Tarjeta de Identidad de Extranjero (TIE). La autorización tiene una duración inicial de 1 año, prorrogable por períodos de 2 años.'
+    },
+    {
+      q: '¿Puedo incluir a mi familia en la solicitud?',
+      a: 'Sí. Los cónyuges o parejas de hecho e hijos menores pueden incluirse en la misma solicitud como reagrupación familiar. Cada miembro adicional supone un requisito económico mayor (el 100% del IPREM adicional por persona). También deben contar con seguro médico privado de amplia cobertura.'
+    },
+  ],
+  ctaTitle: '¿Quieres vivir en España sin trabajar?',
+  ctaDesc: 'Analizamos si cumples los requisitos económicos y gestionamos tu residencia no lucrativa.',
+}
+
+const schema = JSON.stringify([
+  { "@context": "https://schema.org", "@type": "LegalService", "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008", "address": [{ "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" }, { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }] },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Residencia No Lucrativa en España: Rentistas y Jubilados | Travesía Legal"
+  description="Tramitamos la residencia no lucrativa para vivir en España sin trabajar. Rentistas, jubilados y personas con ingresos pasivos. Consulta gratuita."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/extranjeria-y-residencia/residencia-no-lucrativa"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

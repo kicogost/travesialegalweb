@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Fiscal y Contable',
+  categorySlug: 'fiscal-y-contable',
+  title: 'Planificación Fiscal',
+  titleLine1: 'Planificación',
+  titleLine2: 'Fiscal',
+  description: 'Optimizamos tu carga fiscal de forma legal y estratégica: estructura societaria, retribuciones, inversiones y operaciones internacionales. Planificar antes de actuar es clave para ahorrar impuestos.',
+  featuresTitle: 'Qué hacemos',
+  features: [
+    { icon: 'PieChart', label: 'Análisis de la situación fiscal actual' },
+    { icon: 'TrendingUp', label: 'Optimización de la estructura societaria' },
+    { icon: 'Calculator', label: 'Planificación de retribuciones y dividendos' },
+    { icon: 'Globe', label: 'Fiscalidad internacional y convenios' },
+    { icon: 'DollarSign', label: 'Ahorro fiscal en transmisiones patrimoniales' },
+    { icon: 'Shield', label: 'Cumplimiento normativo y compliance' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre planificación fiscal',
+  faqItems: [
+    {
+      q: '¿Qué es la planificación fiscal y es legal?',
+      a: 'La planificación fiscal es el conjunto de decisiones y estrategias legales encaminadas a minimizar la carga tributaria. Es completamente legal mientras se ajuste a la normativa vigente. Se diferencia del fraude fiscal en que no implica ocultación de rentas ni falsedad documental. Su objetivo es aprovechar las opciones que la ley ofrece: deducciones, exenciones, estructuras societarias, etc.'
+    },
+    {
+      q: '¿Cuándo es recomendable hacer planificación fiscal?',
+      a: 'La planificación fiscal es más efectiva antes de realizar operaciones significativas: constitución de una empresa, venta de un negocio o inmueble, recepción de una herencia, traslado internacional, inversión en activos, cambio de estructura societaria, o cuando los ingresos crecen significativamente. Planificar a posteriori reduce las opciones disponibles.'
+    },
+    {
+      q: '¿Qué estructura societaria es más eficiente fiscalmente?',
+      a: 'Depende del caso. Para personas con ingresos altos, una sociedad limitada puede ser más eficiente que tributar como autónomo. Las holding pueden optimizar la tributación de dividendos entre empresas del grupo (exención del 95%). Los grupos de sociedades permiten compensar pérdidas entre entidades. La elección depende del volumen de negocio, la reinversión de beneficios y las necesidades del empresario.'
+    },
+    {
+      q: '¿Qué deducciones fiscales no se aprovechan habitualmente?',
+      a: 'Algunas deducciones frecuentemente no utilizadas: deducciones por I+D e innovación tecnológica (hasta 42% en cuota del IS), deducción por donativos a fundaciones (hasta el 40%), plan de pensiones empresarial deducible para la empresa, deducción por inversión en empresas de nueva creación (30%), y diferimiento fiscal mediante reinversión de beneficios en determinados activos.'
+    },
+    {
+      q: '¿Cómo se planifica la fiscalidad de una salida de empresa (exit)?',
+      a: 'La planificación de un exit debe hacerse con antelación. Aspectos clave: tipo de operación (venta de participaciones vs. activos), antigüedad de las participaciones (posible exención o reducción), residencia fiscal del vendedor, tributación de las plusvalías y posible aplicación de convenios, estructura del deal (precio inicial vs. earnout), y opciones de reinversión con diferimiento fiscal.'
+    },
+  ],
+  ctaTitle: '¿Quieres optimizar tu fiscalidad?',
+  ctaDesc: 'Analizamos tu situación y diseñamos una estrategia fiscal legal para reducir tu carga tributaria.',
+}
+
+const schema = JSON.stringify([
+  { "@context": "https://schema.org", "@type": "LegalService", "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008", "address": [{ "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" }, { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }] },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Planificación Fiscal para Empresas y Particulares en España | Travesía Legal"
+  description="Optimizamos tu carga fiscal de forma legal: estructura societaria, retribuciones, inversiones y fiscalidad internacional. Consulta gratuita."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/fiscal-y-contable/planificacion-fiscal"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

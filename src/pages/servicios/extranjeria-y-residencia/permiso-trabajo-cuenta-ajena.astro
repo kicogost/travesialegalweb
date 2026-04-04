@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Extranjería y Residencia',
+  categorySlug: 'extranjeria-y-residencia',
+  title: 'Permiso de Trabajo por Cuenta Ajena',
+  titleLine1: 'Permiso de Trabajo',
+  titleLine2: 'Cuenta Ajena',
+  description: 'Obtén tu autorización de residencia y trabajo por cuenta ajena en España. Gestionamos el proceso para empleados extranjeros y sus empresas, incluyendo el visado inicial y las renovaciones.',
+  featuresTitle: 'Qué gestionamos',
+  features: [
+    { icon: 'Briefcase', label: 'Autorización inicial de residencia y trabajo' },
+    { icon: 'FileText', label: 'Visado de trabajo desde el país de origen' },
+    { icon: 'RefreshCw', label: 'Renovaciones de la autorización' },
+    { icon: 'Users', label: 'Gestión para empresas empleadoras' },
+    { icon: 'ClipboardList', label: 'Comprobación situación nacional de empleo' },
+    { icon: 'Shield', label: 'Recursos ante denegaciones' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre el permiso de trabajo por cuenta ajena',
+  faqItems: [
+    {
+      q: '¿Cómo se obtiene una autorización de trabajo por cuenta ajena en España?',
+      a: 'El proceso general requiere que la empresa empleadora solicite la autorización ante la Delegación del Gobierno correspondiente, acreditando la oferta de empleo y que no existe trabajador disponible en España (situación nacional de empleo). El trabajador también debe aportar su documentación. Una vez concedida, el trabajador solicita el visado en el consulado español de su país y viaja a España para recoger su tarjeta.'
+    },
+    {
+      q: '¿Qué es la situación nacional de empleo y cuándo se puede eximir?',
+      a: 'La situación nacional de empleo es la verificación de que no hay trabajadores españoles o con residencia legal disponibles para el puesto. Se puede eximir en casos de ocupaciones con certificado de difícil cobertura, trabajadores incluidos en catálogos de ocupaciones de difícil cobertura, cónyuges e hijos de residentes legales, y otros supuestos específicos previstos en la ley.'
+    },
+    {
+      q: '¿Cuánto tiempo tarda en resolverse la autorización de trabajo?',
+      a: 'El plazo legal de resolución es de 3 meses desde la presentación de la solicitud. En la práctica, los plazos varían según la Delegación del Gobierno y la carga de trabajo. Tras la concesión, el trabajador tiene 1 mes para solicitar el visado en el consulado correspondiente.'
+    },
+    {
+      q: '¿Puede el trabajador cambiar de empresa durante la vigencia del permiso?',
+      a: 'Durante el primer año, la autorización está vinculada a la empresa empleadora y al sector de actividad. A partir del segundo año (primera renovación), el trabajador adquiere mayor flexibilidad. Es posible solicitar la modificación de la autorización para cambiar de empresa en determinadas circunstancias.'
+    },
+    {
+      q: '¿Qué documentación necesita la empresa para solicitar la autorización?',
+      a: 'La empresa debe aportar: documentación acreditativa de la empresa (escritura, NIF, inscripción en la Seguridad Social), justificación de solvencia económica, contrato de trabajo firmado, descripción del puesto y justificación de la búsqueda de candidatos en el mercado nacional. También se verifica el cumplimiento de las cuotas de trabajadores con discapacidad si aplica.'
+    },
+  ],
+  ctaTitle: '¿Necesitas tramitar un permiso de trabajo?',
+  ctaDesc: 'Asesoramos tanto a trabajadores como a empresas en todo el proceso de autorización.',
+}
+
+const schema = JSON.stringify([
+  { "@context": "https://schema.org", "@type": "LegalService", "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008", "address": [{ "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" }, { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }] },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Permiso de Trabajo por Cuenta Ajena en España | Travesía Legal"
+  description="Tramitamos autorizaciones de residencia y trabajo por cuenta ajena. Visados, renovaciones y asesoramiento para empresas. Consulta gratuita."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/extranjeria-y-residencia/permiso-trabajo-cuenta-ajena"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Empresas e Inversión',
+  categorySlug: 'empresas-e-inversion',
+  title: 'Due Diligence Legal',
+  titleLine1: 'Due Diligence',
+  titleLine2: 'Legal',
+  description: 'Realizamos auditorías jurídicas completas antes de cualquier compraventa, inversión o fusión. Identificamos riesgos legales y garantizamos que tomes decisiones empresariales con plena información.',
+  featuresTitle: 'Qué analizamos',
+  features: [
+    { icon: 'Search', label: 'Estructura societaria y accionariado' },
+    { icon: 'FileText', label: 'Contratos mercantiles y obligaciones' },
+    { icon: 'Shield', label: 'Litigios pendientes y contingencias' },
+    { icon: 'Users', label: 'Situación laboral y convenios colectivos' },
+    { icon: 'Globe', label: 'Propiedad intelectual y activos digitales' },
+    { icon: 'Calculator', label: 'Situación fiscal y regularidad tributaria' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre due diligence legal',
+  faqItems: [
+    {
+      q: '¿Qué es una due diligence legal y cuándo es necesaria?',
+      a: 'Una due diligence legal es una auditoría jurídica exhaustiva de una empresa o activo, realizada antes de una operación corporativa (compraventa, inversión, fusión, entrada de socios). Su objetivo es identificar riesgos, contingencias y aspectos relevantes que puedan afectar al precio o a la decisión de invertir. Es imprescindible antes de cualquier adquisición empresarial.'
+    },
+    {
+      q: '¿Qué áreas cubre una due diligence legal?',
+      a: 'Una due diligence legal completa cubre: constitución y estructura societaria, revisión de contratos clave (clientes, proveedores, socios), situación laboral (nóminas, convenios, despidos), propiedad intelectual e industrial, situación fiscal (deudas, inspecciones, aplazamientos), licencias y autorizaciones administrativas, litigios y procedimientos judiciales en curso, cumplimiento normativo (RGPD, PBC, etc.).'
+    },
+    {
+      q: '¿Cuánto tiempo tarda una due diligence?',
+      a: 'El plazo depende del tamaño y complejidad de la empresa analizada. Una due diligence básica para una PYME puede realizarse en 2-4 semanas. Para empresas medianas o con estructuras más complejas, el proceso puede extenderse de 4 a 8 semanas. El resultado es un informe detallado con los hallazgos y la valoración del riesgo legal.'
+    },
+    {
+      q: '¿La due diligence afecta al precio de la operación?',
+      a: 'Sí, significativamente. Los hallazgos de la due diligence pueden dar lugar a ajustes en el precio de compra (precio a la baja por contingencias identificadas), cláusulas de garantía e indemnidad, condiciones precedentes para el cierre de la operación, o incluso la no realización de la transacción si los riesgos son inaceptables.'
+    },
+    {
+      q: '¿Es necesaria la due diligence para una ronda de inversión de startup?',
+      a: 'Sí, los inversores profesionales (business angels, venture capital, private equity) siempre realizan un proceso de due diligence antes de invertir. Para las startups, es recomendable hacer una "preparación para due diligence" (vendor due diligence) antes de iniciar las conversaciones con inversores, para identificar y corregir posibles irregularidades con antelación.'
+    },
+  ],
+  ctaTitle: '¿Vas a realizar una inversión o adquisición?',
+  ctaDesc: 'Realizamos la due diligence legal para que tomes decisiones empresariales con plena información y seguridad.',
+}
+
+const schema = JSON.stringify([
+  { "@context": "https://schema.org", "@type": "LegalService", "name": "Travesía Legal", "url": "https://travesialegal.com", "telephone": "+34694269008", "address": [{ "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" }, { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }] },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": data.faqItems.map(i => ({ "@type": "Question", "name": i.q, "acceptedAnswer": { "@type": "Answer", "text": i.a } })) }
+])
+---
+<BaseLayout
+  title="Due Diligence Legal para Empresas en España | Travesía Legal"
+  description="Auditoría jurídica completa para compraventas, inversiones y fusiones. Identificamos riesgos antes de que cierres la operación. Consulta gratuita."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/empresas-e-inversion/due-diligence-legal"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>

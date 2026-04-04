@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Servicios',
+  categorySlug: '',
+  title: 'Empresas e Inversión',
+  titleLine1: 'Empresas',
+  titleLine2: 'e Inversión',
+  description: 'Acompañamos a empresas, startups e inversores en su establecimiento en España: constitución de sociedades, visados para emprendedores, traslado de empleados y asesoramiento legal integral.',
+  featuresTitle: 'Servicios para empresas e inversores',
+  features: [
+    { icon: 'Building2', label: 'Constitución de sociedades (SL, SA)' },
+    { icon: 'Briefcase', label: 'Residencia para emprendedores' },
+    { icon: 'Users', label: 'Traslado internacional de empleados' },
+    { icon: 'Zap', label: 'Asesoramiento legal para startups' },
+    { icon: 'Search', label: 'Due diligence legal y auditoría' },
+    { icon: 'Globe', label: 'Implantación de empresas extranjeras' },
+    { icon: 'TrendingUp', label: 'Planificación fiscal empresarial' },
+    { icon: 'Handshake', label: 'Contratos mercantiles y acuerdos' },
+  ],
+  faqTitle: 'Preguntas frecuentes para empresas',
+  faqItems: [
+    {
+      q: '¿Cuánto tarda constituir una empresa en España?',
+      a: 'La constitución de una Sociedad Limitada (SL) puede realizarse en 5-10 días hábiles con el proceso telemático. El proceso presencial mediante notario suele tardar entre 2 y 3 semanas desde la obtención del NIF provisional hasta la inscripción en el Registro Mercantil. El capital mínimo para una SL es de 3.000 € (en algunos casos puede ser 1 €).'
+    },
+    {
+      q: '¿Qué visa necesito para invertir o emprender en España?',
+      a: 'Existen varias opciones: el visado de emprendedor (Ley de Emprendedores) para proyectos innovadores, el visado de inversión para inversiones superiores a 500.000 €, y el permiso de residencia para actividad lucrativa. La elección depende del perfil del inversor, el volumen de la inversión y el tipo de actividad.'
+    },
+    {
+      q: '¿Puedo trasladar empleados extranjeros a mi empresa en España?',
+      a: 'Sí, a través del procedimiento de traslado intraempresarial (ICT). Permite que empleados de una multinacional sean desplazados a la filial española durante un máximo de 3 años (directivos y especialistas). El trámite se gestiona ante la Unidad de Grandes Empresas y colectivos Estratégicos (UGE-CE).'
+    },
+    {
+      q: '¿Qué es una due diligence legal y cuándo es necesaria?',
+      a: 'Una due diligence legal es una auditoría jurídica de una empresa antes de una operación de compraventa, inversión o fusión. Analiza contratos, situación laboral, propiedad intelectual, litigios pendientes y cumplimiento normativo. Es imprescindible antes de cualquier adquisición o entrada de inversores en el capital.'
+    },
+    {
+      q: '¿Qué apoyo ofrecéis a startups?',
+      a: 'Ofrecemos asesoramiento integral: constitución societaria, pactos de socios, rondas de inversión, contratos con clientes y proveedores, protección de propiedad intelectual, cumplimiento RGPD y asesoramiento fiscal. También acompañamos en la solicitud de visados para fundadores extranjeros.'
+    },
+  ],
+  ctaTitle: '¿Quieres establecer tu empresa en España?',
+  ctaDesc: 'Consulta gratuita. Te explicamos las opciones disponibles según tu caso y sector.',
+}
+
+const schema = JSON.stringify([
+  {
+    "@context": "https://schema.org", "@type": "LegalService",
+    "name": "Travesía Legal", "url": "https://travesialegal.com",
+    "telephone": "+34694269008",
+    "address": [
+      { "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" },
+      { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }
+    ]
+  },
+  {
+    "@context": "https://schema.org", "@type": "FAQPage",
+    "mainEntity": data.faqItems.map(i => ({
+      "@type": "Question", "name": i.q,
+      "acceptedAnswer": { "@type": "Answer", "text": i.a }
+    }))
+  }
+])
+---
+<BaseLayout
+  title="Asesoría Legal para Empresas e Inversores en España | Travesía Legal"
+  description="Constitución de sociedades, residencia para emprendedores, traslado de empleados, due diligence y startups. Consulta gratuita en Barcelona y Madrid."
+  schema={schema}
+  canonical="https://travesialegal.com/servicios/empresas-e-inversion/"
+>
+  <ServiceSubpage client:load data={data} />
+</BaseLayout>
