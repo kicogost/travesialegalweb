@@ -224,13 +224,19 @@ export default function Home() {
 
           <motion.div {...fadeUp} style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
             gap: '24px',
           }}>
             <ServiceCard
+              icon={Shield}
+              title="Ciudadanía"
+              description="Nacionalidad española por residencia, origen, opción o nacimiento. Te acompañamos en todo el proceso."
+              href="/servicios/ciudadania/"
+            />
+            <ServiceCard
               icon={Globe}
-              title="Extranjería y Nacionalidad"
-              description="Visados, arraigo y nacionalidad española para ciudadanos extranjeros. Gestionamos tu expediente de principio a fin."
+              title="Extranjería y Residencia"
+              description="Visados, arraigo y permisos de residencia para ciudadanos extranjeros. Gestionamos tu expediente de principio a fin."
               href="/servicios/extranjeria-y-residencia/"
             />
             <ServiceCard
