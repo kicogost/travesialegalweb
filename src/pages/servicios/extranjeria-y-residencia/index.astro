@@ -1,6 +1,53 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro'
-import Extranjeria from '../../services/Extranjeria.jsx'
+import ServiceSubpage from '../../../components/ServiceSubpage.jsx'
+
+const data = {
+  category: 'Servicios',
+  categorySlug: '',
+  title: 'Extranjería y Residencia',
+  titleLine1: 'Extranjería',
+  titleLine2: 'y Residencia',
+  description: 'Gestionamos todos los trámites de extranjería y residencia en España: arraigo, permisos de trabajo, reagrupación familiar, residencia no lucrativa y mucho más.',
+  featuresTitle: 'Trámites que gestionamos',
+  features: [
+    { icon: 'Users', label: 'Arraigo social, familiar y laboral' },
+    { icon: 'Briefcase', label: 'Permiso de trabajo por cuenta ajena' },
+    { icon: 'UserCheck', label: 'Permiso de trabajo como autónomo' },
+    { icon: 'Home', label: 'Residencia no lucrativa' },
+    { icon: 'Heart', label: 'Reagrupación familiar' },
+    { icon: 'Clock', label: 'Residencia de larga duración' },
+    { icon: 'BookOpen', label: 'Visado de estudiante' },
+    { icon: 'Globe', label: 'Nómadas digitales' },
+    { icon: 'Star', label: 'Tarjeta Azul UE (profesionales cualificados)' },
+    { icon: 'TrendingUp', label: 'Residencia para deportistas' },
+  ],
+  faqTitle: 'Preguntas frecuentes sobre extranjería y residencia',
+  faqItems: [
+    {
+      q: '¿Cuánto tarda un permiso de residencia en España?',
+      a: 'El plazo habitual para la resolución de un permiso de residencia es de 3 a 6 meses desde la presentación de la solicitud. Sin embargo, esto puede variar según la vía, la comunidad autónoma y la carga de trabajo de la administración. En Travesía Legal hacemos seguimiento activo de tu expediente para detectar cualquier incidencia a tiempo.'
+    },
+    {
+      q: '¿Qué es el arraigo social y quién puede solicitarlo?',
+      a: 'El arraigo social es una autorización de residencia temporal para personas que llevan al menos 3 años en España en situación irregular, acreditan vínculos de integración social (trabajo, familia, actividad formativa) y no tienen antecedentes penales en España ni en su país de origen. Es una de las vías más solicitadas y requiere una documentación cuidadosa.'
+    },
+    {
+      q: '¿Puedo traer a mi familia si tengo residencia legal en España?',
+      a: 'Sí. Si tienes residencia legal y cumples los requisitos económicos y de vivienda, puedes solicitar la reagrupación familiar para tu cónyuge, hijos menores de 18 años y, en algunos casos, ascendientes a tu cargo. El trámite se inicia en España y la visa se recoge en el consulado del país de origen.'
+    },
+    {
+      q: '¿En qué consiste la residencia no lucrativa?',
+      a: 'La residencia no lucrativa está pensada para personas que quieren vivir en España sin trabajar, acreditando disponer de medios económicos suficientes (aproximadamente el 400% del IPREM al año). Es una opción muy utilizada por jubilados y rentistas extranjeros. No permite trabajar por cuenta ajena ni como autónomo.'
+    },
+    {
+      q: '¿Qué diferencia hay entre la Tarjeta Azul UE y un permiso de trabajo ordinario?',
+      a: 'La Tarjeta Azul UE está destinada a profesionales altamente cualificados (con titulación universitaria) que disponen de un contrato con salario elevado. Ofrece ventajas como mayor movilidad dentro de la UE y plazos de obtención favorables. El permiso de trabajo ordinario por cuenta ajena no requiere titulación, pero sí un contrato de trabajo y la acreditación de que no hay trabajadores locales disponibles para ese puesto.'
+    },
+  ],
+  ctaTitle: '¿Necesitas regularizar tu situación en España?',
+  ctaDesc: 'Analizamos tu caso de forma gratuita y te indicamos la vía más adecuada para obtener tu residencia o permiso de trabajo.',
+}
 
 const schema = JSON.stringify([
   {
@@ -11,6 +58,13 @@ const schema = JSON.stringify([
       { "@type": "PostalAddress", "streetAddress": "C/ Sardenya, 311", "addressLocality": "Barcelona", "postalCode": "08025", "addressCountry": "ES" },
       { "@type": "PostalAddress", "streetAddress": "C/ Vallirana, 7 local", "addressLocality": "Sabadell", "postalCode": "08207", "addressCountry": "ES" }
     ]
+  },
+  {
+    "@context": "https://schema.org", "@type": "FAQPage",
+    "mainEntity": data.faqItems.map(i => ({
+      "@type": "Question", "name": i.q,
+      "acceptedAnswer": { "@type": "Answer", "text": i.a }
+    }))
   }
 ])
 ---
@@ -20,5 +74,5 @@ const schema = JSON.stringify([
   schema={schema}
   canonical="https://travesialegal.com/servicios/extranjeria-y-residencia/"
 >
-  <Extranjeria client:load />
+  <ServiceSubpage client:load data={data} />
 </BaseLayout>
