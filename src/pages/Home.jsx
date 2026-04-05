@@ -386,69 +386,6 @@ export default function Home() {
         `}</style>
       </section>
 
-      {/* Why us */}
-      <section style={{ background: 'var(--white)', padding: '96px 0' }}>
-        <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
-            <motion.div {...fadeUp}>
-              <span className="section-label">Por qué elegirnos</span>
-              <h2 style={{ fontSize: 'clamp(26px, 3vw, 38px)', fontWeight: '700', color: 'var(--navy)', marginBottom: '24px', lineHeight: 1.2 }}>
-                Años de experiencia,<br />resultados reales
-              </h2>
-              <p style={{ fontSize: '16px', color: 'var(--ink-mid)', lineHeight: 1.75, marginBottom: '36px' }}>
-                En Travesía Legal combinamos el rigor técnico con una atención cercana y personalizada. Conocemos los procedimientos de la administración española, los plazos reales y los criterios de resolución.
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                {[
-                  'Asesoramiento personalizado desde el primer contacto',
-                  'Presupuestos transparentes sin letra pequeña',
-                  'Seguimiento continuo de todos los expedientes',
-                  'Acceso directo a tu gestor por WhatsApp',
-                ].map(item => (
-                  <div key={item} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                    <CheckCircle size={18} color="var(--gold-dark)" style={{ flexShrink: 0, marginTop: '2px' }} />
-                    <span style={{ fontSize: '15px', color: 'var(--ink-mid)', lineHeight: 1.5 }}>{item}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-            <motion.div {...fadeUp} style={{
-              background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%)',
-              borderRadius: 'var(--radius-xl)',
-              padding: '48px 40px',
-              color: 'white',
-            }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }}>
-                {[
-                  { value: '+500', label: 'Expedientes gestionados' },
-                  { value: '2', label: 'Oficinas en España' },
-                  { value: '24h', label: 'Tiempo de respuesta' },
-                  { value: '100%', label: 'Transparencia en costes' },
-                ].map(({ value, label }) => (
-                  <div key={label} style={{ textAlign: 'center' }}>
-                    <p style={{
-                      fontFamily: 'var(--font-display)',
-                      fontSize: '36px',
-                      fontWeight: '700',
-                      color: 'var(--gold)',
-                      marginBottom: '8px',
-                    }}>{value}</p>
-                    <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.65)', lineHeight: 1.4 }}>{label}</p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </div>
-        <style>{`
-          @media (max-width: 768px) {
-            section > div > div[style*='grid-template-columns: 1fr 1fr'] {
-              grid-template-columns: 1fr !important;
-            }
-          }
-        `}</style>
-      </section>
-
       {/* Testimonials */}
       <section style={{ background: 'var(--navy-faint)', padding: '96px 0', overflow: 'hidden' }}>
         <div className="container">
