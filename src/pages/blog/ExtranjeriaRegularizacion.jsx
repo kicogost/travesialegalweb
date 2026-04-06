@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { MessageCircle, Calendar, Clock, ArrowLeft } from 'lucide-react'
 import InteractiveButton from '../../components/InteractiveButton.jsx'
 
@@ -23,12 +22,6 @@ const faqSchema = {
   ]
 }
 
-const fadeUp = {
-  initial: { opacity: 1, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-100px' },
-  transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
-}
 
 export default function ExtranjeriaRegularizacion() {
   return (
@@ -40,7 +33,7 @@ export default function ExtranjeriaRegularizacion() {
         paddingBottom: '60px',
       }}>
         <div className="container">
-          <motion.div initial={{ opacity: 1, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <div className="animate-on-scroll">
             <a href="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '24px', textDecoration: 'none' }}>
               <ArrowLeft size={14} /> Volver al blog
             </a>
@@ -64,7 +57,7 @@ export default function ExtranjeriaRegularizacion() {
             <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.65)', maxWidth: '600px', lineHeight: 1.7 }}>
               Por Pau Iglesias · Especialista en Derecho de Extranjería
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -78,7 +71,7 @@ export default function ExtranjeriaRegularizacion() {
             alignItems: 'flex-start',
           }}>
             {/* Main content */}
-            <motion.article {...fadeUp} style={{ fontFamily: 'var(--font-body)' }}>
+            <article className="animate-on-scroll" style={{ fontFamily: 'var(--font-body)' }}>
               <div style={articleStyles.prose}>
 
                 <p style={articleStyles.lead}>
@@ -182,10 +175,10 @@ export default function ExtranjeriaRegularizacion() {
                   </InteractiveButton>
                 </div>
               </div>
-            </motion.article>
+            </article>
 
             {/* Sidebar */}
-            <motion.aside {...fadeUp} style={{ position: 'sticky', top: 'calc(var(--nav-height) + 24px)' }} className="article-sidebar">
+            <aside className="article-sidebar animate-on-scroll" style={{ position: 'sticky', top: 'calc(var(--nav-height) + 24px)' }}>
               <div style={{ background: 'var(--white)', border: '1px solid var(--border)', borderRadius: 'var(--radius-lg)', padding: '28px', marginBottom: '20px' }}>
                 <p style={{ fontWeight: '600', fontSize: '15px', color: 'var(--navy)', marginBottom: '16px' }}>Consulta gratuita</p>
                 <p style={{ fontSize: '13px', color: 'var(--ink-mid)', lineHeight: 1.7, marginBottom: '20px' }}>
@@ -210,7 +203,7 @@ export default function ExtranjeriaRegularizacion() {
                   </a>
                 ))}
               </div>
-            </motion.aside>
+            </aside>
           </div>
         </div>
       </section>

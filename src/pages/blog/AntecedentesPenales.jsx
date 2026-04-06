@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { MessageCircle, Calendar, Clock, ArrowLeft, ChevronDown } from 'lucide-react'
 import { useState } from 'react'
 import InteractiveButton from '../../components/InteractiveButton.jsx'
@@ -23,12 +22,6 @@ const faqSchema = {
   ]
 }
 
-const fadeUp = {
-  initial: { opacity: 1, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-100px' },
-  transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
-}
 
 function FAQ({ question, answer }) {
   const [open, setOpen] = useState(false)
@@ -107,7 +100,7 @@ export default function AntecedentesPenales() {
     <>
       <section style={{ background: 'linear-gradient(135deg, #08142A 0%, #0D1F3C 60%, #162B52 100%)', paddingTop: 'calc(var(--nav-height) + 60px)', paddingBottom: '60px' }}>
         <div className="container">
-          <motion.div initial={{ opacity: 1, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <div className="animate-on-scroll">
             <a href="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '24px', textDecoration: 'none' }}>
               <ArrowLeft size={14} /> Volver al blog
             </a>
@@ -119,14 +112,14 @@ export default function AntecedentesPenales() {
             <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: '700', color: 'var(--white)', letterSpacing: '-0.02em', lineHeight: 1.15, maxWidth: '720px' }}>
               Cómo sacar tus antecedentes penales en Colombia, Perú, Honduras y El Salvador
             </h1>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       <section style={{ background: 'var(--white)', padding: '64px 0' }}>
         <div className="container">
           <article style={{ maxWidth: '720px', margin: '0 auto', width: '100%' }}>
-            <motion.div {...fadeUp}>
+            <div className="animate-on-scroll">
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '26px', fontWeight: '700', color: 'var(--navy)', marginBottom: '16px', marginTop: '0' }}>
                 ¿Por qué necesito el certificado de antecedentes penales?
               </h2>
@@ -184,9 +177,9 @@ export default function AntecedentesPenales() {
                   <li key={i} style={{ fontSize: '16px', color: 'var(--ink-mid)', lineHeight: 1.8, marginBottom: '10px' }}>{item}</li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
 
-            <motion.div {...fadeUp} style={{ marginTop: '56px', paddingTop: '48px', borderTop: '2px solid var(--border)' }}>
+            <div className="animate-on-scroll" style={{ marginTop: '56px', paddingTop: '48px', borderTop: '2px solid var(--border)' }}>
               <span className="section-label">Preguntas frecuentes</span>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '26px', fontWeight: '700', color: 'var(--navy)', marginBottom: '32px' }}>
                 Dudas sobre los antecedentes penales del extranjero
@@ -194,9 +187,9 @@ export default function AntecedentesPenales() {
               {faqSchema.mainEntity.map(({ name, acceptedAnswer }) => (
                 <FAQ key={name} question={name} answer={acceptedAnswer.text} />
               ))}
-            </motion.div>
+            </div>
 
-            <motion.div {...fadeUp} style={{ marginTop: '56px', background: 'linear-gradient(135deg, #08142A 0%, #0D1F3C 100%)', borderRadius: 'var(--radius-xl)', padding: '40px', textAlign: 'center' }}>
+            <div className="animate-on-scroll" style={{ marginTop: '56px', background: 'linear-gradient(135deg, #08142A 0%, #0D1F3C 100%)', borderRadius: 'var(--radius-xl)', padding: '40px', textAlign: 'center' }}>
               <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: '700', color: 'var(--white)', marginBottom: '12px' }}>
                 ¿Necesitas ayuda con tu trámite de extranjería?
               </h3>
@@ -206,7 +199,7 @@ export default function AntecedentesPenales() {
               <InteractiveButton variant="gold" href="https://wa.me/34694269008" target="_blank" rel="noopener noreferrer">
                 <MessageCircle size={18} /> Consulta por WhatsApp
               </InteractiveButton>
-            </motion.div>
+            </div>
           </article>
         </div>
       </section>

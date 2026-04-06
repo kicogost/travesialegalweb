@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { MessageCircle, MapPin, FileText, BarChart2, Users, Shield, Calculator, BookOpen, TrendingDown, UserCheck } from 'lucide-react'
 import FAQ from '../../components/FAQ.jsx'
 import InteractiveButton from '../../components/InteractiveButton.jsx'
@@ -38,12 +37,6 @@ const faqItems = [
   },
 ]
 
-const fadeUp = {
-  initial: { opacity: 1, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-100px' },
-  transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
-}
 
 export default function GestoriaAutonomosSabadell() {
   return (
@@ -55,7 +48,7 @@ export default function GestoriaAutonomosSabadell() {
         paddingBottom: '80px',
       }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ maxWidth: '640px' }}>
+          <div className="animate-on-scroll" style={{ maxWidth: '640px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
               <MapPin size={14} color="var(--gold)" />
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--gold)' }}>
@@ -84,14 +77,14 @@ export default function GestoriaAutonomosSabadell() {
               <MessageCircle size={18} />
               Consulta Gratuita
             </InteractiveButton>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Intro */}
       <section style={{ background: 'var(--white)', padding: '80px 0' }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ maxWidth: '720px' }}>
+          <div className="animate-on-scroll" style={{ maxWidth: '720px' }}>
             <span className="section-label">Gestoría para autónomos en Sabadell</span>
             <h2 style={{ fontSize: 'clamp(24px, 3vw, 34px)', fontWeight: '700', color: 'var(--navy)', marginBottom: '20px' }}>
               Tu gestor local en el Vallès Occidental
@@ -105,21 +98,21 @@ export default function GestoriaAutonomosSabadell() {
             <p style={{ fontSize: '16px', color: 'var(--ink-mid)', lineHeight: 1.8 }}>
               Raul Lopez, responsable del área fiscal y laboral, combina el rigor técnico con una atención cercana y accesible que facilita la relación con la administración tributaria y la Seguridad Social.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Sub-services */}
       <section style={{ background: 'var(--off-white)', padding: '80px 0' }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ textAlign: 'center', marginBottom: '48px' }}>
+          <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: '48px' }}>
             <span className="section-label">Servicios para autónomos en Sabadell</span>
             <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: '700', color: 'var(--navy)' }}>
               Todo lo que necesita un autónomo
             </h2>
-          </motion.div>
+          </div>
 
-          <motion.div {...fadeUp} style={{
+          <div className="animate-on-scroll" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
             gap: '20px',
@@ -151,29 +144,29 @@ export default function GestoriaAutonomosSabadell() {
                 <span style={{ fontWeight: '500', fontSize: '14px', color: 'var(--navy)', lineHeight: 1.4 }}>{label}</span>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* FAQ */}
       <section style={{ background: 'var(--white)', padding: '80px 0' }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ textAlign: 'center', marginBottom: '48px' }}>
+          <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: '48px' }}>
             <span className="section-label">Preguntas frecuentes</span>
             <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: '700', color: 'var(--navy)' }}>
               Autónomos en Sabadell: dudas habituales
             </h2>
-          </motion.div>
-          <motion.div {...fadeUp} style={{ maxWidth: '780px', margin: '0 auto' }}>
+          </div>
+          <div className="animate-on-scroll" style={{ maxWidth: '780px', margin: '0 auto' }}>
             <FAQ items={faqItems} />
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* CTA */}
       <section style={{ background: 'linear-gradient(135deg, #08142A 0%, #0D1F3C 60%, #162B52 100%)', padding: '80px 0' }}>
         <div className="container" style={{ textAlign: 'center' }}>
-          <motion.div {...fadeUp}>
+          <div className="animate-on-scroll">
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: '700', color: 'var(--white)', marginBottom: '16px' }}>
               ¿Eres autónomo en Sabadell?
             </h2>
@@ -184,7 +177,7 @@ export default function GestoriaAutonomosSabadell() {
               <MessageCircle size={18} />
               Escríbenos por WhatsApp
             </InteractiveButton>
-          </motion.div>
+          </div>
         </div>
       </section>
     </>

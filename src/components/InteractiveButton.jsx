@@ -11,8 +11,15 @@ import { ArrowRight } from 'lucide-react'
  *  children  button label (icon + text)
  *  style     extra inline styles
  */
-export default function InteractiveButton({ variant = 'gold', href, to, children, style, ...rest }) {
+export default function InteractiveButton({ variant = 'gold', href, to, children, style, onClick, ...rest }) {
   const cls = `btn-interactive btn-interactive--${variant}`
+  const resolvedHref = to || href
+
+  function handleClick(e) {
+    const label = typeof children === 'string' ? children : resolvedHref
+    window.gtag?.('event', 'cta_click', { event_category: 'engagement', label })
+    onClick?.(e)
+  }
 
   const inner = (
     <>
@@ -26,7 +33,7 @@ export default function InteractiveButton({ variant = 'gold', href, to, children
   )
 
   return (
-    <a href={to || href} className={cls} style={style} {...rest}>
+    <a href={resolvedHref} className={cls} style={style} onClick={handleClick} {...rest}>
       {inner}
     </a>
   )

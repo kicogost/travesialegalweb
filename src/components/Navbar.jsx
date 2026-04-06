@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { Home, Users, BookOpen, ChevronDown, MessageCircle } from 'lucide-react'
 import { SERVICIOS_MENU } from '../data/servicios.js'
 
@@ -49,10 +48,8 @@ export default function Navbar({ pathname = '/' }) {
   const isServicesActive = pathname.startsWith('/servicios')
 
   const pillSpan = (
-    <motion.span
-      layoutId="tubelight-pill"
+    <span
       style={{ position: 'absolute', inset: 0, borderRadius: '999px', background: pillBg, zIndex: 0 }}
-      transition={{ type: 'spring', stiffness: 350, damping: 32 }}
     >
       <span style={{
         position: 'absolute', top: '-3px', left: '50%', transform: 'translateX(-50%)',
@@ -61,7 +58,7 @@ export default function Navbar({ pathname = '/' }) {
         <span style={{ position: 'absolute', width: '48px', height: '16px', borderRadius: '50%', background: onDark ? 'rgba(200,169,110,0.25)' : 'rgba(13,31,60,0.12)', filter: 'blur(6px)', top: '-6px', left: '-8px' }} />
         <span style={{ position: 'absolute', width: '32px', height: '12px', borderRadius: '50%', background: onDark ? 'rgba(200,169,110,0.2)' : 'rgba(13,31,60,0.1)', filter: 'blur(4px)', top: '-4px', left: '0' }} />
       </span>
-    </motion.span>
+    </span>
   )
 
   return (
@@ -194,13 +191,8 @@ export default function Navbar({ pathname = '/' }) {
       </div>
 
       {/* Desktop mega-dropdown */}
-      <AnimatePresence>
         {servicesOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -6 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -6 }}
-            transition={{ duration: 0.18 }}
+          <div
             role="region"
             aria-label="Menú de servicios"
             className="nav-desktop"
@@ -260,18 +252,12 @@ export default function Navbar({ pathname = '/' }) {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
 
       {/* Mobile menu */}
-      <AnimatePresence>
         {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2 }}
+          <div
             style={{
               position: 'absolute', top: 'var(--nav-height)', left: 0, right: 0,
               background: 'var(--white)', borderTop: '1px solid var(--border)',
@@ -317,13 +303,8 @@ export default function Navbar({ pathname = '/' }) {
                 <ChevronDown size={16} strokeWidth={1.5} style={{ transition: 'transform 0.2s', transform: mobileServicesOpen ? 'rotate(180deg)' : 'none' }} />
               </button>
 
-              <AnimatePresence>
                 {mobileServicesOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.22 }}
+                  <div
                     style={{ overflow: 'hidden', background: 'var(--off-white)', borderRadius: 'var(--radius-md)', marginBottom: '8px' }}
                   >
                     <div style={{ padding: '12px 16px 16px' }}>
@@ -357,9 +338,8 @@ export default function Navbar({ pathname = '/' }) {
                         </div>
                       ))}
                     </div>
-                  </motion.div>
+                  </div>
                 )}
-              </AnimatePresence>
             </div>
 
             {/* Nosotros + Blog */}
@@ -396,9 +376,8 @@ export default function Navbar({ pathname = '/' }) {
             >
               Consulta Gratuita
             </a>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
 
       <style>{`
         @media (max-width: 900px) {

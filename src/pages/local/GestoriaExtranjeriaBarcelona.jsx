@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { MessageCircle, MapPin, FileText, RefreshCw, Users, Star, Shield, Heart, Scale, CheckCircle } from 'lucide-react'
 import FAQ from '../../components/FAQ.jsx'
 import InteractiveButton from '../../components/InteractiveButton.jsx'
@@ -39,12 +38,6 @@ const faqItems = [
   },
 ]
 
-const fadeUp = {
-  initial: { opacity: 1, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-100px' },
-  transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
-}
 
 export default function GestoriaExtranjeriaBarcelona() {
   return (
@@ -56,7 +49,7 @@ export default function GestoriaExtranjeriaBarcelona() {
         paddingBottom: '80px',
       }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ maxWidth: '640px' }}>
+          <div className="animate-on-scroll" style={{ maxWidth: '640px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
               <MapPin size={14} color="var(--gold)" />
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--gold)' }}>
@@ -100,7 +93,7 @@ export default function GestoriaExtranjeriaBarcelona() {
                 <MapPin size={14} /> Ver en el mapa
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -108,7 +101,7 @@ export default function GestoriaExtranjeriaBarcelona() {
       <section style={{ background: 'var(--white)', padding: '80px 0' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', alignItems: 'center' }}>
-            <motion.div {...fadeUp}>
+            <div className="animate-on-scroll">
               <span className="section-label">Sobre nuestra oficina en Barcelona</span>
               <h2 style={{ fontSize: 'clamp(24px, 3vw, 34px)', fontWeight: '700', color: 'var(--navy)', marginBottom: '20px' }}>
                 Especialistas locales en extranjería
@@ -122,8 +115,8 @@ export default function GestoriaExtranjeriaBarcelona() {
               <p style={{ fontSize: '16px', color: 'var(--ink-mid)', lineHeight: 1.8 }}>
                 Nuestro equipo, liderado por Pau Iglesias, especialista en derecho de extranjería, ofrece una atención personalizada, en castellano o catalán, con total transparencia en costes y plazos.
               </p>
-            </motion.div>
-            <motion.div {...fadeUp}>
+            </div>
+            <div className="animate-on-scroll">
               {/* TODO: Embed Google Maps iframe for C/ Sardenya, 311, 08025 Barcelona */}
               <div style={{
                 background: 'var(--navy-faint)',
@@ -147,7 +140,7 @@ export default function GestoriaExtranjeriaBarcelona() {
                   Abrir en Google Maps
                 </a>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
         <style>{`
@@ -162,14 +155,14 @@ export default function GestoriaExtranjeriaBarcelona() {
       {/* Sub-services */}
       <section style={{ background: 'var(--off-white)', padding: '80px 0' }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ textAlign: 'center', marginBottom: '48px' }}>
+          <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: '48px' }}>
             <span className="section-label">Nuestros servicios en Barcelona</span>
             <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: '700', color: 'var(--navy)' }}>
               Trámites de extranjería en Barcelona
             </h2>
-          </motion.div>
+          </div>
 
-          <motion.div {...fadeUp} style={{
+          <div className="animate-on-scroll" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
             gap: '20px',
@@ -201,14 +194,14 @@ export default function GestoriaExtranjeriaBarcelona() {
                 <span style={{ fontWeight: '500', fontSize: '14px', color: 'var(--navy)', lineHeight: 1.4 }}>{label}</span>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Why Barcelona */}
       <section style={{ background: 'var(--white)', padding: '80px 0' }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ maxWidth: '720px' }}>
+          <div className="animate-on-scroll" style={{ maxWidth: '720px' }}>
             <span className="section-label">Por qué elegirnos en Barcelona</span>
             <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: '700', color: 'var(--navy)', marginBottom: '20px' }}>
               Conocimiento local, resultados reales
@@ -232,29 +225,29 @@ export default function GestoriaExtranjeriaBarcelona() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* FAQ */}
       <section style={{ background: 'var(--navy-faint)', padding: '80px 0' }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ textAlign: 'center', marginBottom: '48px' }}>
+          <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: '48px' }}>
             <span className="section-label">Preguntas frecuentes</span>
             <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: '700', color: 'var(--navy)' }}>
               Extranjería en Barcelona: dudas habituales
             </h2>
-          </motion.div>
-          <motion.div {...fadeUp} style={{ maxWidth: '780px', margin: '0 auto' }}>
+          </div>
+          <div className="animate-on-scroll" style={{ maxWidth: '780px', margin: '0 auto' }}>
             <FAQ items={faqItems} />
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* CTA */}
       <section style={{ background: 'linear-gradient(135deg, #08142A 0%, #0D1F3C 60%, #162B52 100%)', padding: '80px 0' }}>
         <div className="container" style={{ textAlign: 'center' }}>
-          <motion.div {...fadeUp}>
+          <div className="animate-on-scroll">
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: '700', color: 'var(--white)', marginBottom: '16px' }}>
               ¿Necesitas gestionar tu extranjería en Barcelona?
             </h2>
@@ -265,7 +258,7 @@ export default function GestoriaExtranjeriaBarcelona() {
               <MessageCircle size={18} />
               Escríbenos por WhatsApp
             </InteractiveButton>
-          </motion.div>
+          </div>
         </div>
       </section>
     </>

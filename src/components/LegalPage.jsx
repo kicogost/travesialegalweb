@@ -1,12 +1,4 @@
-import { motion } from 'framer-motion'
 import { ArrowLeft } from 'lucide-react'
-
-const fadeUp = {
-  initial: { opacity: 1, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.5 },
-}
 
 function Section({ title, children }) {
   return (
@@ -71,9 +63,9 @@ export default function LegalPage({ title, description, canonical, children }) {
       {/* Content */}
       <section style={{ background: 'var(--white)', padding: '56px 0 80px' }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ maxWidth: '760px' }}>
+          <div className="animate-on-scroll" style={{ maxWidth: '760px' }}>
             {children}
-          </motion.div>
+          </div>
         </div>
       </section>
     </>

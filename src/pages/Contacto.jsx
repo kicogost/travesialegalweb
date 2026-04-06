@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { MessageCircle, Phone, Mail, MapPin, Clock } from 'lucide-react'
 
 const localBusinessSchema = {
@@ -19,12 +18,6 @@ const localBusinessSchema = {
   ]
 }
 
-const fadeUp = {
-  initial: { opacity: 1, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-100px' },
-  transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
-}
 
 export default function Contacto() {
   return (
@@ -36,7 +29,7 @@ export default function Contacto() {
         paddingBottom: '80px',
       }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ maxWidth: '560px' }}>
+          <div className="animate-on-scroll" style={{ maxWidth: '560px' }}>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '16px', display: 'block' }}>
               Contacto
             </span>
@@ -54,7 +47,7 @@ export default function Contacto() {
             <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7 }}>
               Consulta gratuita sin compromiso. Cuéntanos tu caso y te orientamos sobre los pasos a seguir.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -86,7 +79,7 @@ export default function Contacto() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 380px', gap: '64px', alignItems: 'flex-start' }}>
 
             {/* Left: CTA actions */}
-            <motion.div {...fadeUp}>
+            <div className="animate-on-scroll">
               <span className="section-label">Empieza ahora</span>
               <h2 style={{ fontSize: 'clamp(22px, 2.5vw, 32px)', fontWeight: '700', color: 'var(--navy)', marginBottom: '12px' }}>
                 Elige cómo prefieres contactarnos
@@ -102,6 +95,7 @@ export default function Contacto() {
                   href="https://wa.me/34694269008"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => window.gtag?.('event', 'cta_click', { event_category: 'engagement', label: 'whatsapp_card_contacto' })}
                   style={{
                     display: 'flex',
                     gap: '20px',
@@ -138,6 +132,7 @@ export default function Contacto() {
                 {/* Email card */}
                 <a
                   href="mailto:info@travesialegal.com"
+                  onClick={() => window.gtag?.('event', 'cta_click', { event_category: 'engagement', label: 'email_card_contacto' })}
                   style={{
                     display: 'flex',
                     gap: '20px',
@@ -172,10 +167,10 @@ export default function Contacto() {
                 </a>
 
               </div>
-            </motion.div>
+            </div>
 
             {/* Right: info + offices */}
-            <motion.aside {...fadeUp}>
+            <aside className="animate-on-scroll">
               {/* Hours + quick contact */}
               <div style={{ background: 'var(--white)', border: '1px solid var(--border)', borderRadius: 'var(--radius-xl)', padding: '28px', marginBottom: '20px' }}>
                 <span className="section-label">Información de contacto</span>
@@ -191,7 +186,7 @@ export default function Contacto() {
                     </div>
                   </a>
 
-                  <a href="tel:+34694269008" style={{ display: 'flex', gap: '12px', alignItems: 'center', textDecoration: 'none' }}>
+                  <a href="tel:+34694269008" onClick={() => window.gtag?.('event', 'cta_click', { event_category: 'engagement', label: 'phone_click_contacto' })} style={{ display: 'flex', gap: '12px', alignItems: 'center', textDecoration: 'none' }}>
                     <div style={{ width: '36px', height: '36px', background: 'var(--navy-faint)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                       <Phone size={16} color="var(--navy)" />
                     </div>
@@ -201,7 +196,7 @@ export default function Contacto() {
                     </div>
                   </a>
 
-                  <a href="mailto:info@travesialegal.com" style={{ display: 'flex', gap: '12px', alignItems: 'center', textDecoration: 'none' }}>
+                  <a href="mailto:info@travesialegal.com" onClick={() => window.gtag?.('event', 'cta_click', { event_category: 'engagement', label: 'email_click_contacto' })} style={{ display: 'flex', gap: '12px', alignItems: 'center', textDecoration: 'none' }}>
                     <div style={{ width: '36px', height: '36px', background: 'var(--navy-faint)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                       <Mail size={16} color="var(--navy)" />
                     </div>
@@ -278,7 +273,7 @@ export default function Contacto() {
                   </div>
                 ))}
               </div>
-            </motion.aside>
+            </aside>
           </div>
         </div>
         <style>{`

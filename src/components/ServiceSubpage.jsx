@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import {
   FileText, RefreshCw, Users, Star, Shield, Heart, Scale,
   Home, Briefcase, BarChart2, Globe, Building2, TrendingUp,
@@ -26,13 +25,6 @@ const DEFAULT_STEPS = [
   { step: '04', title: 'Resolución', desc: 'Te comunicamos el resultado y te ayudamos con los trámites posteriores si los hay. El proceso no termina hasta que tú estás tranquilo.' },
 ]
 
-const fadeUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-100px' },
-  transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
-}
-
 export default function ServiceSubpage({ data }) {
   const steps = data.steps || DEFAULT_STEPS
 
@@ -45,7 +37,7 @@ export default function ServiceSubpage({ data }) {
         paddingBottom: '80px',
       }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ maxWidth: '640px' }}>
+          <div className="animate-on-scroll" style={{ maxWidth: '640px' }}>
             <a
               href={`/servicios/${data.categorySlug}/`}
               style={{
@@ -82,20 +74,20 @@ export default function ServiceSubpage({ data }) {
               <MessageCircle size={18} />
               Consulta Gratuita por WhatsApp
             </InteractiveButton>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Features grid */}
       <section style={{ background: 'var(--off-white)', padding: '80px 0' }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ textAlign: 'center', marginBottom: '48px' }}>
+          <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: '48px' }}>
             <span className="section-label">Qué gestionamos</span>
             <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: '700', color: 'var(--navy)' }}>
               {data.featuresTitle || 'Nuestro servicio incluye'}
             </h2>
-          </motion.div>
-          <motion.div {...fadeUp} style={{
+          </div>
+          <div className="animate-on-scroll" style={{
             display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px',
           }}>
             {data.features.map(({ icon, label }) => {
@@ -122,20 +114,20 @@ export default function ServiceSubpage({ data }) {
                 </div>
               )
             })}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Process steps */}
       <section style={{ background: 'var(--white)', padding: '80px 0' }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ textAlign: 'center', marginBottom: '56px' }}>
+          <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: '56px' }}>
             <span className="section-label">Cómo trabajamos</span>
             <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: '700', color: 'var(--navy)' }}>
               Tu proceso, paso a paso
             </h2>
-          </motion.div>
-          <motion.div {...fadeUp} style={{
+          </div>
+          <div className="animate-on-scroll" style={{
             display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '32px',
           }}>
             {steps.map(({ step, title, desc }) => (
@@ -153,22 +145,22 @@ export default function ServiceSubpage({ data }) {
                 <p style={{ fontSize: '14px', color: 'var(--ink-mid)', lineHeight: 1.65 }}>{desc}</p>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* FAQ */}
       <section style={{ background: 'var(--off-white)', padding: '80px 0' }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ textAlign: 'center', marginBottom: '48px' }}>
+          <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: '48px' }}>
             <span className="section-label">Preguntas frecuentes</span>
             <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: '700', color: 'var(--navy)' }}>
               {data.faqTitle || 'Dudas habituales'}
             </h2>
-          </motion.div>
-          <motion.div {...fadeUp} style={{ maxWidth: '780px', margin: '0 auto' }}>
+          </div>
+          <div className="animate-on-scroll" style={{ maxWidth: '780px', margin: '0 auto' }}>
             <FAQ items={data.faqItems} />
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -193,7 +185,7 @@ export default function ServiceSubpage({ data }) {
         padding: '80px 0',
       }}>
         <div className="container" style={{ textAlign: 'center' }}>
-          <motion.div {...fadeUp}>
+          <div className="animate-on-scroll">
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: '700', color: 'var(--white)', marginBottom: '16px' }}>
               {data.ctaTitle || '¿Necesitas ayuda con este trámite?'}
             </h2>
@@ -204,7 +196,7 @@ export default function ServiceSubpage({ data }) {
               <MessageCircle size={18} />
               Escríbenos por WhatsApp
             </InteractiveButton>
-          </motion.div>
+          </div>
         </div>
       </section>
     </>

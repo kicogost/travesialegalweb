@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { MessageCircle, Calendar, Clock, ArrowLeft } from 'lucide-react'
 import InteractiveButton from '../../components/InteractiveButton.jsx'
 
@@ -11,12 +10,6 @@ const articleSchema = {
   "publisher": { "@type": "Organization", "name": "Travesía Legal" }
 }
 
-const fadeUp = {
-  initial: { opacity: 1, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-100px' },
-  transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
-}
 
 const articleStyles = {
   lead: {
@@ -55,7 +48,7 @@ export default function GestionContable() {
         paddingBottom: '60px',
       }}>
         <div className="container">
-          <motion.div initial={{ opacity: 1, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <div className="animate-on-scroll">
             <a href="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '24px', textDecoration: 'none' }}>
               <ArrowLeft size={14} /> Volver al blog
             </a>
@@ -79,7 +72,7 @@ export default function GestionContable() {
             <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.65)', maxWidth: '600px', lineHeight: 1.7 }}>
               Por Raul Lopez · Asesor Fiscal y Laboral
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -87,7 +80,7 @@ export default function GestionContable() {
       <section style={{ background: 'var(--off-white)', padding: '64px 0 96px' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: '64px', alignItems: 'flex-start' }}>
-            <motion.article {...fadeUp}>
+            <article className="animate-on-scroll">
               <p style={articleStyles.lead}>
                 La gestión contable y fiscal de una empresa en España es mucho más que llevar un registro de ingresos y gastos. Es el sistema nervioso financiero de la organización: la base sobre la que se toman decisiones de negocio, se cumple con las obligaciones legales y se minimiza la carga tributaria de forma legal. Sin embargo, muchos empresarios cometen el error de ver la contabilidad como un coste inevitable en lugar de como una herramienta de gestión. Una contabilidad bien llevada no solo evita sanciones sino que permite identificar áreas de mejora, optimizar los recursos y tomar decisiones con datos reales. En esta guía práctica explicamos las obligaciones contables de una empresa española, los impuestos principales a los que está sujeta, cómo llevar la contabilidad de una pyme paso a paso, y cómo planificar fiscalmente para pagar solo lo justo.
               </p>
@@ -196,10 +189,10 @@ export default function GestionContable() {
                   Consulta Gratuita
                 </InteractiveButton>
               </div>
-            </motion.article>
+            </article>
 
             {/* Sidebar */}
-            <motion.aside {...fadeUp} style={{ position: 'sticky', top: 'calc(var(--nav-height) + 24px)' }} className="article-sidebar">
+            <aside className="article-sidebar animate-on-scroll" style={{ position: 'sticky', top: 'calc(var(--nav-height) + 24px)' }}>
               <div style={{ background: 'var(--white)', border: '1px solid var(--border)', borderRadius: 'var(--radius-lg)', padding: '28px', marginBottom: '20px' }}>
                 <p style={{ fontWeight: '600', fontSize: '15px', color: 'var(--navy)', marginBottom: '16px' }}>Consulta gratuita</p>
                 <p style={{ fontSize: '13px', color: 'var(--ink-mid)', lineHeight: 1.7, marginBottom: '20px' }}>
@@ -224,7 +217,7 @@ export default function GestionContable() {
                   </a>
                 ))}
               </div>
-            </motion.aside>
+            </aside>
           </div>
         </div>
       </section>

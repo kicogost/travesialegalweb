@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { MessageCircle } from 'lucide-react'
 import BlogCard from '../components/BlogCard.jsx'
@@ -113,12 +112,6 @@ const posts = [
 
 const categories = ['Todos', 'Extranjería', 'Fiscal', 'Laboral', 'Legal']
 
-const fadeUp = {
-  initial: { opacity: 1, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-100px' },
-  transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
-}
 
 export default function Blog() {
   const [activeCategory, setActiveCategory] = useState('Todos')
@@ -136,7 +129,7 @@ export default function Blog() {
         paddingBottom: '80px',
       }}>
         <div className="container">
-          <motion.div initial={{ opacity: 1, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} style={{ maxWidth: '560px' }}>
+          <div className="animate-on-scroll" style={{ maxWidth: '560px' }}>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '16px', display: 'block' }}>
               Blog y recursos
             </span>
@@ -155,7 +148,7 @@ export default function Blog() {
             <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7 }}>
               Información práctica y actualizada sobre extranjería, fiscal y laboral para latinoamericanos, autónomos y empresas en España.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -163,7 +156,7 @@ export default function Blog() {
       <section style={{ background: 'var(--off-white)', padding: '80px 0' }}>
         <div className="container">
           {/* Category filter */}
-          <motion.div {...fadeUp} style={{ display: 'flex', gap: '8px', marginBottom: '48px', flexWrap: 'wrap' }}>
+          <div className="animate-on-scroll" style={{ display: 'flex', gap: '8px', marginBottom: '48px', flexWrap: 'wrap' }}>
             {categories.map(cat => (
               <button
                 key={cat}
@@ -197,10 +190,10 @@ export default function Blog() {
                 {cat}
               </button>
             ))}
-          </motion.div>
+          </div>
 
           {filtered.length > 0 ? (
-            <motion.div {...fadeUp} style={{
+            <div className="animate-on-scroll" style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
               gap: '24px',
@@ -208,11 +201,11 @@ export default function Blog() {
               {filtered.map(post => (
                 <BlogCard key={post.id} {...post} />
               ))}
-            </motion.div>
+            </div>
           ) : (
-            <motion.div {...fadeUp} style={{ textAlign: 'center', padding: '64px 0' }}>
+            <div className="animate-on-scroll" style={{ textAlign: 'center', padding: '64px 0' }}>
               <p style={{ fontSize: '16px', color: 'var(--ink-light)' }}>No hay artículos en esta categoría todavía.</p>
-            </motion.div>
+            </div>
           )}
         </div>
       </section>
@@ -220,7 +213,7 @@ export default function Blog() {
       {/* CTA */}
       <section style={{ background: 'linear-gradient(135deg, #08142A 0%, #0D1F3C 60%, #162B52 100%)', padding: '80px 0' }}>
         <div className="container" style={{ textAlign: 'center' }}>
-          <motion.div {...fadeUp}>
+          <div className="animate-on-scroll">
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: '700', color: 'var(--white)', marginBottom: '16px' }}>
               ¿Tienes dudas después de leer nuestros artículos?
             </h2>
@@ -231,7 +224,7 @@ export default function Blog() {
               <MessageCircle size={18} />
               Escríbenos por WhatsApp
             </InteractiveButton>
-          </motion.div>
+          </div>
         </div>
       </section>
     </>

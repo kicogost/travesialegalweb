@@ -1,10 +1,36 @@
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 
-export default function FAQ({ items }) {
+export default function FAQ({ items, faqs }) {
   const [open, setOpen] = useState(null)
 
+  // Derive schema-ready faqs from whichever prop is provided
+  const schemaFaqs = faqs
+    ? faqs
+    : items
+      ? items.map(item => ({ question: item.q, answer: item.a }))
+      : []
+
+  const faqSchema = schemaFaqs.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": schemaFaqs.map(({ question, answer }) => ({
+          "@type": "Question",
+          "name": question,
+          "acceptedAnswer": { "@type": "Answer", "text": answer },
+        })),
+      }
+    : null
+
   return (
+    <>
+    {faqSchema && (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+    )}
     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
       {items.map((item, i) => (
         <div
@@ -66,5 +92,6 @@ export default function FAQ({ items }) {
         </div>
       ))}
     </div>
+    </>
   )
 }

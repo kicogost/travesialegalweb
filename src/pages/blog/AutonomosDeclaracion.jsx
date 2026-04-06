@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { MessageCircle, Calendar, Clock, ArrowLeft } from 'lucide-react'
 import InteractiveButton from '../../components/InteractiveButton.jsx'
 
@@ -11,12 +10,6 @@ const articleSchema = {
   "publisher": { "@type": "Organization", "name": "Travesía Legal" }
 }
 
-const fadeUp = {
-  initial: { opacity: 1, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-100px' },
-  transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
-}
 
 const articleStyles = {
   lead: {
@@ -55,7 +48,7 @@ export default function AutonomosDeclaracion() {
         paddingBottom: '60px',
       }}>
         <div className="container">
-          <motion.div initial={{ opacity: 1, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <div className="animate-on-scroll">
             <a href="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '24px', textDecoration: 'none' }}>
               <ArrowLeft size={14} /> Volver al blog
             </a>
@@ -79,7 +72,7 @@ export default function AutonomosDeclaracion() {
             <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.65)', maxWidth: '600px', lineHeight: 1.7 }}>
               Por Raul Lopez · Asesor Fiscal y Laboral
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -87,7 +80,7 @@ export default function AutonomosDeclaracion() {
       <section style={{ background: 'var(--off-white)', padding: '64px 0 96px' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: '64px', alignItems: 'flex-start' }}>
-            <motion.article {...fadeUp}>
+            <article className="animate-on-scroll">
               <p style={articleStyles.lead}>
                 La realidad fiscal del autónomo en España puede resultar abrumadora al principio: múltiples modelos tributarios, plazos trimestrales inamovibles, la complejidad de las deducciones... y la amenaza constante de una sanción de Hacienda si algo no cuadra. Sin embargo, con una buena organización y el asesoramiento adecuado, la gestión fiscal de un autónomo puede convertirse en algo ordenado y predecible. Este artículo es una guía práctica y actualizada para 2026 que cubre todo lo que necesitas saber: qué impuestos pagas, qué modelos debes presentar cada trimestre, qué gastos puedes deducirte legalmente, y cómo presentar la declaración de la renta sin cometer los errores más habituales.
               </p>
@@ -196,10 +189,10 @@ export default function AutonomosDeclaracion() {
                   Consulta Gratuita
                 </InteractiveButton>
               </div>
-            </motion.article>
+            </article>
 
             {/* Sidebar */}
-            <motion.aside {...fadeUp} style={{ position: 'sticky', top: 'calc(var(--nav-height) + 24px)' }} className="article-sidebar">
+            <aside className="article-sidebar animate-on-scroll" style={{ position: 'sticky', top: 'calc(var(--nav-height) + 24px)' }}>
               <div style={{ background: 'var(--white)', border: '1px solid var(--border)', borderRadius: 'var(--radius-lg)', padding: '28px', marginBottom: '20px' }}>
                 <p style={{ fontWeight: '600', fontSize: '15px', color: 'var(--navy)', marginBottom: '16px' }}>Consulta gratuita</p>
                 <p style={{ fontSize: '13px', color: 'var(--ink-mid)', lineHeight: 1.7, marginBottom: '20px' }}>
@@ -225,7 +218,7 @@ export default function AutonomosDeclaracion() {
                   </a>
                 ))}
               </div>
-            </motion.aside>
+            </aside>
           </div>
         </div>
       </section>

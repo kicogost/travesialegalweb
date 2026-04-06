@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { MapPin, MessageCircle, Shield, Heart, TrendingUp } from 'lucide-react'
 import InteractiveButton from '../components/InteractiveButton.jsx'
 
@@ -24,13 +23,6 @@ const orgSchema = {
   ]
 }
 
-const fadeUp = {
-  initial: { opacity: 1, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-100px' },
-  transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
-}
-
 export default function Nosotros() {
   return (
     <>
@@ -41,7 +33,7 @@ export default function Nosotros() {
         paddingBottom: '80px',
       }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ maxWidth: '640px' }}>
+          <div className="animate-on-scroll" style={{ maxWidth: '640px' }}>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '16px', display: 'block' }}>
               La empresa
             </span>
@@ -59,20 +51,20 @@ export default function Nosotros() {
             <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, maxWidth: '520px' }}>
               Somos una gestoría especializada en extranjería, laboral y fiscal para extranjeros, autónomos y empresas en España. Nuestro objetivo es que los trámites burocráticos no sean un obstáculo para tu vida en España.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Video */}
       <section style={{ background: 'var(--white)', padding: '80px 0' }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ textAlign: 'center', marginBottom: '32px' }}>
+          <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: '32px' }}>
             <span className="section-label">Conócenos</span>
             <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: '700', color: 'var(--navy)' }}>
               Conócenos en persona
             </h2>
-          </motion.div>
-          <motion.div {...fadeUp} style={{ maxWidth: '720px', margin: '0 auto' }}>
+          </div>
+          <div className="animate-on-scroll" style={{ maxWidth: '720px', margin: '0 auto' }}>
             <div style={{
               aspectRatio: '16/9',
               background: 'var(--navy)',
@@ -99,19 +91,19 @@ export default function Nosotros() {
                 Vídeo próximamente
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Founders */}
       <section style={{ background: 'var(--white)', padding: '96px 0' }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ textAlign: 'center', marginBottom: '64px' }}>
+          <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: '64px' }}>
             <span className="section-label">El equipo</span>
             <h2 style={{ fontSize: 'clamp(28px, 3.5vw, 40px)', fontWeight: '700', color: 'var(--navy)' }}>
               Profesionales con experiencia real
             </h2>
-          </motion.div>
+          </div>
 
           <div style={{
             display: 'grid',
@@ -141,7 +133,7 @@ Su trayectoria incluye la gestión de cientos de casos de regularización, reagr
 Experta en cierres contables, presentación de impuestos, cuentas anuales y planificación fiscal. Combina un riguroso conocimiento técnico con atención al detalle y orientación a la seguridad jurídica del cliente.`,
               },
             ].map(({ photo, initials, name, title, badge, bio, instagram }) => (
-              <motion.div key={name} {...fadeUp} style={{
+              <div key={name} className="animate-on-scroll" style={{
                 background: 'var(--off-white)',
                 border: '1px solid var(--border)',
                 borderRadius: 'var(--radius-xl)',
@@ -207,7 +199,7 @@ Experta en cierres contables, presentación de impuestos, cuentas anuales y plan
                     @iglesiasextranjeria
                   </a>
                 )}
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -216,14 +208,14 @@ Experta en cierres contables, presentación de impuestos, cuentas anuales y plan
       {/* Values */}
       <section style={{ background: 'var(--navy-faint)', padding: '80px 0' }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ textAlign: 'center', marginBottom: '56px' }}>
+          <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: '56px' }}>
             <span className="section-label">Nuestros valores</span>
             <h2 style={{ fontSize: 'clamp(26px, 3vw, 38px)', fontWeight: '700', color: 'var(--navy)' }}>
               Lo que nos define
             </h2>
-          </motion.div>
+          </div>
 
-          <motion.div {...fadeUp} style={{
+          <div className="animate-on-scroll" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
             gap: '24px',
@@ -265,21 +257,21 @@ Experta en cierres contables, presentación de impuestos, cuentas anuales y plan
                 <p style={{ fontSize: '14px', color: 'var(--ink-mid)', lineHeight: 1.7 }}>{desc}</p>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Offices */}
       <section style={{ background: 'var(--white)', padding: '80px 0' }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ textAlign: 'center', marginBottom: '56px' }}>
+          <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: '56px' }}>
             <span className="section-label">Dónde estamos</span>
             <h2 style={{ fontSize: 'clamp(26px, 3vw, 38px)', fontWeight: '700', color: 'var(--navy)' }}>
               Nuestras oficinas
             </h2>
-          </motion.div>
+          </div>
 
-          <motion.div {...fadeUp} style={{
+          <div className="animate-on-scroll" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
             gap: '32px',
@@ -325,14 +317,14 @@ Experta en cierres contables, presentación de impuestos, cuentas anuales y plan
                 </div>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* CTA */}
       <section style={{ background: 'linear-gradient(135deg, #08142A 0%, #0D1F3C 60%, #162B52 100%)', padding: '80px 0' }}>
         <div className="container" style={{ textAlign: 'center' }}>
-          <motion.div {...fadeUp}>
+          <div className="animate-on-scroll">
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: '700', color: 'var(--white)', marginBottom: '16px' }}>
               ¿Listo para trabajar con nosotros?
             </h2>
@@ -348,7 +340,7 @@ Experta en cierres contables, presentación de impuestos, cuentas anuales y plan
                 Ver contacto
               </InteractiveButton>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </>

@@ -7,6 +7,7 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Escríbenos por WhatsApp"
+      onClick={() => window.gtag?.('event', 'whatsapp_click', { event_category: 'engagement' })}
       style={{
         position: 'fixed',
         bottom: '28px',

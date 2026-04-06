@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { FileText, RefreshCw, Users, Star, Shield, Heart, Scale, MessageCircle, ArrowRight, CheckCircle } from 'lucide-react'
 import FAQ from '../../components/FAQ.jsx'
 import InteractiveButton from '../../components/InteractiveButton.jsx'
@@ -55,12 +54,6 @@ const faqItems = [
   },
 ]
 
-const fadeUp = {
-  initial: { opacity: 1, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-100px' },
-  transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
-}
 
 const subServices = [
   { icon: FileText, label: 'Visados de estudios y trabajo' },
@@ -82,7 +75,7 @@ export default function Extranjeria() {
         paddingBottom: '80px',
       }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ maxWidth: '640px' }}>
+          <div className="animate-on-scroll" style={{ maxWidth: '640px' }}>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '16px', display: 'block' }}>
               Servicio
             </span>
@@ -105,21 +98,21 @@ export default function Extranjeria() {
               <MessageCircle size={18} />
               Consulta Gratuita por WhatsApp
             </InteractiveButton>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Sub-services grid */}
       <section style={{ background: 'var(--off-white)', padding: '80px 0' }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ textAlign: 'center', marginBottom: '48px' }}>
+          <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: '48px' }}>
             <span className="section-label">Qué gestionamos</span>
             <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: '700', color: 'var(--navy)' }}>
               Todos los trámites de extranjería
             </h2>
-          </motion.div>
+          </div>
 
-          <motion.div {...fadeUp} style={{
+          <div className="animate-on-scroll" style={{
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'center',
@@ -152,21 +145,21 @@ export default function Extranjeria() {
                 <span style={{ fontWeight: '500', fontSize: '15px', color: 'var(--navy)', lineHeight: 1.4, paddingTop: '6px' }}>{label}</span>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Process steps */}
       <section style={{ background: 'var(--white)', padding: '80px 0' }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ textAlign: 'center', marginBottom: '56px' }}>
+          <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: '56px' }}>
             <span className="section-label">Cómo trabajamos</span>
             <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: '700', color: 'var(--navy)' }}>
               Tu proceso, paso a paso
             </h2>
-          </motion.div>
+          </div>
 
-          <motion.div {...fadeUp} style={{
+          <div className="animate-on-scroll" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
             gap: '32px',
@@ -196,14 +189,14 @@ export default function Extranjeria() {
                 <p style={{ fontSize: '14px', color: 'var(--ink-mid)', lineHeight: 1.65 }}>{desc}</p>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Testimonial */}
       <section style={{ background: 'var(--navy-faint)', padding: '64px 0' }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
+          <div className="animate-on-scroll" style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
             <div style={{ display: 'flex', gap: '4px', justifyContent: 'center', marginBottom: '20px' }}>
               {[1,2,3,4,5].map(s => <Star key={s} size={16} fill="var(--gold)" color="var(--gold)" />)}
             </div>
@@ -219,22 +212,22 @@ export default function Extranjeria() {
             </p>
             <p style={{ fontWeight: '600', fontSize: '14px', color: 'var(--navy)' }}>Didier Moreno</p>
             <p style={{ fontSize: '12px', color: 'var(--slate)', fontFamily: 'var(--font-mono)' }}>Extranjería — Barcelona</p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* FAQ */}
       <section style={{ background: 'var(--white)', padding: '80px 0' }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ textAlign: 'center', marginBottom: '48px' }}>
+          <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: '48px' }}>
             <span className="section-label">Preguntas frecuentes</span>
             <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: '700', color: 'var(--navy)' }}>
               Dudas habituales sobre extranjería
             </h2>
-          </motion.div>
-          <motion.div {...fadeUp} style={{ maxWidth: '780px', margin: '0 auto' }}>
+          </div>
+          <div className="animate-on-scroll" style={{ maxWidth: '780px', margin: '0 auto' }}>
             <FAQ items={faqItems} />
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -257,7 +250,7 @@ export default function Extranjeria() {
         padding: '80px 0',
       }}>
         <div className="container" style={{ textAlign: 'center' }}>
-          <motion.div {...fadeUp}>
+          <div className="animate-on-scroll">
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: '700', color: 'var(--white)', marginBottom: '16px' }}>
               ¿Necesitas gestionar tu residencia?
             </h2>
@@ -268,7 +261,7 @@ export default function Extranjeria() {
               <MessageCircle size={18} />
               Escríbenos por WhatsApp
             </InteractiveButton>
-          </motion.div>
+          </div>
         </div>
       </section>
     </>

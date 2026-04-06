@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { Shield, TrendingUp, Clock, MapPin, Globe, Briefcase, BarChart2, CheckCircle, Star, ArrowRight, MessageCircle } from 'lucide-react'
 import ServiceCard from '../components/ServiceCard.jsx'
 import BlogCard from '../components/BlogCard.jsx'
@@ -31,12 +30,6 @@ const orgSchema = {
   "description": "Gestoría especializada en extranjería, asesoramiento laboral y gestión fiscal para extranjeros, autónomos y empresas en España."
 }
 
-const fadeUp = {
-  initial: { opacity: 1, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-100px' },
-  transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
-}
 
 export default function Home() {
   return (
@@ -98,11 +91,7 @@ export default function Home() {
 
         <div className="container" style={{ position: 'relative', zIndex: 1, padding: '120px 24px 100px' }}>
           <div style={{ maxWidth: '620px' }}>
-            <motion.div
-              initial={{ opacity: 1, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-            >
+            <div className="animate-on-scroll">
               <span style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: '11px',
@@ -114,12 +103,9 @@ export default function Home() {
               }}>
                 Gestoría en Barcelona y Madrid
               </span>
-            </motion.div>
+            </div>
 
-            <motion.h1
-              initial={{ opacity: 1, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+            <h1
               style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: 'clamp(36px, 5vw, 58px)',
@@ -132,12 +118,9 @@ export default function Home() {
             >
               Tu Gestoría de<br />
               <span style={{ color: 'var(--gold)' }}>Confianza</span> en España
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 1, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            <p
               style={{
                 fontSize: '18px',
                 color: 'rgba(255,255,255,0.75)',
@@ -147,14 +130,9 @@ export default function Home() {
               }}
             >
               Especialistas en extranjería, gestión laboral y asesoría fiscal para autónomos y empresas en Barcelona y Madrid.
-            </motion.p>
+            </p>
 
-            <motion.div
-              initial={{ opacity: 1, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-              style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}
-            >
+            <div className="animate-on-scroll" style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
               <InteractiveButton
                 variant="gold"
                 href="https://wa.me/34694269008"
@@ -170,7 +148,7 @@ export default function Home() {
               >
                 Ver nuestros servicios
               </InteractiveButton>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -189,7 +167,7 @@ export default function Home() {
               { icon: Clock, label: 'Atención en 24 horas', desc: 'Respuesta garantizada en menos de un día hábil' },
               { icon: MapPin, label: 'Oficinas en toda España', desc: 'Presencia física en Barcelona y Madrid' },
             ].map(({ icon: Icon, label, desc }) => (
-              <motion.div key={label} {...fadeUp} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+              <div key={label} className="animate-on-scroll" style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
                 <div style={{
                   width: '40px', height: '40px', flexShrink: 0,
                   background: 'white',
@@ -203,7 +181,7 @@ export default function Home() {
                   <p style={{ fontWeight: '600', fontSize: '14px', color: 'var(--navy)', marginBottom: '4px' }}>{label}</p>
                   <p style={{ fontSize: '13px', color: 'var(--ink-light)', lineHeight: 1.5 }}>{desc}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -212,7 +190,7 @@ export default function Home() {
       {/* Services */}
       <section style={{ background: 'var(--off-white)', padding: '96px 0' }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ textAlign: 'center', marginBottom: '56px' }}>
+          <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: '56px' }}>
             <span className="section-label">Nuestros Servicios</span>
             <h2 style={{ fontSize: 'clamp(28px, 3.5vw, 40px)', fontWeight: '700', color: 'var(--navy)', marginBottom: '16px' }}>
               Todo lo que necesitas,<br />en un solo lugar
@@ -220,9 +198,9 @@ export default function Home() {
             <p style={{ fontSize: '17px', color: 'var(--ink-mid)', maxWidth: '520px', margin: '0 auto', lineHeight: 1.7 }}>
               Gestionamos los trámites más complejos para que tú puedas centrarte en lo que importa.
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div {...fadeUp} style={{
+          <div className="animate-on-scroll" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
             gap: '24px',
@@ -251,14 +229,14 @@ export default function Home() {
               description="Declaraciones trimestrales, contabilidad completa, IVA, IRPF, Ley Beckham y planificación fiscal."
               href="/servicios/fiscal-y-contable/"
             />
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Cómo trabajamos */}
       <section style={{ background: 'var(--navy-faint)', padding: '96px 0' }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ textAlign: 'center', marginBottom: '64px' }}>
+          <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: '64px' }}>
             <span className="section-label">Cómo trabajamos</span>
             <h2 style={{ fontSize: 'clamp(28px, 3.5vw, 40px)', fontWeight: '700', color: 'var(--navy)', marginBottom: '16px' }}>
               Qué esperar cuando nos contactas
@@ -266,9 +244,9 @@ export default function Home() {
             <p style={{ fontSize: '17px', color: 'var(--ink-mid)', maxWidth: '500px', margin: '0 auto', lineHeight: 1.7 }}>
               Queremos que sepas exactamente cómo trabajamos antes de escribirnos. Sin sorpresas.
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div {...fadeUp} style={{
+          <div className="animate-on-scroll" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
             gap: '0',
@@ -346,13 +324,14 @@ export default function Home() {
                 }}>{desc}</p>
               </div>
             ))}
-          </motion.div>
+          </div>
 
-          <motion.div {...fadeUp} style={{ textAlign: 'center', marginTop: '56px' }}>
+          <div className="animate-on-scroll" style={{ textAlign: 'center', marginTop: '56px' }}>
             <a
               href="https://wa.me/34694269008"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => window.gtag?.('event', 'cta_click', { event_category: 'engagement', label: 'empieza_consulta_home' })}
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '10px',
                 background: 'var(--gold)', color: 'var(--navy)',
@@ -367,7 +346,7 @@ export default function Home() {
               <MessageCircle size={18} />
               Empieza tu consulta gratuita
             </a>
-          </motion.div>
+          </div>
         </div>
         <style>{`
           @media (max-width: 768px) {
@@ -389,12 +368,12 @@ export default function Home() {
       {/* Testimonials */}
       <section style={{ background: 'var(--navy-faint)', padding: '96px 0', overflow: 'hidden' }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ textAlign: 'center', marginBottom: '56px' }}>
+          <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: '56px' }}>
             <span className="section-label">Testimonios</span>
             <h2 style={{ fontSize: 'clamp(26px, 3vw, 38px)', fontWeight: '700', color: 'var(--navy)' }}>
               Lo que dicen nuestros clientes
             </h2>
-          </motion.div>
+          </div>
         </div>
 
         {/*
@@ -534,14 +513,14 @@ export default function Home() {
       {/* Founders teaser */}
       <section style={{ background: 'var(--white)', padding: '96px 0' }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ textAlign: 'center', marginBottom: '56px' }}>
+          <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: '56px' }}>
             <span className="section-label">El Equipo</span>
             <h2 style={{ fontSize: 'clamp(26px, 3vw, 38px)', fontWeight: '700', color: 'var(--navy)' }}>
               Profesionales con experiencia real
             </h2>
-          </motion.div>
+          </div>
 
-          <motion.div {...fadeUp} style={{
+          <div className="animate-on-scroll" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
             gap: '32px',
@@ -606,20 +585,20 @@ export default function Home() {
                 <p style={{ fontSize: '14px', color: 'var(--ink-mid)', lineHeight: 1.7 }}>{bio}</p>
               </div>
             ))}
-          </motion.div>
+          </div>
 
-          <motion.div {...fadeUp} style={{ textAlign: 'center', marginTop: '40px' }}>
+          <div className="animate-on-scroll" style={{ textAlign: 'center', marginTop: '40px' }}>
             <InteractiveButton variant="outline" to="/nosotros">
               Conoce a nuestro equipo <ArrowRight size={16} />
             </InteractiveButton>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Blog teaser */}
       <section style={{ background: 'var(--navy-faint)', padding: '96px 0' }}>
         <div className="container">
-          <motion.div {...fadeUp} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '48px', flexWrap: 'wrap', gap: '16px' }}>
+          <div className="animate-on-scroll" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '48px', flexWrap: 'wrap', gap: '16px' }}>
             <div>
               <span className="section-label">Blog y Recursos</span>
               <h2 style={{ fontSize: 'clamp(26px, 3vw, 36px)', fontWeight: '700', color: 'var(--navy)' }}>
@@ -629,9 +608,9 @@ export default function Home() {
             <a href="/blog" className="btn-ghost">
               Ver todos los artículos <ArrowRight size={14} />
             </a>
-          </motion.div>
+          </div>
 
-          <motion.div {...fadeUp} style={{
+          <div className="animate-on-scroll" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
             gap: '24px',
@@ -657,7 +636,7 @@ export default function Home() {
               readTime="7 min"
               href="/blog/gestion-contable-fiscal-empresas"
             />
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -667,7 +646,7 @@ export default function Home() {
         padding: '96px 0',
       }}>
         <div className="container" style={{ textAlign: 'center' }}>
-          <motion.div {...fadeUp}>
+          <div className="animate-on-scroll">
             <span style={{
               fontFamily: 'var(--font-mono)',
               fontSize: '11px',
@@ -708,7 +687,7 @@ export default function Home() {
                 Ver datos de contacto
               </InteractiveButton>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </>
