@@ -94,16 +94,21 @@ import CookieBanner from '../components/CookieBanner.jsx'
       }, { rootMargin: '-80px 0px', threshold: 0.05 });
 
       function observe() {
-        document.querySelectorAll('.animate-on-scroll').forEach(function(el) {
+        document.querySelectorAll('.animate-on-scroll:not(.is-visible)').forEach(function(el) {
           observer.observe(el);
         });
       }
 
+      // Initial pass
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', observe);
       } else {
         observe();
       }
+
+      // Re-observe after React components hydrate and add new elements
+      new MutationObserver(function() { observe(); })
+        .observe(document.documentElement, { childList: true, subtree: true });
     })();
   </script>
 </body>
